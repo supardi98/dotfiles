@@ -10,8 +10,9 @@ echo "Project Path: $PROJECT_DIR"
 # 0. Generate project_path.conf
 echo "\$project_dir = $PROJECT_DIR" > "$PROJECT_DIR/conf/project_path.conf"
 
-# Update path in hyprland.conf
+# Update path in hyprland.conf and conf/custom.conf
 sed -i "s|\$project_dir = .*|\$project_dir = $PROJECT_DIR|g" "$PROJECT_DIR/hyprland.conf"
+sed -i "s|\$project_dir = .*|\$project_dir = $PROJECT_DIR|g" "$PROJECT_DIR/conf/custom.conf"
 
 # Update path in config.jsonc (Waybar)
 sed -i "s|/home/supardi/Projects/ricing|$PROJECT_DIR|g" "$PROJECT_DIR/config.jsonc"
