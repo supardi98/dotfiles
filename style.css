@@ -1,0 +1,147 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "SF Pro Display", "Helvetica", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* GAYA PULAU GLASSY MACOS */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(30, 30, 46, 0.45);
+    padding: 4px 12px;
+    margin: 8px 5px;
+    border-radius: 6px; /* Sudut sedikit melengkung tapi tetap tegas */
+    
+    /* Efek Glass: Border putih sangat tipis di atas untuk highlight */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    /* Memberikan efek kedalaman yang sangat halus */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* PULAU KIRI */
+#custom-apps { 
+    color: #ffffff; 
+    font-size: 16px; 
+    padding-right: 12px;
+    margin-right: 5px;
+}
+
+#clock {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0 15px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+#taskbar button {
+    padding: 0 6px;
+    margin: 0 3px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+#taskbar button.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid #ffffff;
+}
+
+#window {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    font-style: italic;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-music-prev, #custom-music-next {
+    color: #cba6f7;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+#custom-music {
+    color: #cba6f7;
+    padding: 0 5px;
+    font-weight: 600;
+}
+
+/* PULAU TENGAH: Workspaces (Expand & Glow) */
+.modules-center {
+    padding: 2px 4px;
+    margin: 8px 0px;
+}
+
+#workspaces button {
+    padding: 0px 8px;
+    color: rgba(255, 255, 255, 0.2); /* Sangat redup saat tidak aktif */
+    font-size: 14px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
+    margin: 0 1px;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    padding: 0px 18px; /* Efek Melebar (Expand) */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    
+    /* Efek Glow macOS Style */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+
+/* PULAU KANAN */
+#tray, #cpu, #memory, #disk, #temperature, #pulseaudio, #network, #battery, #custom-notification, #custom-updates { 
+    padding: 0 8px; 
+    color: rgba(255, 255, 255, 0.9); 
+}
+
+#custom-updates {
+    color: #eba0ac;
+}
+
+#custom-notification {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#tray {
+    margin-right: 10px;
+}
+
+#cpu { color: #89b4fa; } /* Catppuccin Blue */
+#memory { color: #a6e3a1; } /* Catppuccin Green */
+#disk { color: #f9e2af; } /* Catppuccin Yellow */
+#temperature { color: #fab387; } /* Catppuccin Peach */
+
+/* Warna ikon yang lebih 'clean' khas macOS */
+#pulseaudio { color: #ffffff; }
+#network { color: #ffffff; }
+#battery { color: #ffffff; }
+
+#custom-power {
+    color: #ff5f56; /* Warna tombol merah Apple */
+    padding-left: 10px;
+    padding-right: 15px; /* Tambahkan padding agar tidak terpotong */
+    font-size: 16px;
+}

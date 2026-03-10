@@ -1,0 +1,97 @@
+/**
+ * Glassy macOS Rofi Theme (List Mode)
+ * Used for Screenshots, Windows, dmenu tasks
+ */
+
+configuration {
+    show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font 10";
+}
+
+* {
+    bg-color:            #14141ee6;
+    bg-selected:         #ffffff1a;
+    fg-color:            #ffffff;
+    accent-color:        #89b4fa;
+    border-color:        #ffffff1a;
+}
+
+window {
+    width:                       350px;
+    background-color:            @bg-color;
+    border:                      1px;
+    border-color:                @border-color;
+    border-radius:               6px;
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+}
+
+mainbox {
+    padding:                     10px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    spacing:                     10px;
+    margin:                      0px 0px 5px 0px;
+    padding:                     8px 10px;
+    border-radius:               6px;
+    background-color:            #ffffff0d;
+    text-color:                  @fg-color;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @accent-color;
+}
+
+entry {
+    background-color:            transparent;
+    text-color:                  inherit;
+    placeholder:                 "Select...";
+    placeholder-color:           #ffffff4d;
+}
+
+listview {
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    spacing:                     2px;
+    background-color:            transparent;
+    border:                      0px;
+}
+
+element {
+    padding:                     6px 10px;
+    border-radius:               4px;
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element selected.normal {
+    background-color:            @bg-selected;
+    text-color:                  @accent-color;
+    border:                      1px;
+    border-color:                #ffffff1a;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}

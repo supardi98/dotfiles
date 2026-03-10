@@ -1,0 +1,218 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "margin-top": 10,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 10,
+
+    "modules-left": [
+        "custom/apps",
+        "clock",
+        "wlr/taskbar",
+        "hyprland/window",
+        "custom/music-prev",
+        "custom/music",
+        "custom/music-next"
+    ],
+
+    "custom/music-prev": {
+        "format": "󰒮",
+        "tooltip": false,
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl position 10-"
+    },
+
+    "custom/music": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "exec": "/home/supardi/Projects/ricing/scripts/music.sh",
+        "restart-interval": 2,
+        "on-click": "playerctl play-pause",
+        "tooltip": true
+    },
+
+    "custom/music-next": {
+        "format": "󰒭",
+        "tooltip": false,
+        "on-click": "playerctl next",
+        "on-click-right": "playerctl position 10+"
+    },
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/updates",
+        "tray",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/notification",
+        "custom/power"
+    ],
+
+    "custom/updates": {
+        "format": "󰏗 {}",
+        "escape": true,
+        "return-type": "json",       
+        "exec": "/home/supardi/Projects/ricing/scripts/updates.sh",
+        "restart-interval": 60,
+        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf -e yay",
+        "tooltip": true
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/apps": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "/home/supardi/Projects/ricing/scripts/launcher.sh"
+    },
+
+    "clock": {
+        "format": " {:%H:%M  |  %a, %d %b} ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffffff'><b>{}</b></span>",
+                "days":       "<span color='#cccccc'>{}</span>",
+                "weeks":      "<span color='#99ffdd'>W{}</span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff5f56'><b><u>{}</u></b></span>"
+            }
+        },
+        "on-click": "flatpak run com.ml4w.calendar",
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+
+    "hyprland/window": {
+        "format": " {title} ",
+        "max-length": 25,
+        "separate-outputs": true
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰊠",
+            "urgent": "",
+            "persistent": "󰊠"
+        }
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2,
+        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+    },
+
+    "memory": {
+        "format": " {}%",
+        "interval": 2,
+        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip-format": "{used} used / {total} total ({percentage_free}% free)",
+        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+    },
+
+    "temperature": {
+        "thermal-node": "/sys/class/thermal/thermal_zone0",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{essid} {signalStrength}%",
+        "on-click": "/home/supardi/Projects/ricing/scripts/wifi-menu.sh",
+        "on-click-right": "kitty --config /home/supardi/Projects/ricing/kitty.conf nmtui"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "/home/supardi/Projects/ricing/scripts/volume-menu.sh",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "swayosd-client --output-volume raise",
+        "on-scroll-down": "swayosd-client --output-volume lower"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}

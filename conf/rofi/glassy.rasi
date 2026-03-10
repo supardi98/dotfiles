@@ -1,0 +1,117 @@
+/**
+ * Glassy macOS Rofi Theme
+ * Ultra Minimalist & Compact
+ */
+
+configuration {
+    modi:                       "drun,run";
+    show-icons:                 true;
+    display-drun:               "";
+    display-run:                "";
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 10";
+}
+
+* {
+    bg-color:            #14141efa;
+    bg-selected:         #ffffff1a;
+    fg-color:            #ffffff;
+    accent-color:        #89b4fa;
+    border-color:        #ffffff1a;
+}
+
+window {
+    width:                       400px;
+    spacing:                     0px;
+    padding:                     0px;
+    background-color:            @bg-color;
+    border:                      1px;
+    border-color:                @border-color;
+    border-radius:               6px;
+    cursor:                      "default";
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+}
+
+mainbox {
+    padding:                     12px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    spacing:                     10px;
+    margin:                      0px 0px 8px 0px;
+    padding:                     10px 12px;
+    border-radius:               6px;
+    background-color:            #ffffff0d;
+    text-color:                  @fg-color;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color:            transparent;
+    text-color:                  @accent-color;
+    font:                        "JetBrainsMono Nerd Font 12";
+    padding:                     0px 4px 0px 0px;
+}
+
+entry {
+    padding:                     2px 0px 0px 0px;
+    background-color:            transparent;
+    text-color:                  inherit;
+    placeholder:                 "Search...";
+    placeholder-color:           #ffffff4d;
+}
+
+listview {
+    columns:                     1;
+    lines:                       6;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     4px;
+    background-color:            transparent;
+    border:                      0px;
+}
+
+element {
+    spacing:                     10px;
+    padding:                     8px 12px;
+    border-radius:               6px;
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element selected.normal {
+    background-color:            @bg-selected;
+    text-color:                  @accent-color;
+    border:                      1px;
+    border-color:                #ffffff1a;
+}
+
+element-icon {
+    size:                        22px;
+    background-color:            transparent;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}
