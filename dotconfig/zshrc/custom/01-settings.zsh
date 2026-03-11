@@ -28,7 +28,7 @@ fi
 # Autosuggestions (History Hints)
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#94e2d5"
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#717c7a"
 fi
 
 # Syntax Highlighting
@@ -159,8 +159,8 @@ extract() {
 }
 
 # 2. Search Web (Google, Github, StackOverflow)
-google() { open "https://www.google.com/search?q=$*" }
-github() { open "https://github.com/search?q=$*" }
+google() { xdg-open "https://www.google.com/search?q=$*" }
+github() { xdg-open "https://github.com/search?q=$*" }
 
 # -----------------------------------------------------
 # Auto-Pairing (Brackets & Quotes)
