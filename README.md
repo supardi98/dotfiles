@@ -96,5 +96,34 @@ chmod +x apply.sh
 - `SUPER + SHIFT + H`: Toggle **Hyprshade** (Blue Light Filter)
 - `SUPER + ALT + G` : Toggle **Gamemode** (Matikan animasi untuk performa)
 
+### Navigasi Terminal (Zsh)
+**Pintasan Keyboard:**
+- `Ctrl + R` : **Fuzzy Search** riwayat perintah (menggunakan FZF).
+- `Tab` : Memilih pelengkap perintah (**Menu Selection** menggunakan panah).
+- `Panah Atas/Bawah` : Mencari riwayat berdasarkan kata yang sudah diketik (**Substring Search**).
+- `Ketik ( atau " ` : Otomatis menutup tanda kurung atau kutip (**Auto-pairing**).
+- `Backspace` : Menghapus kedua tanda kurung/kutip sekaligus jika masih kosong.
+
+**Alias & Perintah Singkat:**
+- `c` : Clear terminal.
+- `q` : Exit terminal.
+- `v` / `vi` : Membuka **NeoVim** / Vim.
+- `lg` : Membuka **Lazygit** (Git UI).
+- `y` : Membuka **Yazi** (File Manager Terminal).
+- `btop` : Monitoring Sistem futuristik.
+- `h` : Mencari riwayat via FZF secara visual.
+- `p` : Pindah ke direktori `~/Projects`.
+- `..` / `...` : Naik satu/dua tingkat folder.
+- `ls` / `ll` / `la` : Menampilkan file dengan ikon dan format modern (**eza**).
+- `cat` : Membaca file dengan nomor baris dan highlighting (**bat**).
+- `update` : Update sistem (Pacman).
+
+**Fungsi Pintar:**
+- `extract <file>` : Mengekstrak file terkompresi apapun (`.zip`, `.rar`, `.tar.gz`, dll).
+- `del <file>` : Menghapus file ke **Trash** (aman).
+- `google <query>` : Mencari di Google langsung dari terminal.
+- `github <query>` : Mencari di Github langsung dari terminal.
+- `Auto-CD` : Masuk ke folder cukup dengan mengetik namanya saja (misal: `Downloads`).
+
 ---
 Dibuat dengan ❤️ oleh Supardi. Gunakan dengan bijak dan selamat mengoprek!
