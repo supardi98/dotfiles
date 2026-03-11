@@ -1,225 +1,219 @@
 {
-    "layer": "top",
-    "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "height": 0,
-    "margin-top": 10,
-    "margin-left": 15,
-    "margin-right": 15,
-    "spacing": 4,
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+  "margin-top": 10,
+  "margin-left": 15,
+  "margin-right": 15,
+  "spacing": 4,
 
-    "modules-left": [
-        "custom/apps",
-        "clock",
-        "wlr/taskbar",
-        "hyprland/window"
-    ],
+  "modules-left": ["custom/apps", "clock", "wlr/taskbar", "hyprland/window"],
+  "custom/music-prev": {
+    "format": "{}",
+    "exec": "echo 󰒮",
+    "interval": 2,
+    "tooltip": false,
+    "on-click": "playerctl previous",
+    "exec-if": "playerctl status",
+  },
 
-    "custom/music-prev": {
-        "format": "󰒮",
-        "tooltip": false,
-        "on-click": "playerctl previous",
-        "on-click-right": "playerctl position 10-",
-        "exec-if": "playerctl status"
+  "custom/music": {
+    "format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "waybar-module-music --marquee --title-width 20 --stopped-label \"No Music\"",
+    "on-click-right": "spotify",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+
+  "custom/music-next": {
+    "interval": 2,
+    "format": "{}",
+    "exec": "echo 󰒭",
+    "tooltip": false,
+    "on-click": "playerctl next",
+    "exec-if": "playerctl status",
+  },
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "custom/updates",
+    "cpu",
+    "memory",
+    "disk",
+    "temperature",
+    "custom/music-prev",
+    "custom/music",
+    "custom/music-next",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/notification",
+    "custom/power",
+  ],
+
+  "custom/updates": {
+    "format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/.config/hypr/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "kitty -e yay",
+    "tooltip": true,
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
     },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
 
-    "custom/music": {
-        "format": "{}",
-        "escape": true,
-        "return-type": "json",
-        "exec": "~/.config/hypr/scripts/music.sh",
-        "restart-interval": 2,
-        "on-click": "playerctl play-pause",
-        "tooltip": true,
-        "exec-if": "playerctl status"
+  "custom/apps": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/launcher.sh",
+  },
+
+  "clock": {
+    "format": "{:%H:%M | %a, %d %b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffffff'><b>{}</b></span>",
+        "days": "<span color='#cccccc'>{}</span>",
+        "weeks": "<span color='#99ffdd'>W{}</span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff5f56'><b><u>{}</u></b></span>",
+      },
     },
-
-    "custom/music-next": {
-        "format": "󰒭",
-        "tooltip": false,
-        "on-click": "playerctl next",
-        "on-click-right": "playerctl position 10+",
-        "exec-if": "playerctl status"
+    "on-click": "flatpak run com.ml4w.calendar",
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
     },
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "custom/updates",
-        "tray",
-        "cpu",
-        "memory",
-        "disk",
-        "temperature",
-        "custom/music-prev",
-        "custom/music",
-        "custom/music-next",
-        "pulseaudio",
-        "network",
-        "battery",
-        "custom/notification",
-        "custom/power"
-    ],
+  },
 
-    "custom/updates": {
-        "format": "{}",
-        "escape": true,
-        "return-type": "json",       
-        "exec": "~/.config/hypr/scripts/updates.sh",
-        "restart-interval": 60,
-        "on-click": "kitty -e yay",
-        "tooltip": true
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 25,
+    "separate-outputs": true,
+    "rewrite": {
+      "": "",
+      "(.+)": " $1 ",
     },
+  },
 
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon}",
-        "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
-        },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 5,
     },
-
-    "custom/apps": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "~/.config/hypr/scripts/launcher.sh"
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
+      "urgent": "",
+      "persistent": "󰊠",
     },
+  },
 
-    "clock": {
-        "format": "{:%H:%M | %a, %d %b}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "right",
-            "on-scroll"     : 1,
-            "format": {
-                "months":     "<span color='#ffffff'><b>{}</b></span>",
-                "days":       "<span color='#cccccc'>{}</span>",
-                "weeks":      "<span color='#99ffdd'>W{}</span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff5f56'><b><u>{}</u></b></span>"
-            }
-        },
-        "on-click": "flatpak run com.ml4w.calendar",
-        "actions":  {
-            "on-click-right": "mode",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10,
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "on-click": "kitty btop",
+  },
+
+  "memory": {
+    "format": " {}%",
+    "interval": 2,
+    "on-click": "kitty btop",
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/",
+    "tooltip-format": "{used} used / {total} total ({percentage_free}% free)",
+    "on-click": "kitty btop",
+  },
+
+  "temperature": {
+    "thermal-node": "/sys/class/thermal/thermal_zone0",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format": "{essid} {signalStrength}%",
+    "on-click": "~/.config/hypr/scripts/wifi-menu.sh",
+    "on-click-right": "kitty nmtui",
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["", "", ""],
     },
+    "on-click": "~/.config/hypr/scripts/volume-menu.sh",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "swayosd-client --output-volume raise",
+    "on-scroll-down": "swayosd-client --output-volume lower",
+  },
 
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 18,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-    },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
 
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 25,
-        "separate-outputs": true,
-        "rewrite": {
-            "": "",
-            "(.+)": " $1 "
-        }
-    },
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "format": "{icon}",
-        "persistent-workspaces": {
-            "*": 5
-        },
-        "format-icons": {
-            "active": "󰮯",
-            "default": "󰊠",
-            "urgent": "",
-            "persistent": "󰊠"
-        }
-    },
-
-    "tray": {
-        "icon-size": 16,
-        "spacing": 10
-    },
-
-    "cpu": {
-        "format": " {usage}%",
-        "interval": 2,
-        "on-click": "kitty btop"
-    },
-
-    "memory": {
-        "format": " {}%",
-        "interval": 2,
-        "on-click": "kitty btop"
-    },
-
-    "disk": {
-        "interval": 30,
-        "format": "󰋊 {percentage_used}%",
-        "path": "/",
-        "tooltip-format": "{used} used / {total} total ({percentage_free}% free)",
-        "on-click": "kitty btop"
-    },
-
-    "temperature": {
-        "thermal-node": "/sys/class/thermal/thermal_zone0",
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", "", "", ""]
-    },
-
-    "network": {
-        "format-wifi": "",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰤮",
-        "tooltip-format": "{essid} {signalStrength}%",
-        "on-click": "~/.config/hypr/scripts/wifi-menu.sh",
-        "on-click-right": "kitty nmtui"
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "~/.config/hypr/scripts/volume-menu.sh",
-        "on-click-right": "pavucontrol",
-        "on-scroll-up": "swayosd-client --output-volume raise",
-        "on-scroll-down": "swayosd-client --output-volume lower"
-    },
-
-    "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    },
-
-    "custom/power": {
-        "format": "⏻",
-        "tooltip": false,
-        "on-click": "wlogout -b 6"
-    }
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "wlogout -b 6",
+  },
 }
