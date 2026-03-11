@@ -28,14 +28,8 @@ sudo pacman -S --needed --noconfirm "${PACKAGES[@]}"
 echo "🔵 Mengaktifkan layanan Bluetooth..."
 sudo systemctl enable --now bluetooth || echo "⚠️ Gagal mengaktifkan bluetooth, abaikan jika tidak ada hardwarenya."
 
-# 2.1 Instal ML4W Apps via Flatpak
-echo "📦 Menginstal ML4W Apps via Flatpak..."
-if command -v flatpak > /dev/null; then
-    flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
-    flatpak install --noninteractive ml4w-repo com.ml4w.settings com.ml4w.calendar || echo "⚠️ Flatpak apps install failed, skipping."
-else
-    echo "⚠️ Flatpak tidak ditemukan, silakan instal flatpak dulu jika ingin aplikasi ML4W."
-fi
+# 2.1 Konfigurasi Bluetooth & Sistem Selesai
+echo "🔵 Konfigurasi sistem dasar telah selesai."
 
 # 3. Inisialisasi Tealdeer (tldr)
 echo "📖 Mengupdate database tldr..."
@@ -45,8 +39,21 @@ tldr --update || echo "⚠️ Gagal mengupdate tldr, abaikan saja."
 echo "🔑 Memberikan izin eksekusi pada skrip..."
 chmod +x apply.sh
 find dotconfig/hypr/scripts -type f -name "*.sh" -exec chmod +x {} +
+chmod +x dotconfig/waybar/launch.sh
 
-# 5. Jalankan apply.sh untuk setup symlinks
+# 5. Instal aplikasi tambahan (Kalender, Settings GUI, & Kalkulator)
+if command -v flatpak &> /dev/null; then
+    echo "📦 Menginstal Aplikasi Pendukung (Kalender & Settings GUI)..."
+    flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
+    flatpak install --noninteractive ml4w-repo com.ml4w.calendar com.ml4w.settings || true
+fi
+
+if command -v yay &> /dev/null; then
+    echo "📦 Menginstal Kalkulator Pro (omcalc)..."
+    yay -S --noconfirm omcalc-git || true
+fi
+
+# 6. Jalankan apply.sh untuk setup symlinks
 echo "🔗 Menjalankan apply.sh untuk menghubungkan konfigurasi..."
 ./apply.sh
 

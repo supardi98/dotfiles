@@ -2,7 +2,7 @@
 # ✨ Restore last wallpaper and sync colors on login
 
 project_cache_folder="$HOME/.cache/hyprland-dotfiles"
-defaultwallpaper="$HOME/.config/ml4w/wallpapers/default.jpg"
+defaultwallpaper="$HOME/.config/wallpapers/default.jpg"
 cachefile="$project_cache_folder/current_wallpaper"
 
 # Pastikan awww-daemon berjalan

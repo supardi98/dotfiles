@@ -1,1 +1,1 @@
-$(cat ~/.config/hypr/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/ml4w-install-system-updates
+$(cat ~/.config/hypr/settings/terminal.sh) --class dotfiles-floating -e ~/.config/hypr/scripts/ricing-install-system-updates

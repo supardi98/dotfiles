@@ -11,7 +11,12 @@
   "margin-right": 15,
   "spacing": 4,
 
-  "modules-left": ["custom/apps", "clock", "wlr/taskbar", "hyprland/window"],
+  "modules-left": ["custom/apps", "custom/tools", "clock", "wlr/taskbar", "hyprland/window"],
+  "custom/tools": {
+    "format": "🛠️",
+    "tooltip": "Ricing Tools",
+    "on-click": "~/.config/hypr/scripts/ricing-tools.sh"
+  },
   "custom/music-prev": {
     "format": "{}",
     "exec": "echo 󰒮",
@@ -75,7 +80,7 @@
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/updates.sh",
     "restart-interval": 60,
-    "on-click": "kitty -e yay",
+    "on-click": "~/.config/hypr/settings/installupdates.sh",
     "tooltip": true,
   },
 
@@ -172,13 +177,13 @@
   "cpu": {
     "format": " {usage}%",
     "interval": 2,
-    "on-click": "kitty btop",
+    "on-click": "~/.config/hypr/settings/system-monitor.sh",
   },
 
   "memory": {
     "format": " {}%",
     "interval": 2,
-    "on-click": "kitty btop",
+    "on-click": "~/.config/hypr/settings/system-monitor.sh",
   },
 
   "disk": {
@@ -186,7 +191,7 @@
     "format": "󰋊 {percentage_used}%",
     "path": "/",
     "tooltip-format": "{used} used / {total} total ({percentage_free}% free)",
-    "on-click": "kitty btop",
+    "on-click": "~/.config/hypr/settings/system-monitor.sh",
   },
 
   "temperature": {
@@ -202,7 +207,7 @@
     "format-disconnected": "󰤮",
     "tooltip-format": "{essid} {signalStrength}%",
     "on-click": "~/.config/hypr/scripts/wifi-menu.sh",
-    "on-click-right": "kitty nmtui",
+    "on-click-right": "~/.config/hypr/settings/networkmanager.sh",
   },
 
   "pulseaudio": {

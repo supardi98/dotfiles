@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ✨ Random Wallpaper Selector (Clean Version)
 
-WALLPAPER_DIR="$HOME/.config/ml4w/wallpapers"
+WALLPAPER_DIR="$HOME/.config/wallpapers"
 
 # Ambil satu gambar secara acak
 selected_path=$(find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" -o -name "*.jpeg" \) | shuf -n 1)

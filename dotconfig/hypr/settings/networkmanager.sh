@@ -1,1 +1,1 @@
-$(cat ~/.config/hypr/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/ml4w-network
+$(cat ~/.config/hypr/settings/terminal.sh) --class dotfiles-floating -e ~/.config/hypr/scripts/ricing-network

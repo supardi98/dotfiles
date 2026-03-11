@@ -7,7 +7,7 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
   - **Glassy UI**: Efek blur transparan pada jendela, bar, dan launcher.
   - **Dynamic Animations**: Berbagai preset animasi (Classic, Smooth, Fast, dsb).
   - **Smart Layouts**: Manajemen jendela tiling yang cerdas.
-  - **ML4W Settings**: Kontrol penuh pengaturan Hyprland melalui GUI.
+  - **Ricing Pro Settings**: Kontrol penuh pengaturan Hyprland melalui GUI.
 - **Zsh Pro Experience**: 
   - **Oh My Posh**: Prompt terminal informatif dengan Tema Zen.
   - **Fuzzy Search (fzf)**: Cari riwayat perintah (`Ctrl+R`) secara visual.
@@ -20,7 +20,7 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
   - **Rofi**: Launcher aplikasi, pemilih emoji, dan clipboard manager.
   - **Wlogout**: Menu logout berbasis ikon yang elegan.
   - **SDDM**: Tema Astronaut untuk layar login yang futuristik.
-  - **Spicetify**: Tema ML4W untuk Spotify Anda.
+  - **Spicetify**: Tema Ricing Pro untuk Spotify Anda.
   - **Awww**: Pengelola wallpaper Wayland yang cepat dan andal (sebelumnya swww).
 
 ## 🛠️ Cara Instalasi (Otomatis) - REKOMENDASI
@@ -56,13 +56,13 @@ hyprpicker hyprshade rofimoji wtype flatpak
 yay -S awww-bin
 ```
 
-### 3. Paket dari Flatpak (ML4W Apps)
+### 3. Paket dari Flatpak (Ricing Pro Apps)
 ```bash
-# Tambahkan repositori ML4W
+# Tambahkan repositori Ricing Pro
 flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
 
-# Instal aplikasi ML4W
-flatpak install ml4w-repo com.ml4w.settings com.ml4w.calendar
+# Instal aplikasi Ricing Pro
+flatpak install ml4w-repo 
 ```
 
 ### 4. Terapkan Konfigurasi (Symlink)

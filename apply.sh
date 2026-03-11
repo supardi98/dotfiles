@@ -57,14 +57,17 @@ link_config "$DOTFILES_DIR/dotconfig/wlogout" "$CONFIG_DIR/wlogout"
 # 8. Oh My Posh (Prompt)
 link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
 
-# 9. ML4W (including scripts/, bin/, themes/, etc.)
-link_config "$DOTFILES_DIR/dotconfig/ml4w" "$CONFIG_DIR/ml4w"
-
 # 10. Spicetify
 link_config "$DOTFILES_DIR/dotconfig/spicetify" "$CONFIG_DIR/spicetify"
 
 # 11. Zshrc Configuration
 link_config "$DOTFILES_DIR/dotconfig/zshrc" "$CONFIG_DIR/zshrc"
+
+# 12. Wallpapers
+link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
+
+# 13. Dotfiles Settings
+link_config "$DOTFILES_DIR/dotconfig/ml4w" "$CONFIG_DIR/ml4w"
 
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"

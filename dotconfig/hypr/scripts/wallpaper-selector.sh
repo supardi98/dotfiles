@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ✨ Rofi Wallpaper Selector (Clean Version)
 
-WALLPAPER_DIR="$HOME/.config/ml4w/wallpapers"
+WALLPAPER_DIR="$HOME/.config/wallpapers"
 
 # Bangun daftar untuk Rofi
 list_wallpapers() {
