@@ -19,6 +19,6 @@ else
     wallpaper=$defaultwallpaper
 fi
 
-# Terapkan wallpaper dan proses warna (Matugen, dsb)
+# # Terapkan wallpaper dan proses warna (Matugen, dsb)
 echo ":: Restoring wallpaper and colors: $wallpaper"
 ~/.config/hypr/scripts/wallpaper.sh "$wallpaper"

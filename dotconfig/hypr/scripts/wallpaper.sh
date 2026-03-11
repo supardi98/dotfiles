@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
-#  _      __     ____                      
-# | | /| / /__ _/ / /__  ___ ____  ___ ____
-# | |/ |/ / _ `/ / / _ \/ _ `/ _ \/ -_) __/
-# |__/|__/\_,_/_/_/ .__/\_,_/ .__/\__/_/   
-#                /_/       /_/             
+# 🚀 Project Ricing - Standalone Wallpaper Script
 
 # Source library.sh
 source $HOME/.config/hypr/scripts/library.sh
 
 # Notifications
 source "$HOME/.config/hypr/scripts/notification-handler.sh"
-APP_NAME="Waypaper"
+APP_NAME="Ricing Pro"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
 # -----------------------------------------------------
 # Check to use wallpaper cache
 # -----------------------------------------------------
-
 if [ -f ~/.config/hypr/settings/wallpaper_cache ]; then
     use_cache=1
     _writeLog "Using Wallpaper Cache"
@@ -29,23 +24,11 @@ fi
 # Create cache folder
 # -----------------------------------------------------
 project_cache_folder="$HOME/.cache/hyprland-dotfiles"
-
-if [ ! -d $project_cache_folder ]; then
-    mkdir -p $project_cache_folder
-fi
-
-# -----------------------------------------------------
-# Set defaults
-# -----------------------------------------------------
-
-force_generate=0
-
-# Cache for generated wallpapers with effects
+mkdir -p "$project_cache_folder"
 generatedversions="$project_cache_folder/wallpaper-generated"
-if [ ! -d $generatedversions ]; then
-    mkdir -p $generatedversions
-fi
+mkdir -p "$generatedversions"
 
+# Path config
 cachefile="$project_cache_folder/current_wallpaper"
 blurredwallpaper="$project_cache_folder/blurred_wallpaper.png"
 squarewallpaper="$project_cache_folder/square_wallpaper.png"
@@ -53,91 +36,58 @@ rasifile="$project_cache_folder/current_wallpaper.rasi"
 blurfile="$HOME/.config/hypr/settings/blur.sh"
 defaultwallpaper="$HOME/.config/wallpapers/default.jpg"
 wallpapereffect="$HOME/.config/hypr/settings/wallpaper-effect.sh"
+
+# Default blur
 blur="50x30"
-blur=$(cat $blurfile)
+if [ -f "$blurfile" ]; then
+    blur=$(cat "$blurfile")
+fi
 
 # -----------------------------------------------------
 # Get selected wallpaper
 # -----------------------------------------------------
-
 if [ -z "$1" ]; then
     if [ -f "$cachefile" ]; then
         wallpaper=$(cat "$cachefile")
-        # Remove escaped backslashes from the path (convert "\ " to " ")
         wallpaper=$(echo "$wallpaper" | sed 's/\\ / /g')
     else
         wallpaper="$defaultwallpaper"
     fi
 else
     wallpaper="$1"
-    # Remove escaped backslashes from the path (convert "\ " to " ")
     wallpaper=$(echo "$wallpaper" | sed 's/\\ / /g')
 fi
-used_wallpaper="$wallpaper"
-_writeLog "Setting wallpaper with source image $wallpaper"
-tmpwallpaper=$wallpaper
 
-# -----------------------------------------------------
-# Copy path of current wallpaper to cache file
-# -----------------------------------------------------
-
-if [ ! -f $cachefile ]; then
-    touch $cachefile
+# Pastikan file ada
+if [ ! -f "$wallpaper" ]; then
+    wallpaper="$defaultwallpaper"
 fi
-echo "$wallpaper" > $cachefile
-_writeLog "Path of current wallpaper copied to $cachefile"
 
-# -----------------------------------------------------
-# Get wallpaper filename
-# -----------------------------------------------------
-
+echo "$wallpaper" > "$cachefile"
+used_wallpaper="$wallpaper"
 wallpaperfilename=$(basename "$wallpaper")
-_writeLog "Wallpaper Filename: $wallpaperfilename"
 
 # -----------------------------------------------------
-# Wallpaper Effects
+# Wallpaper Effects (Simplified)
 # -----------------------------------------------------
-
 if [ -f "$wallpapereffect" ]; then
     effect=$(cat "$wallpapereffect")
-    if [ ! "$effect" == "off" ]; then
-        used_wallpaper="$generatedversions/$effect-$wallpaperfilename"
-        if [ -f "$generatedversions/$effect-$wallpaperfilename" ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ]; then
-            _writeLog "Use cached wallpaper $effect-$wallpaperfilename"
-        else
-            _writeLog "Generate new cached wallpaper $effect-$wallpaperfilename with effect $effect"
-            
-            notify_user \
-                --a "${APP_NAME}" \
-                --i "${NOTIFICATION_ICON}" \
-                --s "Wallpaper" \
-                --m "Using wallpaper effect $effect\n with image $wallpaperfilename"
-
-            source $HOME/.config/hypr/effects/wallpaper/$effect
-        fi
-        _writeLog "Loading wallpaper $generatedversions/$effect-$wallpaperfilename with effect $effect"
-        _writeLog "Setting wallpaper with $used_wallpaper"
-        # Terapkan dengan awww langsung jika ada efek
-        awww img "$used_wallpaper" --transition-type any
-    else
-        _writeLog "Wallpaper effect is set to off"
-        # Terapkan wallpaper dengan awww
-        awww img "$used_wallpaper" --transition-type any
-    fi
 else
     effect="off"
 fi
 
-# -----------------------------------------------------
-# Detect Theme
-# -----------------------------------------------------
-
-SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
-THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
+# Apply Wallpaper directly with awww
+_writeLog "Applying wallpaper with awww: $used_wallpaper"
+awww img "$used_wallpaper" --transition-type any
 
 # -----------------------------------------------------
 # Execute matugen
 # -----------------------------------------------------
+SETTINGS_FILE="$HOME/.config/gtk-3.0/settings.ini"
+THEME_PREF=1
+if [ -f "$SETTINGS_FILE" ]; then
+    THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
+fi
 
 _writeLog "Execute matugen with $used_wallpaper"
 if [ "$THEME_PREF" -eq 1 ]; then
@@ -146,62 +96,18 @@ else
     $HOME/.local/bin/matugen image "$used_wallpaper" -m "light"
 fi
 
-# -----------------------------------------------------
-# Update Pywalfox
-# -----------------------------------------------------
-
-if type pywalfox >/dev/null 2>&1; then
-    pywalfox update
-fi
-
-# -----------------------------------------------------
 # Update SwayNC
-# -----------------------------------------------------
-
-sleep 0.1
 swaync-client -rs
 
 # -----------------------------------------------------
-# Sync Wallpaper to SDDM (Disabled to prevent sudo prompt)
+# Create Blurred and Rasi file (for Rofi)
 # -----------------------------------------------------
-
-# SDDM_PATH="/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/current_wallpaper.png"
-# if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
-#     _writeLog "Syncing wallpaper to SDDM..."
-#     sudo cp "$used_wallpaper" "$SDDM_PATH"
-# fi
-
-# -----------------------------------------------------
-# Created blurred wallpaper
-# -----------------------------------------------------
-
-if [ -f "$generatedversions/blur-$blur-$effect-$wallpaperfilename.png" ] && [ "$force_generate" == "0" ] && [ "$use_cache" == "1" ]; then
-    _writeLog "Use cached wallpaper blur-$blur-$effect-$wallpaperfilename"
-else
-    _writeLog "Generate new cached wallpaper blur-$blur-$effect-$wallpaperfilename with blur $blur"
-    magick "$used_wallpaper" -resize 75% "$blurredwallpaper"
-    _writeLog "Resized to 75%"
-    if [ ! "$blur" == "0x0" ]; then
-        magick "$blurredwallpaper" -blur $blur "$blurredwallpaper"
-        cp "$blurredwallpaper" "$generatedversions/blur-$blur-$effect-$wallpaperfilename.png"
-        _writeLog "Blurred"
-    fi
+magick "$used_wallpaper" -resize 75% "$blurredwallpaper"
+if [ ! "$blur" == "0x0" ]; then
+    magick "$blurredwallpaper" -blur "$blur" "$blurredwallpaper"
 fi
-cp "$generatedversions/blur-$blur-$effect-$wallpaperfilename.png" "$blurredwallpaper"
 
-# -----------------------------------------------------
-# Create rasi file
-# -----------------------------------------------------
+echo "* { current-image: url(\"$blurredwallpaper\", height); }" > "$rasifile"
+magick "$wallpaper" -gravity Center -extent 1:1 "$squarewallpaper"
 
-if [ ! -f $rasifile ]; then
-    touch $rasifile
-fi
-echo "* { current-image: url(\"$blurredwallpaper\", height); }" >"$rasifile"
-
-# -----------------------------------------------------
-# Created square wallpaper
-# -----------------------------------------------------
-
-_writeLog "Generate new cached wallpaper square-$wallpaperfilename"
-magick "$tmpwallpaper" -gravity Center -extent 1:1 "$squarewallpaper"
-cp "$squarewallpaper" "$generatedversions/square-$wallpaperfilename.png"
+notify-send "$APP_NAME" "Wallpaper changed to $wallpaperfilename" -i "$NOTIFICATION_ICON"

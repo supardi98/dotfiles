@@ -31,7 +31,7 @@
     "escape": true,
     "return-type": "json",
     "exec": "waybar-module-music --marquee --title-width 20 --stopped-label \"No Music\"",
-    "on-click-right": "spotify",
+    "on-click-right": "~/.config/hypr/scripts/toggle-spotify.sh",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
@@ -141,6 +141,7 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
+    "ignore-list": ["Spotify", "spotify"],
   },
 
   "hyprland/window": {
@@ -149,7 +150,7 @@
     "separate-outputs": true,
     "rewrite": {
       "": "",
-      "(.+)": " $1 ",
+      "(.+)": "| $1",
     },
   },
 
