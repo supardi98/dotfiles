@@ -199,6 +199,7 @@
     "critical-threshold": 80,
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", "", "", ""],
+    "on-click": "~/.config/hypr/settings/system-monitor.sh",
   },
 
   "network": {
