@@ -15,7 +15,7 @@ fi
 echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 PACKAGES=(
     # Core Desktop
-    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak bluez bluez-utils blueman
+    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak bluez bluez-utils blueman rofi-calc
     # Terminal Productivity
     eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim rofimoji wtype
     # Fonts & Icons
@@ -46,11 +46,6 @@ if command -v flatpak &> /dev/null; then
     echo "📦 Menginstal Aplikasi Pendukung (Kalender & Settings GUI)..."
     flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
     flatpak install --noninteractive ml4w-repo com.ml4w.calendar com.ml4w.settings || true
-fi
-
-if command -v yay &> /dev/null; then
-    echo "📦 Menginstal Kalkulator Pro (omcalc)..."
-    yay -S --noconfirm omcalc-git || true
 fi
 
 # 6. Jalankan apply.sh untuk setup symlinks

@@ -48,7 +48,7 @@ Jika Anda ingin menginstal satu per satu, silakan ikuti langkah-langkah berikut:
 sudo pacman -S hyprland hyprlock hypridle kitty waybar rofi-wayland swaync \
 eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim \
 ttf-jetbrains-mono-nerd swayosd-client playerctl wl-clipboard cliphist \
-hyprpicker hyprshade rofimoji wtype flatpak
+hyprpicker hyprshade rofimoji wtype flatpak rofi-calc
 ```
 
 ### 2. Paket dari AUR (Yay/Paru)

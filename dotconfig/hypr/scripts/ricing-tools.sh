@@ -9,7 +9,7 @@ config_file="$config_dir/glassy-list.rasi"
 terminal=$(cat ~/.config/hypr/settings/terminal.sh)
 
 # Daftar Tools
-options="🎨 Color Picker (HEX)\n󰄀 Color Picker (RGB)\n󰃐 Hyprshade (Blue Light)\n󱖫 omcalc (Calculator)\n󰏆 Notes\n󰒓 Hyprland Settings"
+options="🎨 Color Picker (HEX)\n󰄀 Color Picker (RGB)\n󰃐 Hyprshade (Blue Light)\n󱖫 Rofi Calc (Calculator)\n󰏆 Notes\n󰒓 Hyprland Settings"
 
 # Ambil pilihan dari Rofi
 choice=$(echo -e "$options" | rofi -dmenu -i -config "$config_file" -p "🛠️ Tools")
@@ -30,8 +30,8 @@ case "$choice" in
     *Hyprshade*)
         $HOME/.config/hypr/scripts/hyprshade.sh &
         ;;
-    *omcalc*)
-        omcalc &
+    *Rofi*)
+        $HOME/.config/hypr/settings/calculator.sh &
         ;;
     *Notes*)
         $terminal --class dotfiles-floating -e nvim ~/notes.md &
