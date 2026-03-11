@@ -1,0 +1,110 @@
+:root {
+  --spice-main-elevated: var(--spice-main);
+  --spice-highlight: var(--spice-main-secondary);
+  --spice-highlight-elevated: var(--spice-main-secondary);
+  --border-radius: 12px;
+}
+
+/* 
+-------------
+GLASSY EFFECT (TRANSKRIPSI DARI KITTY)
+------------- 
+*/
+/* Background Utama */
+.Root__top-container, 
+.main-view-container,
+.main-view-root__scroll-node {
+    background-color: rgba(var(--spice-rgb-main), 0.4) !important;
+    backdrop-filter: blur(25px) !important;
+}
+
+/* Hilangkan background solid di main view */
+.main-view-container__scroll-node-child {
+    background: transparent !important;
+}
+
+/* Topbar transparan */
+.main-topBar-background {
+    background-color: rgba(var(--spice-rgb-main), 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Sidebar transparan */
+.Root__nav-bar {
+    background-color: rgba(var(--spice-rgb-sidebar), 0.3) !important;
+    backdrop-filter: blur(15px) !important;
+}
+
+/* Player Bar transparan */
+.main-nowPlayingBar-container {
+    background-color: rgba(var(--spice-rgb-player), 0.5) !important;
+    backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 
+-------------
+HAPUS ELEMEN PENGGANGGU (MODERN SELECTORS)
+------------- 
+*/
+/* Tombol Premium, lonceng, dan indikator profil */
+.main-topBar-UpgradeButton,
+button[aria-label="What's New"],
+button[data-testid="upgrade-button"],
+.main-userWidget-displayName,
+.main-topBar-rightColumn button:not([aria-label="Marketplace"]),
+.main-topBar-rightColumn div:has(button[aria-label="Explore Premium"]) {
+    display: none !important;
+}
+
+/* 
+-------------
+ESTETIKA UI
+------------- 
+*/
+* {
+    font-family: 'JetBrainsMono Nerd Font', 'Segoe UI', sans-serif !important;
+}
+
+/* Sudut membulat pada album art & card */
+.main-entityHeader-image,
+.main-card-imageContainer img,
+.main-avatar-image,
+.main-card-card,
+.main-image-image {
+    border-radius: var(--border-radius) !important;
+}
+
+/* Efek Hover pada Card */
+.main-card-card {
+    background-color: rgba(var(--spice-rgb-main-secondary), 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease !important;
+}
+
+.main-card-card:hover {
+    background-color: rgba(var(--spice-rgb-main-secondary), 0.5) !important;
+    transform: translateY(-5px);
+}
+
+/* Play Button warna aksen f5bc6f */
+.main-playPauseButton-button {
+    background-color: var(--spice-button) !important;
+    color: var(--spice-main) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress Bar */
+.x-progressBar-fillColor {
+    background-color: var(--spice-playback-bar) !important;
+}
+
+/* Scrollbar tipis modern */
+::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px;
+}

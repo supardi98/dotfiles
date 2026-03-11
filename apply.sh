@@ -54,6 +54,15 @@ link_config "$DOTFILES_DIR/dotconfig/rofi" "$CONFIG_DIR/rofi"
 # 7. Wlogout
 link_config "$DOTFILES_DIR/dotconfig/wlogout" "$CONFIG_DIR/wlogout"
 
+# 8. Oh My Posh (Prompt)
+link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
+
+# 9. ML4W (including scripts/, bin/, themes/, etc.)
+link_config "$DOTFILES_DIR/dotconfig/ml4w" "$CONFIG_DIR/ml4w"
+
+# 10. Spicetify
+link_config "$DOTFILES_DIR/dotconfig/spicetify" "$CONFIG_DIR/spicetify"
+
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
 echo "Silakan restart Hyprland (Super+Shift+Q atau Logout) untuk melihat hasilnya."

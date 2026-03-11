@@ -1,0 +1,119 @@
+:root {
+  --spice-main-elevated: var(--spice-main);
+  --spice-highlight: var(--spice-main-secondary);
+  --spice-highlight-elevated: var(--spice-main-secondary);
+  --border-radius: 12px;
+  --glass-white: rgba(255, 255, 255, 0.1); /* Putih tipis untuk efek kaca */
+  --glass-blur: 30px;
+}
+
+/* 
+-------------
+TRUE GLASSY WHITE EFFECT
+------------- 
+*/
+
+/* Jadikan body dan container utama transparan */
+body, 
+.Root__top-container,
+.main-view-container,
+.main-view-root__scroll-node,
+.main-view-container__scroll-node-child {
+    background-color: transparent !important;
+}
+
+/* Berikan efek kaca pada elemen UI utama */
+.main-view-container,
+.global-nav,
+.left-sidebar-navigation-shelf,
+.main-nowPlayingBar-container {
+    background-color: var(--glass-white) !important;
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Hilangkan semua background solid Spotify yang mengganggu */
+.main-topBar-background,
+.main-topBar-overlay,
+.main-home-homeHeader,
+.main-actionBarBackground-background,
+.main-entityHeader-backgroundColor,
+.main-entityHeader-overlay,
+.main-entityHeader-shadow,
+.main-yourLibraryX-entryPoints,
+.main-yourLibraryX-libraryContainer,
+.main-yourLibraryX-libraryRootlist {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* 
+-------------
+CLEANUP & CLUTTER REMOVAL
+------------- 
+*/
+.main-topBar-UpgradeButton,
+button[aria-label="What's New"],
+button[data-testid="upgrade-button"],
+button[aria-label="Explore Premium"],
+.main-userWidget-displayName,
+.main-topBar-rightColumn button:not([aria-label="Marketplace"]),
+.main-topBar-navLinks {
+    display: none !important;
+}
+
+/* 
+-------------
+TEXT & UI ELEMENTS
+------------- 
+*/
+* {
+    font-family: 'JetBrainsMono Nerd Font', sans-serif !important;
+    color: #18120b !important; /* Warna Kitty Brown-Black */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Album Art & Cards */
+.main-entityHeader-image,
+.main-card-imageContainer img,
+.main-card-card,
+.main-image-image {
+    border-radius: var(--border-radius) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-card-card {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.main-card-card:hover {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-5px);
+}
+
+/* Play Button (Aksen Emas f5bc6f) */
+.main-playPauseButton-button {
+    background-color: #f5bc6f !important;
+    color: #ffffff !important;
+    transition: transform 0.2s ease !important;
+}
+
+.main-playPauseButton-button:hover {
+    transform: scale(1.1);
+}
+
+/* Progress Bar */
+.x-progressBar-fillColor {
+    background-color: #18120b !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    border-radius: 10px;
+}
