@@ -23,14 +23,32 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
   - **Spicetify**: Tema ML4W untuk Spotify Anda.
   - **Awww**: Pengelola wallpaper Wayland yang cepat dan andal (sebelumnya swww).
 
-## 📦 Aplikasi yang Dibutuhkan (Dependencies)
+## 🛠️ Cara Instalasi (Otomatis) - REKOMENDASI
+
+Skrip ini akan menginstal paket yang hilang (Pacman & Flatpak), memberikan izin eksekusi pada skrip pendukung, dan melakukan symlink konfigurasi secara otomatis.
+
+1. **Clone Repositori:**
+   ```bash
+   git clone https://github.com/supardi98/dotfiles.git ~/Projects/dotfiles
+   cd ~/Projects/dotfiles
+   ```
+
+2. **Jalankan Skrip Instalasi:**
+   ```bash
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+## 📦 Cara Instalasi (Manual)
+
+Jika Anda ingin menginstal satu per satu, silakan ikuti langkah-langkah berikut:
 
 ### 1. Paket dari Repositori Resmi (Pacman)
 ```bash
 sudo pacman -S hyprland hyprlock hypridle kitty waybar rofi-wayland swaync \
 eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim \
 ttf-jetbrains-mono-nerd swayosd-client playerctl wl-clipboard cliphist \
-hyprpicker hyprshade rofimoji wtype
+hyprpicker hyprshade rofimoji wtype flatpak
 ```
 
 ### 2. Paket dari AUR (Yay/Paru)
@@ -40,27 +58,18 @@ yay -S awww-bin
 
 ### 3. Paket dari Flatpak (ML4W Apps)
 ```bash
-# Tambahkan repositori ML4W (jika belum ada)
+# Tambahkan repositori ML4W
 flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
 
 # Instal aplikasi ML4W
 flatpak install ml4w-repo com.ml4w.settings com.ml4w.calendar
 ```
 
-## 🛠️ Cara Instalasi
-
-1. **Clone Repositori:**
-   ```bash
-   git clone https://github.com/supardi98/dotfiles.git ~/Projects/dotfiles
-   cd ~/Projects/dotfiles
-   ```
-
-2. **Jalankan Instalasi Otomatis:**
-   Skrip ini akan menginstal paket yang hilang dan melakukan symlink konfigurasi.
-   ```bash
-   chmod +x install.sh
-   ./install.sh
-   ```
+### 4. Terapkan Konfigurasi (Symlink)
+```bash
+chmod +x apply.sh
+./apply.sh
+```
 
 ## ⌨️ Pintasan Penting (Keybindings)
 
@@ -71,6 +80,7 @@ flatpak install ml4w-repo com.ml4w.settings com.ml4w.calendar
 - `SUPER + B`      : Buka Browser
 - `SUPER + V`      : Riwayat **Clipboard** (Cliphist)
 - `SUPER + .`      : **Pemilih Emoji** (Rofimoji)
+- `SUPER + W`      : **Pilih Wallpaper** (Rofi Selector)
 
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
@@ -85,15 +95,6 @@ flatpak install ml4w-repo com.ml4w.settings com.ml4w.calendar
 - `SHIFT + PRINT`  : Screenshot (Area) -> Copy
 - `SUPER + SHIFT + H`: Toggle **Hyprshade** (Blue Light Filter)
 - `SUPER + ALT + G` : Toggle **Gamemode** (Matikan animasi untuk performa)
-
-### Navigasi Terminal (Zsh)
-- `c` : Clear terminal
-- `lg` : Buka **Lazygit**
-- `y` : Buka **Yazi** (File Manager Terminal)
-- `h` : Cari history via FZF
-- `extract <file>` : Ekstrak file apapun otomatis
-- `del <file>` : Hapus ke tong sampah (aman)
-- `..` : Naik satu folder
 
 ---
 Dibuat dengan ❤️ oleh Supardi. Gunakan dengan bijak dan selamat mengoprek!

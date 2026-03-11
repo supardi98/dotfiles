@@ -15,7 +15,7 @@ fi
 echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 PACKAGES=(
     # Core Desktop
-    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww 
+    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak
     # Terminal Productivity
     eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim rofimoji wtype
     # Fonts & Icons
