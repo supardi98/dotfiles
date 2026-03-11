@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
+source "$HOME/.config/hypr/scripts/notification-handler.sh"
 
-ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
-generated_versions="$ml4w_cache_folder/wallpaper-generated"
+project_cache_folder="$HOME/.cache/hyprland-dotfiles"
+generated_versions="$project_cache_folder/wallpaper-generated"
 rm $generated_versions/*
 echo ":: Wallpaper cache cleared"
 notify_user \

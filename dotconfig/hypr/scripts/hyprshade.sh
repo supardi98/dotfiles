@@ -8,7 +8,7 @@
 #
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
+source "$HOME/.config/hypr/scripts/notification-handler.sh"
 APP_NAME="Hyprshade"
 NOTIFICATION_ICON="video-display-symbolic"
 
@@ -25,7 +25,7 @@ if [[ "$1" == "rofi" ]]; then
     # Open rofi
     choice=$(echo -e "$options" | rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 4 -width 30 -p "Hyprshade")
     if [ ! -z $choice ]; then
-        echo "hyprshade_filter=\"$choice\"" >~/.config/ml4w/settings/hyprshade.sh
+        echo "hyprshade_filter=\"$choice\"" >~/.config/hypr/settings/hyprshade.sh
         if [ "$choice" == "off" ]; then
             hyprshade off
             notify_user --a "${APP_NAME}" \
@@ -47,8 +47,8 @@ else
     hyprshade_filter="blue-light-filter-50"
 
     # Check if hyprshade.sh settings file exists and load
-    if [ -f ~/.config/ml4w/settings/hyprshade.sh ]; then
-        source ~/.config/ml4w/settings/hyprshade.sh
+    if [ -f ~/.config/hypr/settings/hyprshade.sh ]; then
+        source ~/.config/hypr/settings/hyprshade.sh
     fi
 
     # Toggle Hyprshade

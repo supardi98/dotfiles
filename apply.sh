@@ -33,7 +33,7 @@ link_config() {
     ln -s "$src" "$dst"
 }
 
-# 1. Hyprland (including conf/ and scripts/)
+# 1. Hyprland (including conf/, scripts/ and settings/)
 link_config "$DOTFILES_DIR/dotconfig/hypr" "$CONFIG_DIR/hypr"
 
 # 2. Waybar

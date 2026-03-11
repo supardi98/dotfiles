@@ -6,14 +6,14 @@
 # /_/   \_\__,_|\__\___/     \_/\_/  |_|
 #
 
-ml4w_cache_folder="$HOME/.cache/ml4w/hyprland-dotfiles"
+project_cache_folder="$HOME/.cache/hyprland-dotfiles"
 
 # Notifications
-source "$HOME/.config/ml4w/scripts/ml4w-notification-handler"
+source "$HOME/.config/hypr/scripts/notification-handler.sh"
 APP_NAME="Waypaper"
 NOTIFICATION_ICON="preferences-desktop-wallpaper-symbolic"
 
-sec=$(cat ~/.config/ml4w/settings/wallpaper-automation.sh)
+sec=$(cat ~/.config/hypr/settings/wallpaper-automation.sh)
 _setWallpaperRandomly() {
     waypaper --random
     echo ":: Next wallpaper in 60 seconds..."
@@ -21,8 +21,8 @@ _setWallpaperRandomly() {
     _setWallpaperRandomly
 }
 
-if [ ! -f $ml4w_cache_folder/wallpaper-automation ]; then
-    touch $ml4w_cache_folder/wallpaper-automation
+if [ ! -f $project_cache_folder/wallpaper-automation ]; then
+    touch $project_cache_folder/wallpaper-automation
     echo ":: Start wallpaper automation script"
     notify_user \
         --a "${APP_NAME}" \
@@ -30,7 +30,7 @@ if [ ! -f $ml4w_cache_folder/wallpaper-automation ]; then
         --m "Wallpaper automation process started.\nWallpaper will be changed every $sec seconds."
     _setWallpaperRandomly
 else
-    rm $ml4w_cache_folder/wallpaper-automation
+    rm $project_cache_folder/wallpaper-automation
     notify_user \
         --a "${APP_NAME}" \
         --i "${NOTIFICATION_ICON}" \
