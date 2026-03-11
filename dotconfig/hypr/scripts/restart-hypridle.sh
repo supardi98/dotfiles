@@ -5,7 +5,7 @@ source "$HOME/.config/hypr/scripts/notification-handler.sh"
 
 killall hypridle
 sleep 1
-hypridle &
+hypridle -c ~/.config/hypr/conf/hypridle.conf &
 
 notify_user --a "Hypridle" \
         --s "Hypridle has been restarted." \

@@ -167,6 +167,16 @@ sleep 0.1
 swaync-client -rs
 
 # -----------------------------------------------------
+# Sync Wallpaper to SDDM
+# -----------------------------------------------------
+
+SDDM_PATH="/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/current_wallpaper.png"
+if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
+    _writeLog "Syncing wallpaper to SDDM..."
+    sudo cp "$used_wallpaper" "$SDDM_PATH"
+fi
+
+# -----------------------------------------------------
 # Created blurred wallpaper
 # -----------------------------------------------------
 
