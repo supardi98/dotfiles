@@ -3,8 +3,8 @@
 # Using Glassy macOS theme
 
 # Project directory
-project_dir="$HOME/Projects/ricing"
-config_file="$project_dir/conf/rofi/cliphist.rasi"
+config_dir="$HOME/.config/rofi"
+config_file="$config_dir/cliphist.rasi"
 
 case $1 in
     d)

@@ -8,5 +8,4 @@ killall waybar || true
 sleep 0.5
 
 # Start waybar with project config
-project_dir="/home/supardi/Projects/ricing"
-waybar -c "$project_dir/config.jsonc" -s "$project_dir/style.css" &
+waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/style.css" &

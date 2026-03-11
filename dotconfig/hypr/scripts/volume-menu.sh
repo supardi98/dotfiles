@@ -3,7 +3,7 @@
 # Project Ricing: Advanced Glassy Volume Menu (Rofi-based)
 
 # Load theme path
-THEME="/home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi"
+THEME="$HOME/.config/rofi/glassy-list.rasi"
 
 # --- VOLUME & MUTE STATUS ---
 volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100 "%"}')

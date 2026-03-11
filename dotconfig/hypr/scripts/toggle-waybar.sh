@@ -3,7 +3,7 @@
 
 if [ -f $HOME/.config/ml4w/settings/waybar-disabled ]; then
     rm $HOME/.config/ml4w/settings/waybar-disabled
-    /home/supardi/Projects/ricing/scripts/launch-waybar.sh &
+    $HOME/.config/hypr/scripts/launch-waybar.sh &
 else
     touch $HOME/.config/ml4w/settings/waybar-disabled
     killall waybar || true

@@ -47,7 +47,7 @@ fi
 
 argc() { echo $#; }
 rofi_cmd() {
-    rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 3 -width 30 -p "Select the OCR language"
+    rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 3 -width 30 -p "Select the OCR language"
 }
 
 if [ "$(argc $OCR_LANGUAGE_LIST)" -gt 1 ]; then

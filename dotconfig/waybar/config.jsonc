@@ -30,7 +30,7 @@
         "format": "{}",
         "escape": true,
         "return-type": "json",
-        "exec": "/home/supardi/Projects/ricing/scripts/music.sh",
+        "exec": "~/.config/hypr/scripts/music.sh",
         "restart-interval": 2,
         "on-click": "playerctl play-pause",
         "tooltip": true,
@@ -68,7 +68,7 @@
         "format": "{}",
         "escape": true,
         "return-type": "json",       
-        "exec": "/home/supardi/Projects/ricing/scripts/updates.sh",
+        "exec": "~/.config/hypr/scripts/updates.sh",
         "restart-interval": 60,
         "on-click": "kitty -e yay",
         "tooltip": true
@@ -98,7 +98,7 @@
     "custom/apps": {
         "format": "",
         "tooltip": false,
-        "on-click": "/home/supardi/Projects/ricing/scripts/launcher.sh"
+        "on-click": "~/.config/hypr/scripts/launcher.sh"
     },
 
     "clock": {
@@ -196,7 +196,7 @@
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤮",
         "tooltip-format": "{essid} {signalStrength}%",
-        "on-click": "/home/supardi/Projects/ricing/scripts/wifi-menu.sh",
+        "on-click": "~/.config/hypr/scripts/wifi-menu.sh",
         "on-click-right": "kitty nmtui"
     },
 
@@ -206,7 +206,7 @@
         "format-icons": {
             "default": ["", "", ""]
         },
-        "on-click": "/home/supardi/Projects/ricing/scripts/volume-menu.sh",
+        "on-click": "~/.config/hypr/scripts/volume-menu.sh",
         "on-click-right": "pavucontrol",
         "on-scroll-up": "swayosd-client --output-volume raise",
         "on-scroll-down": "swayosd-client --output-volume lower"

@@ -135,5 +135,5 @@ if [ "$launcher" == "walker" ]; then
     keybinds=$(echo -n "$keybinds" | tr '\r' ':')
     $HOME/.config/walker/launch.sh -d -N -H -p "Search Keybinds" <<<"$keybinds"
 else
-    rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi <<<"$keybinds"
+    rofi -dmenu -i -markup -eh 2 -replace -p "Keybinds" -config $HOME/.config/rofi/glassy-list.rasi <<<"$keybinds"
 fi

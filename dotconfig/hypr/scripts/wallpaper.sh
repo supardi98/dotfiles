@@ -156,7 +156,7 @@ fi
 # -----------------------------------------------------
 
 sleep 1
-/home/supardi/Projects/ricing/scripts/launch-waybar.sh
+$HOME/.config/hypr/scripts/launch-waybar.sh
 
 # -----------------------------------------------------
 # Reload nwg-dock-hyprland

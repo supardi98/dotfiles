@@ -1,77 +1,59 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Dotfiles Installation Script
 
-# Path Project
-PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_HYPR="$HOME/.config/hypr"
+# Get the directory where this script is located
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_DIR="$HOME/.config"
 
-echo "=== Menerapkan Konfigurasi Ricing Project ==="
-echo "Project Path: $PROJECT_DIR"
+echo "=== Menerapkan Konfigurasi Dotfiles ==="
+echo "Dotfiles Path: $DOTFILES_DIR"
 
-# 0. Generate project_path.conf
-echo "\$project_dir = $PROJECT_DIR" > "$PROJECT_DIR/conf/project_path.conf"
+# Ensure ~/.config exists
+mkdir -p "$CONFIG_DIR"
 
-# Update path in hyprland.conf and conf/custom.conf
-sed -i "s|\$project_dir = .*|\$project_dir = $PROJECT_DIR|g" "$PROJECT_DIR/hyprland.conf"
-sed -i "s|\$project_dir = .*|\$project_dir = $PROJECT_DIR|g" "$PROJECT_DIR/conf/custom.conf"
+# Function to create symlink with backup
+link_config() {
+    local src="$1"
+    local dst="$2"
+    
+    # Ensure destination parent directory exists
+    mkdir -p "$(dirname "$dst")"
+    
+    if [ -e "$dst" ] || [ -L "$dst" ]; then
+        if [ ! -L "$dst" ]; then
+            echo "Membuat backup: $dst -> $dst.bak"
+            mv "$dst" "$dst.bak"
+        else
+            echo "Menghapus symlink lama: $dst"
+            rm "$dst"
+        fi
+    fi
+    
+    echo "Menghubungkan: $src -> $dst"
+    ln -s "$src" "$dst"
+}
 
-# Update path in config.jsonc (Waybar)
-sed -i "s|/home/supardi/Projects/ricing|$PROJECT_DIR|g" "$PROJECT_DIR/config.jsonc"
+# 1. Hyprland (including conf/ and scripts/)
+link_config "$DOTFILES_DIR/dotconfig/hypr" "$CONFIG_DIR/hypr"
 
-# Update path in conf/swaync/config.json
-sed -i "s|/home/supardi/Projects/ricing|$PROJECT_DIR|g" "$PROJECT_DIR/conf/swaync/config.json"
+# 2. Waybar
+link_config "$DOTFILES_DIR/dotconfig/waybar" "$CONFIG_DIR/waybar"
 
-# Update path in fastfetch/config.jsonc
-sed -i "s|\$project_dir|$PROJECT_DIR|g" "$PROJECT_DIR/fastfetch/config.jsonc"
+# 3. Kitty
+link_config "$DOTFILES_DIR/dotconfig/kitty" "$CONFIG_DIR/kitty"
 
-# 1. Backup file hyprland.conf asli jika belum dibackup
-if [ ! -f "$CONFIG_HYPR/hyprland.conf.bak" ]; then
-    echo "Membuat backup konfigurasi asli..."
-    mv "$CONFIG_HYPR/hyprland.conf" "$CONFIG_HYPR/hyprland.conf.bak"
-fi
+# 4. Fastfetch
+link_config "$DOTFILES_DIR/dotconfig/fastfetch" "$CONFIG_DIR/fastfetch"
 
-# 2. Hubungkan hyprland.conf project ke sistem
-echo "Menghubungkan hyprland.conf ke sistem..."
-ln -sf "$PROJECT_DIR/hyprland.conf" "$CONFIG_HYPR/hyprland.conf"
+# 5. SwayNC
+link_config "$DOTFILES_DIR/dotconfig/swaync" "$CONFIG_DIR/swaync"
 
-# 3. Hubungkan fastfetch config project ke sistem
-echo "Menghubungkan fastfetch config ke sistem..."
-mkdir -p "$HOME/.config/fastfetch"
-ln -sf "$PROJECT_DIR/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
+# 6. Rofi
+link_config "$DOTFILES_DIR/dotconfig/rofi" "$CONFIG_DIR/rofi"
 
-# 4. Hubungkan hyprlock config project ke sistem
-echo "Menghubungkan hyprlock.conf ke sistem..."
-ln -sf "$PROJECT_DIR/conf/hyprlock.conf" "$CONFIG_HYPR/hyprlock.conf"
-
-# 5. Hubungkan kitty config project ke sistem
-echo "Menghubungkan kitty.conf ke sistem..."
-mkdir -p "$HOME/.config/kitty"
-ln -sf "$PROJECT_DIR/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-
-# 6. Hubungkan hypridle config project ke sistem
-echo "Menghubungkan hypridle.conf ke sistem..."
-ln -sf "$PROJECT_DIR/conf/hypridle.conf" "$CONFIG_HYPR/hypridle.conf"
-
-# 7. Hubungkan swaync config project ke sistem
-echo "Menghubungkan swaync config ke sistem..."
-mkdir -p "$HOME/.config/swaync"
-ln -sf "$PROJECT_DIR/conf/swaync/config.json" "$HOME/.config/swaync/config.json"
-ln -sf "$PROJECT_DIR/conf/swaync/style.css" "$HOME/.config/swaync/style.css"
-
-# 8. Hubungkan rofi config project ke sistem
-echo "Menghubungkan rofi config ke sistem..."
-mkdir -p "$HOME/.config/rofi"
-ln -sf "$PROJECT_DIR/conf/rofi/glassy.rasi" "$HOME/.config/rofi/config.rasi"
-
-# 9. Hubungkan wlogout config project ke sistem
-echo "Menghubungkan wlogout config ke sistem..."
-mkdir -p "$HOME/.config/wlogout"
-ln -sf "$PROJECT_DIR/conf/wlogout/layout" "$HOME/.config/wlogout/layout"
-ln -sf "$PROJECT_DIR/conf/wlogout/style.css" "$HOME/.config/wlogout/style.css"
-cp -r "$PROJECT_DIR/conf/wlogout/icons" "$HOME/.config/wlogout/"
-
-# Update path in wlogout layout
-sed -i "s|\$project_dir|$PROJECT_DIR|g" "$PROJECT_DIR/conf/wlogout/layout"
+# 7. Wlogout
+link_config "$DOTFILES_DIR/dotconfig/wlogout" "$CONFIG_DIR/wlogout"
 
 echo "=== SELESAI ==="
-echo "Silakan restart Hyprland (Super+Shift+Q atau Logout) untuk melihat hasilnya secara penuh saat boot."
-echo "Konfigurasi sekarang sepenuhnya diambil dari $PROJECT_DIR"
+echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
+echo "Silakan restart Hyprland (Super+Shift+Q atau Logout) untuk melihat hasilnya."

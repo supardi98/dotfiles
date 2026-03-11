@@ -88,7 +88,7 @@
         },
         {
           "label": "",
-          "command": "/home/supardi/Projects/ricing/scripts/power.sh lock"
+          "command": "~/.config/hypr/scripts/power.sh lock"
         }
       ]
     }

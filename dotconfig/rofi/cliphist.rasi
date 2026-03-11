@@ -32,16 +32,16 @@ window {
 }
 
 mainbox {
-    padding:                     15px; /* Lebih luas sesuai gambar */
+    padding:                     10px;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
 
 inputbar {
     spacing:                     10px;
-    margin:                      0px 0px 12px 0px;
-    padding:                     12px 15px;
-    border-radius:               8px;
+    margin:                      0px 0px 5px 0px;
+    padding:                     8px 10px;
+    border-radius:               6px;
     background-color:            #ffffff0d;
     text-color:                  @fg-color;
     children:                    [ "prompt", "entry" ];
@@ -52,7 +52,6 @@ prompt {
     background-color:            transparent;
     text-color:                  @accent-color;
     content:                     ""; /* Ikon Search sesuai gambar */
-    font:                        "JetBrainsMono Nerd Font 12";
 }
 
 entry {
@@ -80,8 +79,18 @@ listview {
 
 element {
     spacing:                     10px;
-    padding:                     10px 15px; /* Padding elemen lebih besar */
-    border-radius:               8px;
+    padding:                     8px 12px;
+    border-radius:               6px;
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element alternate.normal {
     background-color:            transparent;
     text-color:                  @fg-color;
 }
@@ -89,6 +98,8 @@ element {
 element selected.normal {
     background-color:            @bg-selected;
     text-color:                  @accent-color;
+    border:                      1px;
+    border-color:                #ffffff1a;
 }
 
 element-text {

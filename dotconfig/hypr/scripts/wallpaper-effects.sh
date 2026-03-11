@@ -24,7 +24,7 @@ else
     options="$(ls ~/.config/hypr/effects/wallpaper/)\noff"
 
     # Open rofi
-    choice=$(echo -e "$options" | rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 5 -width 30 -p "Hyprshade")
+    choice=$(echo -e "$options" | rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 5 -width 30 -p "Hyprshade")
     if [ ! -z $choice ]; then
         echo "$choice" >~/.config/ml4w/settings/wallpaper-effect.sh
 

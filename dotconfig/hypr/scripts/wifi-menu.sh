@@ -2,7 +2,7 @@
 
 # Project Ricing: WiFi Menu with Rescan Fix
 
-THEME="/home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi"
+THEME="$HOME/.config/rofi/glassy-list.rasi"
 
 # Perform actual scan if requested
 if [ "$1" == "rescan" ]; then

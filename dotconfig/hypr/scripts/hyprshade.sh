@@ -23,7 +23,7 @@ if [[ "$1" == "rofi" ]]; then
     options="$(hyprshade ls | sed 's/^[ *]*//')\noff"
 
     # Open rofi
-    choice=$(echo -e "$options" | rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 4 -width 30 -p "Hyprshade")
+    choice=$(echo -e "$options" | rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 4 -width 30 -p "Hyprshade")
     if [ ! -z $choice ]; then
         echo "hyprshade_filter=\"$choice\"" >~/.config/ml4w/settings/hyprshade.sh
         if [ "$choice" == "off" ]; then

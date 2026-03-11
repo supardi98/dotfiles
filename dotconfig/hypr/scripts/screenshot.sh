@@ -134,7 +134,7 @@ edit='Edit'
 
 # Rofi CMD
 rofi_cmd() {
-    rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 2 -width 30 -p "Take screenshot"
+    rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 2 -width 30 -p "Take screenshot"
 }
 
 # Pass variables to rofi dmenu
@@ -146,7 +146,7 @@ run_rofi() {
 # Choose Timer
 # CMD
 timer_cmd() {
-    rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 5 -width 30 -p "Choose timer"
+    rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 5 -width 30 -p "Choose timer"
 }
 
 # Ask for confirmation
@@ -182,7 +182,7 @@ timer_run() {
 # Chose Screenshot Type
 # CMD
 type_screenshot_cmd() {
-    rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 3 -width 30 -p "Type of screenshot"
+    rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 3 -width 30 -p "Type of screenshot"
 }
 
 # Ask for confirmation
@@ -212,7 +212,7 @@ type_screenshot_run() {
 # Choose to save or copy photo
 # CMD
 copy_save_editor_cmd() {
-    rofi -dmenu -replace -config /home/supardi/Projects/ricing/conf/rofi/glassy-list.rasi -i -no-show-icons -l 4 -width 30 -p "How to save"
+    rofi -dmenu -replace -config $HOME/.config/rofi/glassy-list.rasi -i -no-show-icons -l 4 -width 30 -p "How to save"
 }
 
 # Ask for confirmation
