@@ -1,10 +1,8 @@
 /**
- * Glassy macOS Clipboard Theme
- * Precise Match to Launcher Image
+ * Glassy Emoji Theme (Synced with glassy-list.rasi)
  */
 
 configuration {
-    modi:                       "drun";
     show-icons:                 false;
     font:                       "JetBrainsMono Nerd Font 10";
 }
@@ -18,53 +16,50 @@ configuration {
 }
 
 window {
-    width:                       400px;
-    spacing:                     0px;
-    padding:                     0px;
+    width:                       450px;
+    height:                      400px;
     background-color:            @bg-color;
     border:                      1px;
     border-color:                @border-color;
-    border-radius:               12px; /* Lebih bulat sesuai gambar */
-    cursor:                      "default";
+    border-radius:               12px;
     transparency:                "real";
     location:                    center;
     anchor:                      center;
 }
 
 mainbox {
-    padding:                     10px;
+    padding:                     15px;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
 
 inputbar {
     spacing:                     10px;
-    margin:                      0px 0px 5px 0px;
-    padding:                     8px 10px;
-    border-radius:               6px;
+    margin:                      0px 0px 10px 0px;
+    padding:                     10px;
+    border-radius:               8px;
     background-color:            #ffffff0d;
     text-color:                  @fg-color;
     children:                    [ "prompt", "entry" ];
 }
 
 prompt {
-    enabled:                     true;
     background-color:            transparent;
     text-color:                  @accent-color;
-    content:                     ""; /* Ikon Search sesuai gambar */
+    font:                        "JetBrainsMono Nerd Font 14";
 }
 
 entry {
-    padding:                     0px;
     background-color:            transparent;
     text-color:                  inherit;
-    placeholder:                 "Search...";
+    font:                        "JetBrainsMono Nerd Font 12";
+    placeholder:                 "Search Emoji...";
     placeholder-color:           #ffffff4d;
 }
 
 listview {
-    columns:                     1;
-    lines:                       8;
+    columns:                     6;
+    lines:                       5;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -72,25 +67,13 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    spacing:                     6px; /* Jarak antar list sedikit lebih renggang */
+    spacing:                     10px;
     background-color:            transparent;
-    border:                      0px;
 }
 
 element {
-    spacing:                     10px;
-    padding:                     8px 12px;
-    border-radius:               6px;
-    background-color:            transparent;
-    text-color:                  @fg-color;
-}
-
-element normal.normal {
-    background-color:            transparent;
-    text-color:                  @fg-color;
-}
-
-element alternate.normal {
+    padding:                     10px;
+    border-radius:               8px;
     background-color:            transparent;
     text-color:                  @fg-color;
 }
@@ -105,5 +88,7 @@ element selected.normal {
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
+    horizontal-align:            0.5;
     vertical-align:              0.5;
+    font:                        "JetBrainsMono Nerd Font 24";
 }

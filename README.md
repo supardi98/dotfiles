@@ -1,72 +1,99 @@
 # 🚀 My Ultimate Dotfiles (Hyprland + Zsh Pro)
 
-Repositori ini berisi konfigurasi pribadi (ricing) untuk lingkungan desktop **Hyprland** yang estetik dan alur kerja terminal **Zsh** yang super produktif.
+Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desktop **Hyprland** yang estetik, modern, dan sangat fungsional, dipadukan dengan alur kerja terminal **Zsh** tingkat lanjut.
 
 ## ✨ Fitur Utama
-- **Hyprland**: Tampilan glassy, animasi halus, dan manajemen jendela yang efisien.
+- **Hyprland Experience**:
+  - **Glassy UI**: Efek blur transparan pada jendela, bar, dan launcher.
+  - **Dynamic Animations**: Berbagai preset animasi (Classic, Smooth, Fast, dsb).
+  - **Smart Layouts**: Manajemen jendela tiling yang cerdas.
+  - **ML4W Settings**: Kontrol penuh pengaturan Hyprland melalui GUI.
 - **Zsh Pro Experience**: 
-  - **Oh My Posh**: Prompt terminal yang cantik dan informatif (Tema Zen).
-  - **Fastfetch**: Info sistem saat terminal dibuka.
-  - **Fuzzy Search (fzf)**: Cari riwayat perintah (`Ctrl+R`) dengan sangat cepat.
-  - **Smart Navigation**: `zoxide` untuk pindah folder kilat dan `Auto-CD`.
-  - **Syntax Highlighting & Autosuggestions**: Hint history warna-warni ala programmer.
+  - **Oh My Posh**: Prompt terminal informatif dengan Tema Zen.
+  - **Fuzzy Search (fzf)**: Cari riwayat perintah (`Ctrl+R`) secara visual.
+  - **Smart Navigation**: `zoxide` (Smart CD) dan `Auto-CD`.
   - **Auto-pairing**: Otomatis menutup tanda kurung dan kutip.
-- **Kitty Terminal**: Transparansi glassy, blur, dan dukungan Nerd Fonts.
+  - **Programming Ready**: Integrasi `direnv`, `LSP support` via NeoVim.
+- **UI & Modules**:
+  - **Waybar**: Bar status kustom dengan banyak modul fungsional.
+  - **SwayNC**: Pusat notifikasi yang modern.
+  - **Rofi**: Launcher aplikasi, pemilih emoji, dan clipboard manager.
+  - **Wlogout**: Menu logout berbasis ikon yang elegan.
+  - **SDDM**: Tema Astronaut untuk layar login yang futuristik.
+  - **Spicetify**: Tema ML4W untuk Spotify Anda.
+  - **Awww**: Pengelola wallpaper Wayland yang cepat dan andal (sebelumnya swww).
 
 ## 📦 Aplikasi yang Dibutuhkan (Dependencies)
 
-Untuk mendapatkan pengalaman penuh, silakan instal paket-paket berikut di sistem Anda (Arch/CachyOS):
-
+### 1. Paket dari Repositori Resmi (Pacman)
 ```bash
-sudo pacman -S hyprland hyprlock hypridle kitty waybar rofi-wayland swaync swww \
+sudo pacman -S hyprland hyprlock hypridle kitty waybar rofi-wayland swaync \
 eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim \
-ttf-jetbrains-mono-nerd
+ttf-jetbrains-mono-nerd swayosd-client playerctl wl-clipboard cliphist \
+hyprpicker hyprshade rofimoji wtype
+```
+
+### 2. Paket dari AUR (Yay/Paru)
+```bash
+yay -S awww-bin
+```
+
+### 3. Paket dari Flatpak (ML4W Apps)
+```bash
+# Tambahkan repositori ML4W (jika belum ada)
+flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
+
+# Instal aplikasi ML4W
+flatpak install ml4w-repo com.ml4w.settings com.ml4w.calendar
 ```
 
 ## 🛠️ Cara Instalasi
 
-1. **Clone Repositori ini:**
+1. **Clone Repositori:**
    ```bash
    git clone https://github.com/supardi98/dotfiles.git ~/Projects/dotfiles
    cd ~/Projects/dotfiles
    ```
 
-2. **Jalankan Skrip Instalasi:**
-   Skrip ini akan membuat tautan (symlink) dari repositori ini ke folder `~/.config/` Anda.
+2. **Jalankan Instalasi Otomatis:**
+   Skrip ini akan menginstal paket yang hilang dan melakukan symlink konfigurasi.
    ```bash
-   chmod +x apply.sh
-   ./apply.sh
+   chmod +x install.sh
+   ./install.sh
    ```
-
-3. **Reload Konfigurasi:**
-   - Restart Hyprland (`Super + Shift + Q`).
-   - Reload Zsh dengan mengetik `zsh` atau buka terminal baru.
 
 ## ⌨️ Pintasan Penting (Keybindings)
 
-### Hyprland
-- `SUPER + RETURN` : Buka Kitty Terminal
-- `SUPER + SPACE`  : Buka Launcher (Rofi)
-- `SUPER + Q`      : Tutup Jendela Aktif
-- `SUPER + SHIFT + Q` : Keluar/Logout
-- `SUPER + L`      : Kunci Layar (Hyprlock)
-- `SUPER + W`      : Pilih Wallpaper
+### Dasar & Aplikasi
+- `SUPER + RETURN` : Buka **Kitty** Terminal
+- `SUPER + SPACE`  : Buka **Launcher** (Rofi)
+- `SUPER + E`      : Buka File Manager
+- `SUPER + B`      : Buka Browser
+- `SUPER + V`      : Riwayat **Clipboard** (Cliphist)
+- `SUPER + .`      : **Pemilih Emoji** (Rofimoji)
 
-### Terminal (Zsh)
-- `c` : Clear terminal.
-- `lg` : Buka **Lazygit** (Git UI).
-- `y` : Buka **Yazi** (File Manager).
-- `btop` : Monitor Sistem.
-- `h` : Cari history perintah via FZF.
-- `p` : Langsung ke folder `~/Projects`.
-- `extract <file>` : Ekstrak file apapun (`.zip`, `.tar.gz`, dll).
-- `del <file>` : Hapus file ke tong sampah (aman).
+### Jendela & Sistem
+- `SUPER + Q`      : Tutup jendela aktif
+- `SUPER + F`      : Fullscreen
+- `SUPER + T`      : Toggle Floating
+- `SUPER + L`      : **Kunci Layar** (Hyprlock)
+- `SUPER + CTRL + Q` : Menu Logout (Wlogout)
+- `SUPER + SHIFT + R`: Reload Hyprland Config
 
-## 📝 Catatan Khusus Programmer
-Konfigurasi Zsh ini sudah mendukung:
-- **LSP Support**: `EDITOR` sudah diset ke `nvim` (NeoVim).
-- **Environment Auto-loader**: Mendukung `direnv` untuk isolasi proyek.
-- **Web Search**: Ketik `google <kata kunci>` atau `github <repo>` langsung dari terminal.
+### Screenshot & Media
+- `PRINT`          : Screenshot (Layar penuh) -> Copy
+- `SHIFT + PRINT`  : Screenshot (Area) -> Copy
+- `SUPER + SHIFT + H`: Toggle **Hyprshade** (Blue Light Filter)
+- `SUPER + ALT + G` : Toggle **Gamemode** (Matikan animasi untuk performa)
+
+### Navigasi Terminal (Zsh)
+- `c` : Clear terminal
+- `lg` : Buka **Lazygit**
+- `y` : Buka **Yazi** (File Manager Terminal)
+- `h` : Cari history via FZF
+- `extract <file>` : Ekstrak file apapun otomatis
+- `del <file>` : Hapus ke tong sampah (aman)
+- `..` : Naik satu folder
 
 ---
-Dibuat dengan ❤️ untuk produktivitas maksimal.
+Dibuat dengan ❤️ oleh Supardi. Gunakan dengan bijak dan selamat mengoprek!

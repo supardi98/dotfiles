@@ -13,7 +13,7 @@ configuration {
 }
 
 * {
-    bg-color:            #14141efa;
+    bg-color:            #14141ee6;
     bg-selected:         #ffffff1a;
     fg-color:            #ffffff;
     accent-color:        #89b4fa;
