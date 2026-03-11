@@ -1,0 +1,72 @@
+/*
+ * Glassy macOS wlogout theme
+ * Minimalist & Ultra-clean
+ */
+
+* {
+    background-image: none;
+    transition: 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
+    box-shadow: none;
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+}
+
+window {
+    background-color: rgba(20, 20, 30, 0.4); /* Glass Overlay */
+}
+
+grid {
+    margin: 250px 300px; /* Memberikan ruang di sekitar grid agar tombol tidak memenuhi layar */
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.379);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px; /* Ukuran ikon lebih kecil */
+    border-radius: 12px;   /* Radius lebih kecil untuk tampilan modern */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 80px 10px;
+    padding: 80px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: rgba(255, 255, 255, 0.564);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;        /* Tampilkan teks saat hover jika diperlukan */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    background-size: 34px; /* Sedikit membesar saat hover */
+}
+
+/* 
+ * Icons - Using standard wlogout naming
+ * Adjust these paths if icons are missing
+ */
+
+#lock {
+    background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+}
+
+#hibernate {
+    background-image: image(url("icons/hibernate.png"));
+}

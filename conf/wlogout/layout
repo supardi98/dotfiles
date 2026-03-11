@@ -1,0 +1,36 @@
+{
+    "label" : "lock",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh lock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh exit",
+    "text" : "Log Out",
+    "keybind" : "e"
+}
+{
+    "label" : "suspend",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh reboot",
+    "text" : "Restart",
+    "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh shutdown",
+    "text" : "Power Off",
+    "keybind" : "s"
+}
+{
+    "label" : "hibernate",
+    "action" : "/home/supardi/Projects/ricing/scripts/power.sh hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}

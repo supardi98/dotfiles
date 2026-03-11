@@ -2,7 +2,6 @@
 
 # Check if playerctl is running
 if ! playerctl status &> /dev/null; then
-    echo "{\"text\": \"No Media\", \"class\": \"no-media\"}"
     exit 0
 fi
 

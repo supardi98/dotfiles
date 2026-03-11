@@ -12,7 +12,7 @@ _launch_walker() {
 
 # Use Rofi
 _launch_rofi() {
-    pkill rofi || rofi -show drun -config /home/supardi/Projects/ricing/conf/rofi/glassy.rasi -replace -i  
+    pkill rofi || rofi -show drun -replace -i  
 }
 
 if [ "$launcher" == "walker" ]; then

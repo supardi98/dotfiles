@@ -15,7 +15,7 @@ fi
 total_updates=$((updates_arch + updates_aur))
 
 if [ "$total_updates" -gt 0 ]; then
-    echo "{\"text\": \"$total_updates\", \"tooltip\": \"$total_updates updates available\", \"class\": \"updates\"}"
+    echo "{\"text\": \"󰏗 $total_updates\", \"tooltip\": \"$total_updates updates available\", \"class\": \"updates\"}"
 else
-    echo "{\"text\": \"0\", \"tooltip\": \"System up to date\", \"class\": \"up-to-date\"}"
+    echo ""
 fi

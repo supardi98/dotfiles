@@ -9,23 +9,21 @@
     "margin-top": 10,
     "margin-left": 15,
     "margin-right": 15,
-    "spacing": 10,
+    "spacing": 4,
 
     "modules-left": [
         "custom/apps",
         "clock",
         "wlr/taskbar",
-        "hyprland/window",
-        "custom/music-prev",
-        "custom/music",
-        "custom/music-next"
+        "hyprland/window"
     ],
 
     "custom/music-prev": {
         "format": "󰒮",
         "tooltip": false,
         "on-click": "playerctl previous",
-        "on-click-right": "playerctl position 10-"
+        "on-click-right": "playerctl position 10-",
+        "exec-if": "playerctl status"
     },
 
     "custom/music": {
@@ -35,14 +33,16 @@
         "exec": "/home/supardi/Projects/ricing/scripts/music.sh",
         "restart-interval": 2,
         "on-click": "playerctl play-pause",
-        "tooltip": true
+        "tooltip": true,
+        "exec-if": "playerctl status"
     },
 
     "custom/music-next": {
         "format": "󰒭",
         "tooltip": false,
         "on-click": "playerctl next",
-        "on-click-right": "playerctl position 10+"
+        "on-click-right": "playerctl position 10+",
+        "exec-if": "playerctl status"
     },
     "modules-center": [
         "hyprland/workspaces"
@@ -54,6 +54,9 @@
         "memory",
         "disk",
         "temperature",
+        "custom/music-prev",
+        "custom/music",
+        "custom/music-next",
         "pulseaudio",
         "network",
         "battery",
@@ -62,12 +65,12 @@
     ],
 
     "custom/updates": {
-        "format": "󰏗 {}",
+        "format": "{}",
         "escape": true,
         "return-type": "json",       
         "exec": "/home/supardi/Projects/ricing/scripts/updates.sh",
         "restart-interval": 60,
-        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf -e yay",
+        "on-click": "kitty -e yay",
         "tooltip": true
     },
 
@@ -93,13 +96,13 @@
     },
 
     "custom/apps": {
-        "format": "  ",
+        "format": "",
         "tooltip": false,
         "on-click": "/home/supardi/Projects/ricing/scripts/launcher.sh"
     },
 
     "clock": {
-        "format": " {:%H:%M  |  %a, %d %b} ",
+        "format": "{:%H:%M | %a, %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "month",
@@ -127,13 +130,17 @@
         "icon-size": 18,
         "tooltip-format": "{title}",
         "on-click": "activate",
-        "on-click-middle": "close"
+        "on-click-middle": "close",
     },
 
     "hyprland/window": {
-        "format": " {title} ",
+        "format": "{}",
         "max-length": 25,
-        "separate-outputs": true
+        "separate-outputs": true,
+        "rewrite": {
+            "": "",
+            "(.+)": " $1 "
+        }
     },
 
     "hyprland/workspaces": {
@@ -160,13 +167,13 @@
     "cpu": {
         "format": " {usage}%",
         "interval": 2,
-        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+        "on-click": "kitty btop"
     },
 
     "memory": {
         "format": " {}%",
         "interval": 2,
-        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+        "on-click": "kitty btop"
     },
 
     "disk": {
@@ -174,7 +181,7 @@
         "format": "󰋊 {percentage_used}%",
         "path": "/",
         "tooltip-format": "{used} used / {total} total ({percentage_free}% free)",
-        "on-click": "kitty --config /home/supardi/Projects/ricing/kitty.conf btop"
+        "on-click": "kitty btop"
     },
 
     "temperature": {
@@ -190,11 +197,11 @@
         "format-disconnected": "󰤮",
         "tooltip-format": "{essid} {signalStrength}%",
         "on-click": "/home/supardi/Projects/ricing/scripts/wifi-menu.sh",
-        "on-click-right": "kitty --config /home/supardi/Projects/ricing/kitty.conf nmtui"
+        "on-click-right": "kitty nmtui"
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "󰝟",
         "format-icons": {
             "default": ["", "", ""]
@@ -213,6 +220,6 @@
     "custom/power": {
         "format": "⏻",
         "tooltip": false,
-        "on-click": "wlogout"
+        "on-click": "wlogout -b 6"
     }
 }
