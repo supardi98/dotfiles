@@ -162,6 +162,10 @@ extract() {
 google() { xdg-open "https://www.google.com/search?q=$*" }
 github() { xdg-open "https://github.com/search?q=$*" }
 
+# 3. Quick File Find
+# Usage: ff "filename.txt"
+ff() { find . -iname "*$1*" }
+
 # -----------------------------------------------------
 # Auto-Pairing (Brackets & Quotes)
 # -----------------------------------------------------

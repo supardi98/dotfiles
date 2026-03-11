@@ -53,10 +53,21 @@
     "custom/music-next",
     "pulseaudio",
     "network",
+    "bluetooth",
     "battery",
     "custom/notification",
     "custom/power",
   ],
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format": "{status}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager"
+  },
 
   "custom/updates": {
     "format": "{}",

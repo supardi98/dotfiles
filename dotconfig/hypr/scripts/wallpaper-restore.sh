@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ✨ Restore last wallpaper using awww
+# ✨ Restore last wallpaper and sync colors on login
 
 project_cache_folder="$HOME/.cache/hyprland-dotfiles"
 defaultwallpaper="$HOME/.config/ml4w/wallpapers/default.jpg"
@@ -19,6 +19,6 @@ else
     wallpaper=$defaultwallpaper
 fi
 
-# Terapkan wallpaper
-echo ":: Setting wallpaper: $wallpaper"
-awww img "$wallpaper" --transition-type any
+# Terapkan wallpaper dan proses warna (Matugen, dsb)
+echo ":: Restoring wallpaper and colors: $wallpaper"
+~/.config/hypr/scripts/wallpaper.sh "$wallpaper"

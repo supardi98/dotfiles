@@ -46,13 +46,6 @@ if [ ! -d $generatedversions ]; then
     mkdir -p $generatedversions
 fi
 
-# Will be set when waypaper is running
-waypaperrunning=$project_cache_folder/waypaper-running
-if [ -f $waypaperrunning ]; then
-    rm $waypaperrunning
-    exit
-fi
-
 cachefile="$project_cache_folder/current_wallpaper"
 blurredwallpaper="$project_cache_folder/blurred_wallpaper.png"
 squarewallpaper="$project_cache_folder/square_wallpaper.png"
@@ -124,10 +117,12 @@ if [ -f "$wallpapereffect" ]; then
         fi
         _writeLog "Loading wallpaper $generatedversions/$effect-$wallpaperfilename with effect $effect"
         _writeLog "Setting wallpaper with $used_wallpaper"
-        touch "$waypaperrunning"
-        waypaper --wallpaper "$used_wallpaper"
+        # Terapkan dengan awww langsung jika ada efek
+        awww img "$used_wallpaper" --transition-type any
     else
         _writeLog "Wallpaper effect is set to off"
+        # Terapkan wallpaper dengan awww
+        awww img "$used_wallpaper" --transition-type any
     fi
 else
     effect="off"
@@ -167,14 +162,14 @@ sleep 0.1
 swaync-client -rs
 
 # -----------------------------------------------------
-# Sync Wallpaper to SDDM
+# Sync Wallpaper to SDDM (Disabled to prevent sudo prompt)
 # -----------------------------------------------------
 
-SDDM_PATH="/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/current_wallpaper.png"
-if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
-    _writeLog "Syncing wallpaper to SDDM..."
-    sudo cp "$used_wallpaper" "$SDDM_PATH"
-fi
+# SDDM_PATH="/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/current_wallpaper.png"
+# if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
+#     _writeLog "Syncing wallpaper to SDDM..."
+#     sudo cp "$used_wallpaper" "$SDDM_PATH"
+# fi
 
 # -----------------------------------------------------
 # Created blurred wallpaper

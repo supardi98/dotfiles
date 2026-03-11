@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-# ✨ Rofi Wallpaper Selector with Thumbnails & Color Sync (Matugen)
+# ✨ Rofi Wallpaper Selector (Clean Version)
 
 WALLPAPER_DIR="$HOME/.config/ml4w/wallpapers"
-CACHE_FILE="$HOME/.cache/hyprland-dotfiles/current_wallpaper"
-
-# Pastikan awww-daemon berjalan
-if ! pgrep -x "awww-daemon" > /dev/null; then
-    awww-daemon &
-    sleep 1
-fi
 
 # Bangun daftar untuk Rofi
 list_wallpapers() {
@@ -24,12 +17,8 @@ selected_name=$(list_wallpapers | rofi -dmenu -i -theme ~/.config/rofi/wallpaper
 if [ -n "$selected_name" ]; then
     selected_path="$WALLPAPER_DIR/$selected_name"
     
-    # 1. Terapkan wallpaper dengan awww
-    awww img "$selected_path" --transition-type outer --transition-step 90 --transition-duration 2
-
-    # 2. Jalankan skrip pemroses warna (Matugen, SwayNC, dsb)
-    # Skrip ini akan memperbarui colors.conf dan border Hyprland
+    # Jalankan skrip utama untuk ganti wallpaper, update warna, dan simpan cache
     ~/.config/hypr/scripts/wallpaper.sh "$selected_path"
     
-    notify-send "Wallpaper" "Wallpaper and colors updated to $selected_name"
+    notify-send "Wallpaper" "Wallpaper changed to $selected_name"
 fi

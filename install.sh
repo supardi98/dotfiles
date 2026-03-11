@@ -15,7 +15,7 @@ fi
 echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 PACKAGES=(
     # Core Desktop
-    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak
+    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak bluez bluez-utils blueman
     # Terminal Productivity
     eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim rofimoji wtype
     # Fonts & Icons
@@ -23,6 +23,10 @@ PACKAGES=(
 )
 
 sudo pacman -S --needed --noconfirm "${PACKAGES[@]}"
+
+# 2.0 Aktifkan Bluetooth Service
+echo "🔵 Mengaktifkan layanan Bluetooth..."
+sudo systemctl enable --now bluetooth || echo "⚠️ Gagal mengaktifkan bluetooth, abaikan jika tidak ada hardwarenya."
 
 # 2.1 Instal ML4W Apps via Flatpak
 echo "📦 Menginstal ML4W Apps via Flatpak..."

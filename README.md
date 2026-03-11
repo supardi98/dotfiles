@@ -112,6 +112,7 @@ chmod +x apply.sh
 - `y` : Membuka **Yazi** (File Manager Terminal).
 - `btop` : Monitoring Sistem futuristik.
 - `h` : Mencari riwayat via FZF secara visual.
+- `ff <nama>` : Mencari file di direktori saat ini secara rekursif.
 - `p` : Pindah ke direktori `~/Projects`.
 - `..` / `...` : Naik satu/dua tingkat folder.
 - `ls` / `ll` / `la` : Menampilkan file dengan ikon dan format modern (**eza**).
@@ -127,3 +128,15 @@ chmod +x apply.sh
 
 ---
 Dibuat dengan ❤️ oleh Supardi. Gunakan dengan bijak dan selamat mengoprek!
+
+## 🎵 Spotify Setup
+Untuk instalasi Spotify lengkap dengan Ikon Tray (Wayland) dan tema:
+```bash
+chmod +x install-spotify.sh
+./install-spotify.sh
+```
+
+Untuk menerapkan ulang tema Spotify (Spicetify):
+```bash
+./apply-spotify-theme.sh
+```
