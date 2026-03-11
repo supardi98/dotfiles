@@ -7,9 +7,11 @@
 # 
 
 # -----------------------------------------------------
-# Path Configuration
+# Path & Environment Configuration
 # -----------------------------------------------------
 export PATH="$HOME/.local/bin:$PATH"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # -----------------------------------------------------
 # Oh My Posh (Prompt)
@@ -50,11 +52,18 @@ if [ -f /usr/share/fzf/key-bindings.zsh ]; then
 fi
 
 # -----------------------------------------------------
-# Zoxide (Smarter cd) - Install with: sudo pacman -S zoxide
+# Zoxide (Smarter cd)
 # -----------------------------------------------------
 if command -v zoxide > /dev/null; then
     eval "$(zoxide init zsh)"
     alias cd="z"
+fi
+
+# -----------------------------------------------------
+# Direnv (Project Environment Auto-loader)
+# -----------------------------------------------------
+if command -v direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
 fi
 
 # -----------------------------------------------------
@@ -66,7 +75,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # -----------------------------------------------------
-# Smart Aliases (Requires eza, bat, lazygit, yazi)
+# Directory Navigation (Auto-CD)
+# -----------------------------------------------------
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+# -----------------------------------------------------
+# Programmer Aliases
 # -----------------------------------------------------
 # File Management
 if command -v eza > /dev/null; then
@@ -109,6 +125,12 @@ alias ...='cd ../..'
 alias .3='cd ../../..'
 alias update='sudo pacman -Syu'
 alias btop='btop'
+alias h='history | fzf' # Quick history search with FZF
+alias p='cd ~/Projects' # Quick access to projects folder
+
+# HTTP & JSON (Programmer stuff)
+alias http='http --style=monokai' # Colored HTTPie output
+alias help='tldr' # Shortcut for tldr
 
 # -----------------------------------------------------
 # Magic Functions
