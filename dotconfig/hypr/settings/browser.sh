@@ -3,7 +3,7 @@
 
 if [ -f ~/.config/hypr/settings/ricing.conf ]; then
     source ~/.config/hypr/settings/ricing.conf
-    exec ${BROWSER:-brave}
+    exec ${BROWSER:-firefox}
 else
-    exec brave
+    exec firefox
 fi

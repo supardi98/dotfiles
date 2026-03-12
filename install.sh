@@ -21,7 +21,7 @@ PACKAGES=(
     bluez bluez-utils blueman rofi-calc networkmanager qt6ct xsettingsd 
     hyprpicker hyprshade playerctl grim slurp wl-clipboard waypaper
     # File Manager & Browser
-    nautilus brave-bin
+    nautilus firefox
     # Shells
     zsh fish
     # Terminal Productivity
@@ -30,7 +30,7 @@ PACKAGES=(
     ttf-jetbrains-mono-nerd
 )
 
-# Catatan: Beberapa paket seperti brave-bin, grimblast-git, swayosd-git, cliphist 
+# Catatan: Beberapa paket seperti firefox, grimblast-git, swayosd-git, cliphist 
 # mungkin perlu diinstal via AUR jika tidak ada di repo resmi distro Anda.
 # Kami akan mencoba menginstal paket yang tersedia di repo resmi terlebih dahulu.
 
