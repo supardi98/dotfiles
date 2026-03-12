@@ -19,7 +19,7 @@ PACKAGES=(
     # Core Desktop & Window Manager
     hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak 
     bluez bluez-utils blueman rofi-calc networkmanager qt6ct xsettingsd 
-    hyprpicker hyprshade playerctl grim slurp wl-clipboard
+    hyprpicker hyprshade playerctl grim slurp wl-clipboard waypaper
     # File Manager & Browser
     nautilus brave-bin
     # Shells

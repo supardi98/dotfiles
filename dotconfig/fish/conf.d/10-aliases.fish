@@ -46,10 +46,8 @@ end
 
 if command -v trash-put > /dev/null
     alias del='trash-put'
-    function rm --description "Safety check for rm"
-        echo "Gunakan \"del\" untuk menghapus ke tong sampah, atau \"/usr/bin/rm\" jika yakin hapus permanen."
-    end
 end
+alias rm='command rm -iv'
 
 # HTTP & JSON (Programmer stuff)
 alias http='http --style=monokai' # Colored HTTPie output

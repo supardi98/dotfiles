@@ -118,4 +118,10 @@ fi
 echo "* { current-image: url(\"$blurredwallpaper\", height); }" > "$rasifile"
 magick "$wallpaper" -gravity Center -extent 1:1 "$squarewallpaper"
 
-notify-send "$APP_NAME" "Wallpaper changed to $wallpaperfilename" -i "$NOTIFICATION_ICON"
+# Single notification using our handler
+notify_user \
+    --a "$APP_NAME" \
+    --s "Wallpaper changed" \
+    --m "$wallpaperfilename" \
+    --i "$NOTIFICATION_ICON" \
+    --t 3000

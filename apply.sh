@@ -57,6 +57,9 @@ link_config "$DOTFILES_DIR/dotconfig/rofi" "$CONFIG_DIR/rofi"
 # 7. Wlogout
 link_config "$DOTFILES_DIR/dotconfig/wlogout" "$CONFIG_DIR/wlogout"
 
+# 7a. Waypaper
+link_config "$DOTFILES_DIR/dotconfig/waypaper" "$CONFIG_DIR/waypaper"
+
 # 8. Oh My Posh (Prompt)
 link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
 

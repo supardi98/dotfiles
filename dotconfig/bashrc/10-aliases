@@ -46,8 +46,8 @@ fi
 
 if command -v trash-put > /dev/null; then
     alias del='trash-put'
-    alias rm='echo "Gunakan \"del\" untuk menghapus ke tong sampah, atau \"/usr/bin/rm\" jika yakin hapus permanen."'
 fi
+alias rm='/usr/bin/rm -iv'
 
 # HTTP & JSON (Programmer stuff)
 alias http='http --style=monokai' # Colored HTTPie output
