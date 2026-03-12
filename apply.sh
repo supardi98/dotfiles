@@ -42,6 +42,9 @@ link_config "$DOTFILES_DIR/dotconfig/waybar" "$CONFIG_DIR/waybar"
 # 3. Kitty
 link_config "$DOTFILES_DIR/dotconfig/kitty" "$CONFIG_DIR/kitty"
 
+# 3a. Btop
+link_config "$DOTFILES_DIR/dotconfig/btop" "$CONFIG_DIR/btop"
+
 # 4. Fastfetch
 link_config "$DOTFILES_DIR/dotconfig/fastfetch" "$CONFIG_DIR/fastfetch"
 
@@ -60,14 +63,27 @@ link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
 # 10. Spicetify
 link_config "$DOTFILES_DIR/dotconfig/spicetify" "$CONFIG_DIR/spicetify"
 
-# 11. Zshrc Configuration
+# 11. Shell Configurations (Zsh, Bash, Fish)
 link_config "$DOTFILES_DIR/dotconfig/zshrc" "$CONFIG_DIR/zshrc"
+link_config "$DOTFILES_DIR/dotconfig/bashrc" "$CONFIG_DIR/bashrc"
+link_config "$DOTFILES_DIR/dotconfig/fish" "$CONFIG_DIR/fish"
 
 # 12. Wallpapers
 link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
 
-# 13. Dotfiles Settings
+# 13. Matugen, GTK, Xsettingsd & Qt6ct Settings
+link_config "$DOTFILES_DIR/dotconfig/matugen" "$CONFIG_DIR/matugen"
+link_config "$DOTFILES_DIR/dotconfig/gtk-3.0" "$CONFIG_DIR/gtk-3.0"
+link_config "$DOTFILES_DIR/dotconfig/gtk-4.0" "$CONFIG_DIR/gtk-4.0"
+link_config "$DOTFILES_DIR/dotconfig/xsettingsd" "$CONFIG_DIR/xsettingsd"
+link_config "$DOTFILES_DIR/dotconfig/qt6ct" "$CONFIG_DIR/qt6ct"
+
+# 14. Dotfiles Settings
 link_config "$DOTFILES_DIR/dotconfig/ml4w" "$CONFIG_DIR/ml4w"
+
+# 15. Other Configurations
+link_config "$DOTFILES_DIR/dotconfig/chromium-flags.conf" "$CONFIG_DIR/chromium-flags.conf"
+link_config "$DOTFILES_DIR/dotconfig/edge-flags.conf" "$CONFIG_DIR/edge-flags.conf"
 
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"

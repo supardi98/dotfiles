@@ -9,7 +9,7 @@ config_file="$config_dir/glassy-list.rasi"
 terminal=$(cat ~/.config/hypr/settings/terminal.sh)
 
 # Daftar Tools
-options="🎨 Color Picker (HEX)\n󰄀 Color Picker (RGB)\n󰃐 Hyprshade (Blue Light)\n󱖫 Rofi Calc (Calculator)\n󰏆 Notes\n󰒓 Hyprland Settings"
+options="🎨 Color Picker (HEX)\n󰄀 Color Picker (RGB)\n󰃐 Hyprshade (Blue Light)\n󱖫 Rofi Calc (Calculator)\n󰏆 Notes\n󰒓 Hyprland Settings\n🐚 Change Shell"
 
 # Ambil pilihan dari Rofi
 choice=$(echo -e "$options" | rofi -dmenu -i -config "$config_file" -p "🛠️ Tools")
@@ -31,13 +31,19 @@ case "$choice" in
         $HOME/.config/hypr/scripts/hyprshade.sh &
         ;;
     *Rofi*)
-        $HOME/.config/hypr/settings/calculator.sh &
+        ~/.config/hypr/settings/calculator.sh &
         ;;
     *Notes*)
         $terminal --class dotfiles-floating -e nvim ~/notes.md &
         ;;
     *Settings*)
         flatpak run com.ml4w.hyprlandsettings &
+        ;;
+    *Shell*)
+        selected_shell=$(echo -e "bash\nzsh\nfish" | rofi -dmenu -i -config "$config_file" -p "🐚 Select Shell")
+        if [ ! -z "$selected_shell" ]; then
+            $terminal --class dotfiles-floating -e bash -c "chsh -s \$(which $selected_shell) && echo -e '\n✅ Shell berhasil diubah ke $selected_shell!\nSilakan logout dan login kembali untuk melihat perubahan.' || echo -e '\n❌ Gagal mengubah shell.'; read -n 1 -s -r -p 'Tekan tombol apa saja untuk menutup...'"
+        fi
         ;;
 esac
 

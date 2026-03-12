@@ -1,0 +1,130 @@
+# -----------------------------------------------------
+# CUSTOMIZATION
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Oh My Posh (Prompt)
+# -----------------------------------------------------
+if [ -f "$HOME/.local/bin/oh-my-posh" ]; then
+    eval "$($HOME/.local/bin/oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
+elif command -v oh-my-posh > /dev/null; then
+    eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
+fi
+
+# -----------------------------------------------------
+# oh-my-zsh configuration
+# -----------------------------------------------------
+plugins=(
+    git
+    sudo
+    web-search
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    copyfile
+    copybuffer
+    dirhistory
+)
+
+# Set-up oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# -----------------------------------------------------
+# Highlight Style (Autosuggestions)
+# -----------------------------------------------------
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#717c7a"
+
+# -----------------------------------------------------
+# Zsh Plugins (Manual Loading for non-OMZ plugins)
+# -----------------------------------------------------
+
+# History Substring Search (Prefix Search with Arrows)
+if [ -f /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
+
+# -----------------------------------------------------
+# FZF (Fuzzy Finder)
+# -----------------------------------------------------
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+else
+    source <(fzf --zsh)
+fi
+
+# -----------------------------------------------------
+# Zoxide (Smarter cd)
+# -----------------------------------------------------
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+    alias cd="z"
+fi
+
+# -----------------------------------------------------
+# Direnv (Project Environment Auto-loader)
+# -----------------------------------------------------
+if command -v direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
+# -----------------------------------------------------
+# Completion System
+# -----------------------------------------------------
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# -----------------------------------------------------
+# Directory Navigation (Auto-CD)
+# -----------------------------------------------------
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+# -----------------------------------------------------
+# Auto-Pairing (Brackets & Quotes)
+# -----------------------------------------------------
+function self-insert-closing() {
+  local char=$KEYS[1]
+  local -A pairs
+  pairs=('"' '"' "'" "'" '(' ')' '[' ']' '{' '}')
+  LBUFFER+=$char
+  RBUFFER=$pairs[$char]$RBUFFER
+}
+
+function backward-delete-pair() {
+  local -A pairs
+  pairs=('"' '"' "'" "'" '(' ')' '[' ']' '{' '}')
+  if [[ $pairs[$LBUFFER[-1]] == $RBUFFER[1] ]]; then
+    LBUFFER=${LBUFFER%?}
+    RBUFFER=${RBUFFER#?}
+  else
+    zle backward-delete-char
+  fi
+}
+
+foreach char ({'"',"'",'(','[','{'}) {
+  zle -N self-insert-closing
+  bindkey "$char" self-insert-closing
+}
+
+zle -N backward-delete-pair
+bindkey '^?' backward-delete-pair
+
+# -----------------------------------------------------
+# History Settings
+# -----------------------------------------------------
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY

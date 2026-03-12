@@ -1,0 +1,37 @@
+# -----------------------------------------------------
+# CUSTOMIZATION
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Prompt
+# -----------------------------------------------------
+if [ -f "$HOME/.local/bin/oh-my-posh" ]; then
+    eval "$($HOME/.local/bin/oh-my-posh init bash --config ~/.config/ohmyposh/zen.toml)"
+elif command -v oh-my-posh > /dev/null; then
+    eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/zen.toml)"
+fi
+
+# -----------------------------------------------------
+# Zoxide (Smarter cd)
+# -----------------------------------------------------
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init bash)"
+    alias cd="z"
+fi
+
+# -----------------------------------------------------
+# Direnv (Project Environment Auto-loader)
+# -----------------------------------------------------
+if command -v direnv > /dev/null; then
+    eval "$(direnv hook bash)"
+fi
+
+# -----------------------------------------------------
+# Completion System
+# -----------------------------------------------------
+# Enable bash completion if available
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
