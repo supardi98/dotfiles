@@ -3,12 +3,17 @@
 # -----------------------------------------------------
 
 # -----------------------------------------------------
-# Prompt
+# Oh My Posh (Prompt)
 # -----------------------------------------------------
+if [ -f ~/.config/hypr/settings/ricing.conf ]; then
+    source ~/.config/hypr/settings/ricing.conf
+fi
+posh_theme="${POSH_THEME:-zen.toml}"
+
 if [ -f "$HOME/.local/bin/oh-my-posh" ]; then
-    eval "$($HOME/.local/bin/oh-my-posh init bash --config ~/.config/ohmyposh/zen.toml)"
+    eval "$($HOME/.local/bin/oh-my-posh init bash --config ~/.config/ohmyposh/$posh_theme)"
 elif command -v oh-my-posh > /dev/null; then
-    eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/zen.toml)"
+    eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/$posh_theme)"
 fi
 
 # -----------------------------------------------------

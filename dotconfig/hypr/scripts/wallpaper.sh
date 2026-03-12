@@ -80,6 +80,11 @@ fi
 _writeLog "Applying wallpaper with awww: $used_wallpaper"
 awww img "$used_wallpaper" --transition-type any
 
+# Load Central Configuration
+if [ -f ~/.config/hypr/settings/ricing.conf ]; then
+    source ~/.config/hypr/settings/ricing.conf
+fi
+
 # -----------------------------------------------------
 # Execute matugen
 # -----------------------------------------------------
@@ -89,11 +94,14 @@ if [ -f "$SETTINGS_FILE" ]; then
     THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | awk -F'=' '{print $2}')
 fi
 
-_writeLog "Execute matugen with $used_wallpaper"
+# Fallback matugen mode
+matugen_mode="${MATUGEN_MODE:-scheme-vibrant}"
+
+_writeLog "Execute matugen with $used_wallpaper and mode $matugen_mode"
 if [ "$THEME_PREF" -eq 1 ]; then
-    $HOME/.local/bin/matugen image "$used_wallpaper" -m "dark"
+    $HOME/.local/bin/matugen image "$used_wallpaper" -m "dark" -t "$matugen_mode"
 else
-    $HOME/.local/bin/matugen image "$used_wallpaper" -m "light"
+    $HOME/.local/bin/matugen image "$used_wallpaper" -m "light" -t "$matugen_mode"
 fi
 
 # Update SwayNC
