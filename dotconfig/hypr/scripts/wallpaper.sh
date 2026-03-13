@@ -95,7 +95,7 @@ if [ -f "$SETTINGS_FILE" ]; then
 fi
 
 # Fallback matugen mode
-matugen_mode="${MATUGEN_MODE:-scheme-vibrant}"
+matugen_mode="${MATUGEN_MODE:-scheme-tonal-spot}"
 
 _writeLog "Execute matugen with $used_wallpaper and mode $matugen_mode"
 if [ "$THEME_PREF" -eq 1 ]; then

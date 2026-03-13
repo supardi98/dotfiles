@@ -93,7 +93,7 @@ case "$choice" in
         fi
         ;;
     *Matugen*)
-        new_val=$(echo -e "scheme-vibrant\nscheme-expressive\nscheme-fruit-salad\nscheme-rainbow\nscheme-monochrome" | rofi -dmenu -i -config "$ROFI_CONFIG" -p "🎨 Matugen Mode")
+        new_val=$(echo -e "scheme-tonal-spot\nscheme-expressive\nscheme-fruit-salad\nscheme-rainbow\nscheme-monochrome\nscheme-content\nscheme-fidelity\nscheme-neutral" | rofi -dmenu -i -config "$ROFI_CONFIG" -p "🎨 Matugen Mode")
         [ ! -z "$new_val" ] && update_config "MATUGEN_MODE" "$new_val"
         ;;
     *Screenshot*)
