@@ -104,7 +104,7 @@ window#waybar {
 
 #workspaces button {
     padding: 0px 8px;
-    color: @outline; /* Sangat redup saat tidak aktif */
+    color: @on_surface; /* Sangat redup saat tidak aktif */
     font-size: 14px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
     margin: 0 1px;
@@ -113,7 +113,7 @@ window#waybar {
 #workspaces button.active {
     color: @primary;
     padding: 0px 18px; /* Efek Melebar (Expand) */
-    background: @primary_container;
+    background: @primary_container_trans;
     border-radius: 4px;
     
     /* Efek Glow macOS Style */
@@ -123,7 +123,7 @@ window#waybar {
 
 #workspaces button:hover {
     color: @primary_fixed_dim;
-    background: @surface_variant;
+    background: @surface_variant_trans;
     border-radius: 4px;
 }
 

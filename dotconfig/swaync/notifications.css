@@ -1,9 +1,9 @@
-@import '../../colors.css';
+@import "colors.css";
 
 /* Derived dynamic colors */
-@define-color base rgba(30, 30, 46, 0.4);
-@define-color text #ffffff;
-@define-color text_dim rgba(255, 255, 255, 0.5);
+@define-color base @background;
+@define-color text @on_surface;
+@define-color text_dim @on_surface_variant;
 
 * {
   font-family: "JetBrainsMono Nerd Font", "SF Pro Display", sans-serif;
@@ -12,17 +12,19 @@
 
 /* Container Notifikasi Melayang (Glassy) */
 .floating-notifications.background .notification-row .notification-background .notification {
-    background: rgba(30, 30, 46, 0.6);
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px 12px;
-    margin: 5px 15px;
+    background: @blur_background;
+    border-radius: 4px;
+    border: none;
+    padding: 6px 10px;
+    margin: 4px 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+
 .floating-notifications.background .notification-row .notification-background .notification.critical {
-    border-left: 3px solid #ff5f56;
+    border-left: 3px solid @error;
 }
+
 
 /* Konten */
 .summary {

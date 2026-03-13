@@ -54,6 +54,8 @@ take_delayed() {
 case "$1" in
     --instant)          take_all; exit 0 ;;
     --instant-area)     take_area; exit 0 ;;
+    --copy-full)        grimblast --notify copy screen; exit 0 ;;
+    --copy-area)        grimblast --notify copy area; exit 0 ;;
     --copy-window)      take_window; exit 0 ;;
     --edit)             take_edit; exit 0 ;;
     --delayed)          take_delayed; exit 0 ;;
