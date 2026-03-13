@@ -28,9 +28,8 @@
   color: @text;
 }
 
-.widget-dnd > switch {
-  background: @surface_widget;
-  border-radius: 4px;
+.widget-dnd > switch:checked {
+  background: @primary;
 }
 
 /* === Widget: MPRIS (Compact) === */
