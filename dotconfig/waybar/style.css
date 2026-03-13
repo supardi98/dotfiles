@@ -1,3 +1,5 @@
+@import "colors.css";
+
 * {
     border: none;
     border-radius: 0;
@@ -14,7 +16,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(30, 30, 46, 0.45);
+    background: @blur_background;
     padding: 4px 10px;
     margin: 8px 5px;
     border-radius: 6px; /* Sudut sedikit melengkung tapi tetap tegas */
@@ -31,13 +33,13 @@ window#waybar {
 
 /* PULAU KIRI */
 #custom-apps { 
-    color: #ffffff; 
+    color: @primary; 
     font-size: 16px; 
     padding-right: 8px;
 }
 
 #clock {
-    color: rgba(255, 255, 255, 0.9);
+    color: @on_surface;
     padding: 0 8px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 600;
@@ -55,43 +57,43 @@ window#waybar {
 }
 
 #taskbar button.active {
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 2px solid #ffffff;
+    background: @secondary_container;
+    border-bottom: 2px solid @primary;
 }
 
 #window {
-    color: rgba(255, 255, 255, 0.85);
+    color: @on_surface_variant;
     font-weight: 500;
     font-style: italic;
 }
 
 #custom-music-prev, #custom-music-next {
-    color: #cba6f7;
+    color: @tertiary;
     padding: 0 8px;
     font-size: 18px;
     transition: all 0.2s ease;
 }
 
 #custom-music-prev:hover, #custom-music-next:hover {
-    color: #ffffff;
+    color: @primary;
 }
 
 #custom-music {
-    color: #cba6f7;
+    color: @tertiary;
     padding: 0 5px;
     font-weight: 600;
 }
 
 #custom-music.playing {
-    color: #a6e3a1; /* Green when playing */
+    color: @primary; /* Green-ish/Primary when playing */
 }
 
 #custom-music.paused {
-    color: #f9e2af; /* Yellow when paused */
+    color: @secondary; /* Secondary when paused */
 }
 
 #custom-music.stopped {
-    color: #6c7086; /* Gray when stopped */
+    color: @outline; /* Gray when stopped */
 }
 
 /* PULAU TENGAH: Workspaces (Expand & Glow) */
@@ -102,26 +104,26 @@ window#waybar {
 
 #workspaces button {
     padding: 0px 8px;
-    color: rgba(255, 255, 255, 0.2); /* Sangat redup saat tidak aktif */
+    color: @outline; /* Sangat redup saat tidak aktif */
     font-size: 14px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animasi membal */
     margin: 0 1px;
 }
 
 #workspaces button.active {
-    color: #ffffff;
+    color: @primary;
     padding: 0px 18px; /* Efek Melebar (Expand) */
-    background: rgba(255, 255, 255, 0.1);
+    background: @primary_container;
     border-radius: 4px;
     
     /* Efek Glow macOS Style */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 8px @primary;
     font-weight: bold;
 }
 
 #workspaces button:hover {
-    color: rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.05);
+    color: @primary_fixed_dim;
+    background: @surface_variant;
     border-radius: 4px;
 }
 
@@ -129,16 +131,16 @@ window#waybar {
 /* PULAU KANAN */
 #pulseaudio, #network, #bluetooth, #battery, #custom-notification, #custom-updates { 
     padding: 0 8px; 
-    color: rgba(255, 255, 255, 0.9); 
+    color: @on_surface; 
 }
 
 #custom-updates {
-    color: #eba0ac;
+    color: @error;
 }
 
 #custom-notification {
     font-size: 16px;
-    color: #ffffff;
+    color: @primary;
 }
 
 #tray {
@@ -150,20 +152,21 @@ window#waybar {
     padding: 0 4px; 
 }
 
-#cpu { color: #89b4fa; } /* Catppuccin Blue */
-#memory { color: #a6e3a1; } /* Catppuccin Green */
-#disk { color: #f9e2af; } /* Catppuccin Yellow */
-#temperature { color: #fab387; } /* Catppuccin Peach */
+#cpu { color: @primary; } 
+#memory { color: @secondary; } 
+#disk { color: @tertiary; } 
+#temperature { color: @error; } 
 
 /* Warna ikon yang lebih 'clean' khas macOS */
-#pulseaudio { color: #ffffff; }
-#network { color: #ffffff; }
-#bluetooth { color: #ffffff; }
-#battery { color: #ffffff; }
+#pulseaudio { color: @on_surface; }
+#network { color: @on_surface; }
+#bluetooth { color: @on_surface; }
+#battery { color: @on_surface; }
 
 #custom-power {
-    color: #ff5f56; /* Warna tombol merah Apple */
+    color: @error; /* Warna tombol merah Apple */
     padding-left: 10px;
     padding-right: 15px; /* Tambahkan padding agar tidak terpotong */
     font-size: 16px;
 }
+

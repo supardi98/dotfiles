@@ -3,6 +3,8 @@
  * Minimalist & Ultra-clean
  */
 
+@import "colors.css";
+
 * {
     background-image: none;
     transition: 0.3s cubic-bezier(0.2, 0.0, 0, 1.0);
@@ -12,7 +14,7 @@
 }
 
 window {
-    background-color: rgba(20, 20, 30, 0.4); /* Glass Overlay */
+    background-color: @blur_background; /* Glass Overlay */
 }
 
 grid {
@@ -20,25 +22,25 @@ grid {
 }
 
 button {
-    background-color: rgba(255, 255, 255, 0.379);
+    background-color: @surface_variant;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30px; /* Ukuran ikon lebih kecil */
     border-radius: 12px;   /* Radius lebih kecil untuk tampilan modern */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid @outline_variant;
     margin: 80px 10px;
     padding: 80px;
     font-weight: 900;
-    color: #ffffff;
+    color: @on_surface;
 }
 
 button:focus,
 button:active,
 button:hover {
-    background-color: rgba(255, 255, 255, 0.564);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;        /* Tampilkan teks saat hover jika diperlukan */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    background-color: @primary_container;
+    border: 1px solid @primary;
+    color: @on_primary_container;        /* Tampilkan teks saat hover jika diperlukan */
+    box-shadow: 0 0 20px @primary;
     background-size: 34px; /* Sedikit membesar saat hover */
 }
 

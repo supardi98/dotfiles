@@ -107,6 +107,9 @@ fi
 # Update SwayNC
 swaync-client -rs
 
+# Restart Waybar
+$HOME/.config/hypr/scripts/launch-waybar.sh
+
 # -----------------------------------------------------
 # Create Blurred and Rasi file (for Rofi)
 # -----------------------------------------------------
@@ -125,3 +128,4 @@ notify_user \
     --m "$wallpaperfilename" \
     --i "$NOTIFICATION_ICON" \
     --t 3000
+

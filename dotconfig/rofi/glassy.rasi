@@ -12,12 +12,14 @@ configuration {
     font:                       "JetBrainsMono Nerd Font 10";
 }
 
+@import "colors.rasi"
+
 * {
-    bg-color:            #14141ee6;
-    bg-selected:         #ffffff1a;
-    fg-color:            #ffffff;
-    accent-color:        #89b4fa;
-    border-color:        #ffffff1a;
+    bg-color:            @background;
+    bg-selected:         @primary-container;
+    fg-color:            @on-surface;
+    accent-color:        @primary;
+    border-color:        @outline-variant;
 }
 
 window {
