@@ -55,7 +55,7 @@ case "$choice" in
         ;;
     *Browser*)
         # ... (rest of browser logic)
-        apps=("firefox", "brave" "chromium" "google-chrome-stable" "librewolf")
+        apps=("firefox" "brave" "chromium" "google-chrome-stable" "librewolf")
         selected=$(check_apps "${apps[@]}" | rofi -dmenu -i -config "$ROFI_CONFIG" -p "🌐 Select Browser")
         [ -z "$selected" ] && exit 0
         if [[ "$selected" == *"Other"* ]]; then
