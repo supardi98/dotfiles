@@ -6,6 +6,7 @@ hyprctl reload
 
 # 2. Reload Waybar (via existing launch-waybar script)
 # Pastikan script ini dipanggil via absolute path atau menggunakan variabel yang tepat
+sleep 0.5
 $HOME/.config/hypr/scripts/launch-waybar.sh
 
 # 3. Kirim notifikasi

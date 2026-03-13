@@ -28,6 +28,8 @@ PACKAGES=(
     eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim rofimoji wtype
     # Fonts & Icons
     ttf-jetbrains-mono-nerd
+    # GNOME Keyring
+    gnome-keyring libsecret
 )
 
 # Catatan: Beberapa paket seperti firefox, grimblast-git, swayosd-git, cliphist 
@@ -69,7 +71,6 @@ chmod +x apply.sh
 chmod +x apply-spotify-theme.sh
 chmod +x install-spotify.sh
 find dotconfig/hypr/scripts -type f -name "*.sh" -exec chmod +x {} +
-chmod +x dotconfig/waybar/launch.sh
 
 # 7. Instal aplikasi tambahan (Kalender & Settings GUI)
 if command -v flatpak &> /dev/null; then

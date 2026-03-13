@@ -87,6 +87,7 @@ link_config "$DOTFILES_DIR/dotconfig/ml4w" "$CONFIG_DIR/ml4w"
 # 15. Other Configurations
 link_config "$DOTFILES_DIR/dotconfig/chromium-flags.conf" "$CONFIG_DIR/chromium-flags.conf"
 link_config "$DOTFILES_DIR/dotconfig/edge-flags.conf" "$CONFIG_DIR/edge-flags.conf"
+link_config "$DOTFILES_DIR/dotconfig/brave-flags.conf" "$CONFIG_DIR/brave-flags.conf"
 
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
