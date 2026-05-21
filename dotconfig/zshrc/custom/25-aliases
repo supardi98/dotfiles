@@ -120,3 +120,7 @@ alias ascii='~/.config/ml4w/scripts/ml4w-ascii-header'
 # -----------------------------------------------------
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
+# ANDROID SDK
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
