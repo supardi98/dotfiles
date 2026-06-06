@@ -32,7 +32,7 @@ PACKAGES=(
     # Terminal Productivity
     eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer direnv nvim
     # Fonts
-    ttf-jetbrains-mono-nerd
+    ttf-jetbrains-mono-nerd ttf-apple-emoji
     # GNOME Keyring
     gnome-keyring libsecret
 )
@@ -70,6 +70,11 @@ sudo systemctl enable --now NetworkManager || true
 # 5. Inisialisasi Tealdeer (tldr)
 echo "📖 Mengupdate database tldr..."
 tldr --update || echo "⚠️ Gagal mengupdate tldr."
+
+# 5.1 Prioritaskan Emoji Apple
+echo "🍎 Mengaktifkan konfigurasi Emoji Apple..."
+sudo ln -sf /usr/share/fontconfig/conf.avail/75-apple-color-emoji.conf /etc/fonts/conf.d/ || true
+fc-cache -f > /dev/null 2>&1 || true
 
 # 6. Berikan izin eksekusi pada skrip pendukung
 echo "🔑 Memberikan izin eksekusi pada skrip..."

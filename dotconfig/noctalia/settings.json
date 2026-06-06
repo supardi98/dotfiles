@@ -1,6 +1,6 @@
 {
     "appLauncher": {
-        "autoPasteClipboard": false,
+        "autoPasteClipboard": true,
         "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
         "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
         "clipboardWrapText": true,
@@ -266,7 +266,7 @@
         "monitorForColors": "HDMI-A-1",
         "predefinedScheme": "Catppuccin",
         "schedulingMode": "off",
-        "syncGsettings": false,
+        "syncGsettings": true,
         "useWallpaperColors": true
     },
     "controlCenter": {
@@ -449,7 +449,7 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": false,
-        "avatarImage": "/home/supardi/.face",
+        "avatarImage": "/home/supardi/Projects/ricing/dotconfig/wallpapers/44753.jpg",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "custom",
@@ -723,13 +723,17 @@
             {
                 "enabled": true,
                 "id": "code"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
             }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": true,
-        "fontDefault": "DejaVu LGC Sans",
+        "fontDefault": "Sans Serif",
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
