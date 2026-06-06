@@ -1,3 +1,19 @@
-@import 'colors.css';
+/* GTK3 Transparency */
+window,
+window.background,
+.background,
+headerbar,
+.headerbar,
+sidebar,
+.sidebar,
+stack,
+scrolledwindow {
+    background-color: rgba(22, 19, 11, 0.7) !important;
+}
+
+/* Biarkan teks tetap solid */
+label, image {
+    opacity: 1 !important;
+}
 
 @import url("noctalia.css");

@@ -1,4 +1,4 @@
-window-rule {
-    match is-focused=true
-    maximize-column true
+layer-rule {
+    match namespace="noctalia-notifications-HDMI-A-1"
+    xray true
 }

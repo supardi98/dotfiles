@@ -107,3 +107,10 @@
 @define-color tertiary_fixed #c8ecca;
 
 @define-color tertiary_fixed_dim #accfaf;
+
+
+.notification-window {
+    background: transparent !important;
+}
+
+

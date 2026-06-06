@@ -1,43 +1,48 @@
 #!/usr/bin/env bash
-# 🚀 Ultimate Dotfiles Installer for Hyprland, Zsh, Bash & Fish Pro
+# 🚀 Ultimate Dotfiles Installer for Niri + Noctalia Shell Pro
 
 set -e # Berhenti jika ada error
 
-echo "=== MEMULAI INSTALASI DOTFILES ==="
+echo "=== MEMULAI INSTALASI DOTFILES (Niri Edition) ==="
 
 # 1. Periksa apakah sistem berbasis Arch
 if [ ! -f /etc/arch-release ]; then
-    echo "❌ Error: Skrip ini didesain khusus untuk Arch Linux atau turunannya (CachyOS, Manjaro, EndevourOS)."
+    echo "❌ Error: Skrip ini didesain khusus untuk Arch Linux atau turunannya (CachyOS, Manjaro, EndeavourOS)."
     exit 1
 fi
 
 # 2. Update Sistem & Instal Paket Utama
 echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 
-# Daftar paket dari repositori resmi
+# Daftar paket utama
 PACKAGES=(
     # Core Desktop & Window Manager
-    hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak 
     niri noctalia-shell xwayland-satellite-git
-    bluez bluez-utils blueman rofi-calc networkmanager qt6ct xsettingsd 
-    hyprpicker hyprshade playerctl grim slurp wl-clipboard waypaper
-    # File Manager & Browser
-    nautilus firefox
+    kitty bluez bluez-utils blueman networkmanager qt6ct xsettingsd 
+    playerctl grim slurp wl-clipboard swaybg jq
+    # File Manager, Browser & Core Apps
+    nautilus brave gnome-calculator loupe gnome-text-editor
+    evince gnome-system-monitor baobab
+    # Modified Apps (AUR)
+    spotify visual-studio-code-bin
+    # Theme & Portal
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk papirus-icon-theme
     # Shells
-    zsh fish
+    zsh fish bash-completion
     # Terminal Productivity
-    eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim rofimoji wtype
-    # Fonts & Icons
+    eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer direnv nvim
+    # Fonts
     ttf-jetbrains-mono-nerd
     # GNOME Keyring
     gnome-keyring libsecret
 )
 
-# Catatan: Beberapa paket seperti firefox, grimblast-git, swayosd-git, cliphist 
-# mungkin perlu diinstal via AUR jika tidak ada di repo resmi distro Anda.
-# Kami akan mencoba menginstal paket yang tersedia di repo resmi terlebih dahulu.
-
-sudo pacman -S --needed --noconfirm "${PACKAGES[@]}" || echo "⚠️ Beberapa paket mungkin tidak tersedia di repositori resmi, silakan instal via AUR (yay/paru)."
+# Gunakan yay jika tersedia, jika tidak pakai pacman
+if command -v yay &> /dev/null; then
+    yay -S --needed --noconfirm "${PACKAGES[@]}"
+else
+    sudo pacman -S --needed --noconfirm "${PACKAGES[@]}" || echo "⚠️ Beberapa paket mungkin butuh AUR (yay/paru)."
+fi
 
 # 2.1 Instal Matugen (Warna Dinamis)
 if ! command -v matugen &> /dev/null; then
@@ -56,7 +61,7 @@ fi
 
 # 3 Aktifkan Bluetooth Service
 echo "🔵 Mengaktifkan layanan Bluetooth..."
-sudo systemctl enable --now bluetooth || echo "⚠️ Gagal mengaktifkan bluetooth, abaikan jika tidak ada hardwarenya."
+sudo systemctl enable --now bluetooth || echo "⚠️ Gagal mengaktifkan bluetooth."
 
 # 4. Aktifkan NetworkManager
 echo "🌐 Memastikan NetworkManager aktif..."
@@ -64,29 +69,21 @@ sudo systemctl enable --now NetworkManager || true
 
 # 5. Inisialisasi Tealdeer (tldr)
 echo "📖 Mengupdate database tldr..."
-tldr --update || echo "⚠️ Gagal mengupdate tldr, abaikan saja."
+tldr --update || echo "⚠️ Gagal mengupdate tldr."
 
 # 6. Berikan izin eksekusi pada skrip pendukung
 echo "🔑 Memberikan izin eksekusi pada skrip..."
 chmod +x apply.sh
 chmod +x apply-spotify-theme.sh
 chmod +x install-spotify.sh
-find dotconfig/hypr/scripts -type f -name "*.sh" -exec chmod +x {} +
+find dotconfig/niri/scripts -type f -name "*.sh" -exec chmod +x {} +
 
-# 7. Instal aplikasi tambahan (Kalender & Settings GUI)
-if command -v flatpak &> /dev/null; then
-    echo "📦 Menginstal Aplikasi Pendukung (Kalender & Settings GUI)..."
-    flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
-    flatpak install --noninteractive ml4w-repo com.ml4w.calendar com.ml4w.settings || true
-fi
-
-# 8. Jalankan apply.sh untuk setup symlinks
+# 7. Jalankan apply.sh untuk setup symlinks
 echo "🔗 Menjalankan apply.sh untuk menghubungkan konfigurasi..."
 ./apply.sh
 
 echo ""
 echo "=== SELESAI! ==="
-echo "Semua aplikasi telah terinstal dan konfigurasi telah diterapkan."
-echo "Anda dapat menggunakan perintah 'chsh' atau menu Tools untuk mengubah shell default."
-echo "Silakan restart Hyprland (Super+Shift+Q) dan buka terminal baru."
-echo "Selamat menikmati pengalaman Ricing Pro Anda! 🚀"
+echo "Semua aplikasi telah terinstal dan konfigurasi Niri + Noctalia telah diterapkan."
+echo "Silakan restart sesi dan pilih 'Niri' di layar login."
+echo "Selamat menikmati pengalaman Niri Pro Anda! 🚀"
