@@ -110,6 +110,7 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { spawn "~/.config/niri/scripts/reload.sh"; }
+    Mod+T { toggle-window-floating; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
@@ -200,7 +201,7 @@ window-rule {
 
 // Float specific utility apps
 window-rule {
-    match app-id=r#"^(org\.gnome\.Calculator|pavucontrol|blueman-manager|nm-connection-editor|xdg-desktop-portal.*|Spotify)$"#
+    match app-id=r#"^(org\.gnome\.Calculator|pavucontrol|blueman-manager|nm-connection-editor|xdg-desktop-portal.*|Spotify|org\.gnome\.TextEditor)$"#
     open-floating true
 }
 
