@@ -19,12 +19,12 @@
         "overviewLayer": false,
         "pinnedApps": [
         ],
-        "position": "center",
+        "position": "bottom_center",
         "screenshotAnnotationTool": "",
         "showCategories": true,
         "showIconBackground": false,
         "sortByMostUsed": true,
-        "terminalCommand": "alacritty -e",
+        "terminalCommand": "kitty -e ",
         "viewMode": "list"
     },
     "audio": {
@@ -410,14 +410,14 @@
         "overviewEnabled": true
     },
     "dock": {
-        "animationSpeed": 1,
+        "animationSpeed": 2,
         "backgroundOpacity": 0.52,
         "colorizeIcons": false,
         "deadOpacity": 0,
         "displayMode": "auto_hide",
         "dockType": "floating",
         "enabled": true,
-        "floatingRatio": 0.9500000000000001,
+        "floatingRatio": 1.3,
         "groupApps": true,
         "groupClickAction": "list",
         "groupContextMenuMode": "list",
@@ -434,13 +434,14 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
+            "brave-browser"
         ],
         "pinnedStatic": false,
         "position": "bottom",
         "showDockIndicator": false,
-        "showLauncherIcon": false,
+        "showLauncherIcon": true,
         "sitOnFrame": false,
-        "size": 1.2
+        "size": 0.98
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
@@ -580,7 +581,7 @@
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
         "enableMarkdown": false,
-        "enableMediaToast": true,
+        "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 3,
@@ -596,7 +597,7 @@
         },
         "sounds": {
             "criticalSoundFile": "",
-            "enabled": false,
+            "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
             "lowSoundFile": "",
             "normalSoundFile": "",
