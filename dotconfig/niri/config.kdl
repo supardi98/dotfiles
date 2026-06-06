@@ -80,7 +80,7 @@ binds {
     Mod+Q { close-window; }
     Mod+Shift+E { quit; }
     Mod+Tab { toggle-overview; }
-    Mod+Alt+L { spawn "hyprlock"; }
+    Mod+Shift+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     
     Mod+E { spawn "nautilus"; }
     Mod+B { spawn "brave"; }
