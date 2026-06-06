@@ -753,9 +753,9 @@
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
-        "overviewBlur": 0,
+        "overviewBlur": 1,
         "overviewEnabled": false,
-        "overviewTint": 0,
+        "overviewTint": 1,
         "panelPosition": "center",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,

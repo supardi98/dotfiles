@@ -4,7 +4,7 @@
 # Kirim notifikasi awal
 notify-send -u low -t 2000 "System" "Reloading Niri & Noctalia..."
 
-# 🎨 Update Niri colors from Noctalia colors.json
+# 🎨 Update Niri colors from Noctalia
 if command -v jq >/dev/null 2>&1; then
     COLORS_FILE="$HOME/.config/noctalia/colors.json"
     if [ -f "$COLORS_FILE" ]; then
@@ -16,9 +16,16 @@ if command -v jq >/dev/null 2>&1; then
     fi
 fi
 
-# 🌙 Force GTK Dark Mode
+# 🌈 Enhance GTK Aesthetics (Nautilus & File Picker)
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface font-name 'DejaVu LGC Sans 10'
+gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+
+# Fix File Picker to use GNOME Portal
+systemctl --user stop xdg-desktop-portal-gnome xdg-desktop-portal-gtk xdg-desktop-portal
+systemctl --user start xdg-desktop-portal-gnome xdg-desktop-portal
 
 # Reload Niri
 niri msg action load-config-file
@@ -28,7 +35,7 @@ pkill -f "quickshell"
 pkill -f "noctalia-shell"
 pkill -f "qs -c noctalia-shell"
 
-# Matikan daemon notifikasi lain agar Noctalia bisa mengambil alih
+# Matikan daemon notifikasi lain
 pkill swaync
 pkill mako
 
