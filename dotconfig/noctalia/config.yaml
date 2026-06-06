@@ -1,0 +1,75 @@
+# Noctalia Shell Configuration (v4)
+# Optimized for Niri + Glassy UI
+
+shell:
+  ui_scale: 1.0
+  font:
+    family: "JetBrainsMono Nerd Font"
+    size: 11
+  animations:
+    enabled: true
+    duration: 300
+  shadows:
+    enabled: true
+    radius: 12
+    opacity: 0.3
+
+theming:
+  mode: "manual" # We use Matugen to drive colors
+  palette: "material"
+  
+bars:
+  top:
+    enabled: true
+    position: "top"
+    height: 36
+    margin: 8
+    spacing: 12
+    widgets:
+      left:
+        - type: "Launcher"
+          icon: "brand-archlinux"
+        - type: "Workspace"
+          monitor_id: 0
+      center:
+        - type: "Clock"
+          format: "%a, %d %b  %H:%M"
+      right:
+        - type: "CustomButton"
+          icon: "clipboard"
+          leftClickExec: "qs -c noctalia-shell ipc call launcher clipboard"
+        - type: "CustomButton"
+          icon: "mood-smile"
+          leftClickExec: "qs -c noctalia-shell ipc call launcher emoji"
+        - type: "Tray"
+        - type: "Network"
+          displayMode: "always"
+        - type: "Bluetooth"
+          displayMode: "always"
+        - type: "Volume"
+        - type: "Battery"
+        - type: "SessionMenu"
+
+launcher:
+  enabled: true
+  width: 500
+  height: 400
+  blur: true
+  opacity: 0.8
+  
+dock:
+  enabled: true
+  position: "bottom"
+  height: 50
+  margin: 12
+  icon_size: 32
+  autohide: true
+
+# Services integration
+services:
+  audio:
+    backend: "wireplumber"
+  brightness:
+    backend: "brightnessctl"
+  network:
+    backend: "networkmanager"

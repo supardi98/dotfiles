@@ -18,6 +18,7 @@ echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 PACKAGES=(
     # Core Desktop & Window Manager
     hyprland hyprlock hypridle kitty waybar rofi-wayland swaync awww flatpak 
+    niri noctalia-shell xwayland-satellite-git
     bluez bluez-utils blueman rofi-calc networkmanager qt6ct xsettingsd 
     hyprpicker hyprshade playerctl grim slurp wl-clipboard waypaper
     # File Manager & Browser

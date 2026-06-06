@@ -1,0 +1,4 @@
+window-rule {
+    match is-focused=true
+    maximize-column true
+}

@@ -1,0 +1,177 @@
+// Niri Configuration File
+// Optimized Version for Glassy Look & Fixed UX
+
+// Screenshot settings
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-speed 0.2
+    }
+}
+
+output "HDMI-A-1" {
+    mode "2560x1440@59.951"
+    scale 1.0
+}
+
+layout {
+    gaps 8
+    center-focused-column "never"
+    
+    default-column-width { proportion 0.5; }
+    
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+    
+    background-color "#00000000"
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-color "#9ecaff" // Updated via reload.sh
+        inactive-color "#1e1e2e"
+    }
+
+    struts {
+        left 0
+        right 0
+        top 18
+        bottom 0
+    }
+}
+
+// Global blur settings
+blur {
+    passes 3
+    offset 5
+}
+
+// Animations
+animations {
+    slowdown 0.8
+}
+
+// Autostart applications
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
+binds {
+    Mod+Return { spawn "kitty"; }
+    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Q { close-window; }
+    Mod+Shift+E { quit; }
+    Mod+Tab { toggle-overview; }
+    Mod+Alt+L { spawn "hyprlock"; }
+    
+    Mod+E { spawn "nautilus"; }    Mod+B { spawn "brave"; }
+    Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+Period { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    // Scrolling Actions
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-right; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-column-left; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { spawn "~/.config/niri/scripts/reload.sh"; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Print { screenshot; }
+    Shift+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+    
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    
+    XF86MonBrightnessUp   { spawn "brightnessctl" "set" "10%+"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-"; }
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Glassy Effect for Kitty
+window-rule {
+    match app-id="kitty"
+    opacity 0.8
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Inactive window transparency & blur
+window-rule {
+    match is-focused=false
+    opacity 0.8
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Float specific utility apps
+window-rule {
+    match app-id="^(org\.gnome\.Calculator|pavucontrol|blueman-manager|nm-connection-editor|xdg-desktop-portal.*)$"
+    open-floating true
+}

@@ -3,6 +3,10 @@
 Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desktop **Hyprland** yang estetik, modern, dan sangat fungsional, dipadukan dengan alur kerja terminal **Zsh** tingkat lanjut.
 
 ## ✨ Fitur Utama
+- **Niri + Noctalia Shell (NEW)**:
+  - **Scrollable Tiling**: Pengalaman tiling yang unik secara horizontal.
+  - **Noctalia UI**: Shell berbasis Qt6/QML yang modern dan sangat responsif.
+  - **Xwayland Satellite**: Dukungan aplikasi X11 yang terisolasi dan stabil.
 - **Hyprland Experience**:
   - **Glassy UI**: Efek blur transparan pada jendela, bar, dan launcher.
   - **Dynamic Animations**: Berbagai preset animasi (Classic, Smooth, Fast, dsb).

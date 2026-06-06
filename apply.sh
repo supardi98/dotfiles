@@ -89,6 +89,10 @@ link_config "$DOTFILES_DIR/dotconfig/chromium-flags.conf" "$CONFIG_DIR/chromium-
 link_config "$DOTFILES_DIR/dotconfig/edge-flags.conf" "$CONFIG_DIR/edge-flags.conf"
 link_config "$DOTFILES_DIR/dotconfig/brave-flags.conf" "$CONFIG_DIR/brave-flags.conf"
 
+# 16. Niri & Noctalia (New Migration)
+link_config "$DOTFILES_DIR/dotconfig/niri" "$CONFIG_DIR/niri"
+link_config "$DOTFILES_DIR/dotconfig/noctalia" "$CONFIG_DIR/noctalia"
+
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
 echo "Silakan restart Hyprland (Super+Shift+Q atau Logout) untuk melihat hasilnya."
