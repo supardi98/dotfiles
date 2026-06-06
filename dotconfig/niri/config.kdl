@@ -82,7 +82,8 @@ binds {
     Mod+Tab { toggle-overview; }
     Mod+Alt+L { spawn "hyprlock"; }
     
-    Mod+E { spawn "nautilus"; }    Mod+B { spawn "brave"; }
+    Mod+E { spawn "nautilus"; }
+    Mod+B { spawn "brave"; }
     Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+Period { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
 
@@ -172,6 +173,14 @@ window-rule {
 
 // Float specific utility apps
 window-rule {
-    match app-id="^(org\.gnome\.Calculator|pavucontrol|blueman-manager|nm-connection-editor|xdg-desktop-portal.*)$"
+    match app-id=r#"^(org\.gnome\.Calculator|pavucontrol|blueman-manager|nm-connection-editor|xdg-desktop-portal.*)$"#
     open-floating true
+}
+
+// Picture-in-Picture (PiP) - More aggressive matching
+window-rule {
+    match title="Picture-in-Picture"
+    match title="Picture-in-picture"
+    open-floating true
+    default-floating-position x=32 y=32 relative-to="bottom-right"
 }
