@@ -7,7 +7,7 @@ echo "=== MEMULAI INSTALASI SPOTIFY PRO SETUP ==="
 
 # 1. Instal Spotify & Tray via AUR
 echo "📦 Menginstal Spotify dan Spotify Tray Wayland..."
-yay -S --needed --noconfirm spotify spotify-tray-wayland-bin spicetify-cli
+yay -S --needed --noconfirm spotify spicetify-cli
 
 # 2. Jalankan skrip penerapan tema
 if [ -f "./apply-spotify-theme.sh" ]; then
