@@ -444,7 +444,6 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-            "brave-browser"
         ],
         "pinnedStatic": false,
         "position": "bottom",

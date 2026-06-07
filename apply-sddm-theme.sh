@@ -1,42 +1,39 @@
 #!/usr/bin/env bash
-# 🚀 SDDM Theme Application Script
+# 🚀 SDDM Theme Application Script (SilentSDDM Edition)
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-THEME_NAME="sddm-astronaut-theme"
+THEME_NAME="SilentSDDM"
 THEME_SRC="$DOTFILES_DIR/dotconfig/sddm/themes/$THEME_NAME"
 THEME_DEST="/usr/share/sddm/themes/$THEME_NAME"
 
-echo "=== Menerapkan Tema SDDM Astronaut ==="
+echo "=== Menerapkan Tema $THEME_NAME ==="
 
 # 1. Instal Dependensi
 echo "📦 Menginstal dependensi SDDM..."
-sudo pacman -S --needed --noconfirm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+sudo pacman -S --needed --noconfirm qt6-svg qt6-declarative qt6-multimedia-ffmpeg
 
 # 2. Salin Tema ke Folder Sistem
-echo "📂 Menyalin tema ke /usr/share/sddm/themes/..."
+echo "📂 Menyalin tema ke $THEME_DEST..."
 sudo mkdir -p "$THEME_DEST"
 sudo cp -r "$THEME_SRC"/* "$THEME_DEST"/
 
-# 3. Instal Font
-echo "Fonts: Menyalin font ke /usr/share/fonts/..."
-sudo mkdir -p /usr/share/fonts/sddm-astronaut
-sudo cp -r "$THEME_SRC/Fonts"/* /usr/share/fonts/sddm-astronaut/
-fc-cache -f > /dev/null
-
-# 4. Konfigurasi SDDM
+# 3. Konfigurasi SDDM
 echo "🔧 Mengatur tema di /etc/sddm.conf..."
 sudo mkdir -p /etc/sddm.conf.d
 echo "[Theme]
 Current=$THEME_NAME" | sudo tee /etc/sddm.conf > /dev/null
 
-# 5. Set default variant ke 'astronaut' di metadata
-echo "🎨 Mengatur varian default ke 'astronaut'..."
-sudo sed -i "s|^ConfigFile=.*|ConfigFile=Themes/astronaut.conf|" "$THEME_DEST/metadata.desktop"
-
-# 6. Tambahkan aturan Sudoers untuk sinkronisasi wallpaper
+# 4. Tambahkan aturan Sudoers untuk sinkronisasi wallpaper
 echo "🔑 Menambahkan aturan sudoers untuk sinkronisasi wallpaper..."
-echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/cp * $THEME_DEST/Backgrounds/*, /usr/bin/sed -i * $THEME_DEST/Themes/*" | sudo tee /etc/sudoers.d/sddm-sync > /dev/null
+# Aturan untuk menyalin ke folder backgrounds dan mengedit file configs/default.conf
+echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/cp * $THEME_DEST/backgrounds/*, /usr/bin/sed -i * $THEME_DEST/configs/*" | sudo tee /etc/sudoers.d/sddm-sync > /dev/null
 sudo chmod 440 /etc/sudoers.d/sddm-sync
 
+# 5. Jalankan sinkronisasi awal
+echo "🔄 Melakukan sinkronisasi wallpaper awal..."
+if [ -f ~/.config/niri/scripts/sync-sddm-wall.sh ]; then
+    ~/.config/niri/scripts/sync-sddm-wall.sh
+fi
+
 echo "=== SELESAI! ==="
-echo "Tema SDDM telah diterapkan. Anda akan melihatnya saat logout atau restart."
+echo "Tema $THEME_NAME telah diterapkan. Anda akan melihatnya saat logout atau restart."

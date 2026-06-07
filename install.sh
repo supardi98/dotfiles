@@ -27,6 +27,7 @@ PACKAGES=(
     spotify visual-studio-code-bin
     # Theme & Portal
     xdg-desktop-portal-gnome xdg-desktop-portal-gtk papirus-icon-theme
+    qt6-svg qt6-declarative qt6-multimedia-ffmpeg
     # Shells
     zsh fish bash-completion
     # Terminal Productivity
