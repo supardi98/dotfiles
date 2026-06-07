@@ -263,7 +263,7 @@
         "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "monitorForColors": "HDMI-A-1",
+        "monitorForColors": "eDP-1",
         "predefinedScheme": "Catppuccin",
         "schedulingMode": "off",
         "syncGsettings": true,
@@ -449,7 +449,7 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": false,
-        "avatarImage": "/home/supardi/Projects/ricing/dotconfig/wallpapers/44753.jpg",
+        "avatarImage": "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "custom",
@@ -551,7 +551,7 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": true,
+        "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,

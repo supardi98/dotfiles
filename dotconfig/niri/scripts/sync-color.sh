@@ -5,7 +5,8 @@
 if command -v jq >/dev/null 2>&1; then
     SETTINGS_FILE="$HOME/.config/noctalia/settings.json"
     COLORS_FILE="$HOME/.config/noctalia/colors.json"
-    DOT_CONFIG_FILE="/home/supardi/Projects/ricing/dotconfig/niri/config.kdl"
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    DOT_CONFIG_FILE="$(dirname "$SCRIPT_DIR")/config.kdl"
     
     # Ambil warna primer
     PRIMARY_COLOR=$(jq -r '.colorSchemes.Noctalia.mPrimary // empty' "$SETTINGS_FILE" 2>/dev/null)

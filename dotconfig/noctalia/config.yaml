@@ -44,8 +44,6 @@ bars:
         - type: "Tray"
         - type: "Network"
           displayMode: "always"
-        - type: "Bluetooth"
-          displayMode: "always"
         - type: "Volume"
         - type: "Battery"
         - type: "SessionMenu"

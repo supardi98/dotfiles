@@ -19,7 +19,7 @@ PACKAGES=(
     # Core Desktop & Window Manager
     niri noctalia-shell matugen
     kitty bluez bluez-utils blueman networkmanager qt6ct xsettingsd 
-    playerctl grim slurp wl-clipboard swaybg jq
+    playerctl grim slurp wl-clipboard swaybg jq cliphist
     # File Manager, Browser & Core Apps
     nautilus brave gnome-calculator loupe gnome-text-editor
     evince gnome-system-monitor baobab
@@ -45,11 +45,28 @@ else
 fi
 
 # 2.2 Instal Oh My Posh (Prompt)
-
 if ! command -v oh-my-posh &> /dev/null; then
     echo "✨ Menginstal Oh My Posh..."
     mkdir -p ~/.local/bin
     curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+fi
+
+# 2.3 Instal Oh My Zsh & Plugins
+if [ ! -d ~/.oh-my-zsh ]; then
+    echo "ZSH: Menginstal Oh My Zsh..."
+    RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+echo "ZSH: Menginstal/Update Plugins..."
+[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+[ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+[ ! -d "$ZSH_CUSTOM/plugins/fast-syntax-highlighting" ] && git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git "$ZSH_CUSTOM/plugins/fast-syntax-highlighting"
+
+# 2.4 Set Zsh sebagai Default Shell
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "🐚 Mengatur Zsh sebagai shell default..."
+    sudo chsh -s "$(which zsh)" "$USER"
 fi
 
 # 3 Aktifkan Bluetooth Service
@@ -74,11 +91,16 @@ echo "🔑 Memberikan izin eksekusi pada skrip..."
 chmod +x apply.sh
 chmod +x apply-spotify-theme.sh
 chmod +x install-spotify.sh
+chmod +x apply-sddm-theme.sh
 find dotconfig/niri/scripts -type f -name "*.sh" -exec chmod +x {} +
 
 # 7. Jalankan apply.sh untuk setup symlinks
 echo "🔗 Menjalankan apply.sh untuk menghubungkan konfigurasi..."
 ./apply.sh
+
+# 8. Jalankan apply-sddm-theme.sh
+echo "🎨 Menerapkan tema SDDM..."
+./apply-sddm-theme.sh
 
 echo ""
 echo "=== SELESAI! ==="

@@ -9,7 +9,8 @@ if command -v jq >/dev/null 2>&1; then
     COLORS_FILE="$HOME/.config/noctalia/colors.json"
     if [ -f "$COLORS_FILE" ]; then
         PRIMARY_COLOR=$(jq -r '.mPrimary // empty' "$COLORS_FILE")
-        DOT_CONFIG_FILE="/home/supardi/Projects/ricing/dotconfig/niri/config.kdl"
+        SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+        DOT_CONFIG_FILE="$(dirname "$SCRIPT_DIR")/config.kdl"
         if [ ! -z "$PRIMARY_COLOR" ] && [[ "$PRIMARY_COLOR" =~ ^# ]] && [ -f "$DOT_CONFIG_FILE" ]; then
             sed -i "s/active-color \".*\" \/\/ Updated via reload.sh/active-color \"$PRIMARY_COLOR\" \/\/ Updated via reload.sh/" "$DOT_CONFIG_FILE"
         fi

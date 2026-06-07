@@ -35,6 +35,32 @@ link_config "$DOTFILES_DIR/dotconfig/noctalia" "$CONFIG_DIR/noctalia"
 link_config "$DOTFILES_DIR/dotconfig/kitty" "$CONFIG_DIR/kitty"
 link_config "$DOTFILES_DIR/dotconfig/fish" "$CONFIG_DIR/fish"
 
+# 2.1 Setup .zshrc
+echo "🐚 Mengonfigurasi .zshrc..."
+if [ -f ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
+    mv ~/.zshrc ~/.zshrc.bak
+    echo "Backup .zshrc dibuat."
+fi
+cat <<EOF > ~/.zshrc
+# Auto-generated .zshrc (sources dotfiles)
+for file in $DOTFILES_DIR/dotconfig/zshrc/custom/*; do
+    [ -f "\$file" ] && source "\$file"
+done
+EOF
+
+# 2.2 Setup .bashrc
+echo "🐚 Mengonfigurasi .bashrc..."
+if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; then
+    mv ~/.bashrc ~/.bashrc.bak
+    echo "Backup .bashrc dibuat."
+fi
+cat <<EOF > ~/.bashrc
+# Auto-generated .bashrc (sources dotfiles)
+for file in $DOTFILES_DIR/dotconfig/bashrc/*; do
+    [ -f "\$file" ] && source "\$file"
+done
+EOF
+
 # 3. System Tools
 link_config "$DOTFILES_DIR/dotconfig/btop" "$CONFIG_DIR/btop"
 link_config "$DOTFILES_DIR/dotconfig/fastfetch" "$CONFIG_DIR/fastfetch"
@@ -47,6 +73,14 @@ link_config "$DOTFILES_DIR/dotconfig/gtk-4.0" "$CONFIG_DIR/gtk-4.0"
 link_config "$DOTFILES_DIR/dotconfig/qt6ct" "$CONFIG_DIR/qt6ct"
 link_config "$DOTFILES_DIR/dotconfig/xsettingsd" "$CONFIG_DIR/xsettingsd"
 link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
+
+# 5. Clean up Tray (Disable unwanted autostarts)
+echo "🧹 Membersihkan Tray (Menonaktifkan blueman-applet)..."
+mkdir -p ~/.config/autostart
+if [ -f /etc/xdg/autostart/blueman.desktop ]; then
+    cp /etc/xdg/autostart/blueman.desktop ~/.config/autostart/
+    echo "Hidden=true" >> ~/.config/autostart/blueman.desktop
+fi
 
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
