@@ -26,12 +26,14 @@ if [ -z "$NEW_WALL" ]; then
     if [ -f "$CACHE_FILE" ]; then
         echo "Reading from Noctalia cache..." >> "$LOG_FILE"
         # Ambil wallpaper untuk eDP-1 (atau monitor pertama)
-        NEW_WALL=$(jq -r '.wallpapers["eDP-1"].dark // .wallpapers | to_entries[0].value.dark' "$CACHE_FILE")
+        NEW_WALL=$(jq -r '.wallpapers["eDP-1"].dark // (.wallpapers | to_entries[0].value.dark)' "$CACHE_FILE")
     fi
 fi
 
+echo "Detected wallpaper: $NEW_WALL" >> "$LOG_FILE"
+
 if [ -f "$NEW_WALL" ]; then
-    echo "Syncing $NEW_WALL to SDDM..."
+    echo "Syncing $NEW_WALL to SDDM..." >> "$LOG_FILE"
     
     # 2. Salin wallpaper ke folder SDDM (sebagai 'current_wallpaper.png')
     # Kita gunakan sudo tanpa password jika user sudah diatur, atau asumsi script ini dijalankan dengan hak yang cukup
