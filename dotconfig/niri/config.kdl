@@ -158,14 +158,6 @@ window-rule {
     clip-to-geometry true
 }
 
-// Disable Niri-side blur for notifications to avoid the "ghost box" effect seen in screenshots
-layer-rule {
-    match namespace="noctalia-notifications-HDMI-A-1"
-    background-effect {
-        blur false
-    }
-}
-
 // Glassy Effect for Kitty
 window-rule {
     match app-id="kitty"
