@@ -16,7 +16,7 @@
         "enableWindowsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
-        "overviewLayer": false,
+        "overviewLayer": true,
         "pinnedApps": [
         ],
         "position": "bottom_center",
@@ -839,9 +839,9 @@
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
-        "overviewBlur": 1,
-        "overviewEnabled": false,
-        "overviewTint": 1,
+        "overviewBlur": 0.34,
+        "overviewEnabled": true,
+        "overviewTint": 0.65,
         "panelPosition": "center",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,

@@ -45,7 +45,7 @@ layout {
 
     border {
         width 2
-        active-color "#bbc3ff" // Updated via reload.sh
+        active-color "#a3c9ff" // Updated via reload.sh
         inactive-color "#1e1e2e"
     }
 
@@ -151,6 +151,11 @@ binds {
     
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "10%+"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-"; }
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 window-rule {
