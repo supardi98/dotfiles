@@ -49,6 +49,7 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
+- `SUPER + R`      : **Resize** (Ganti lebar kolom sesuai preset)
 - `SUPER + Shift + R`: **Reload** Niri & Noctalia Shell (Sinkronisasi Tema)
 - `SUPER + Shift + L`: **Kunci Layar**
 - `SUPER + F`      : Maximize Kolom
