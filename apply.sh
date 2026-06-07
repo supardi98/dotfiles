@@ -74,6 +74,13 @@ link_config "$DOTFILES_DIR/dotconfig/qt6ct" "$CONFIG_DIR/qt6ct"
 link_config "$DOTFILES_DIR/dotconfig/xsettingsd" "$CONFIG_DIR/xsettingsd"
 link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
 
+# 5. Default Applications
+echo "📂 Mengatur aplikasi default..."
+IMAGE_MIMES=("image/png" "image/jpeg" "image/jpg" "image/gif" "image/webp" "image/bmp" "image/tiff")
+for mime in "${IMAGE_MIMES[@]}"; do
+    xdg-mime default org.gnome.Loupe.desktop "$mime"
+done
+
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
 echo "Silakan gunakan SUPER+SHIFT+R untuk mereload sesi Niri Anda."

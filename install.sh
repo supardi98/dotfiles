@@ -21,7 +21,7 @@ PACKAGES=(
     kitty bluez bluez-utils blueman networkmanager network-manager-applet qt6ct xsettingsd 
     playerctl grim slurp wl-clipboard swaybg jq cliphist wtype
     # File Manager, Browser & Core Apps
-    nautilus brave gnome-calculator loupe gnome-text-editor
+    nautilus brave gnome-calculator loupe gnome-text-editor vlc
     evince gnome-system-monitor baobab
     # Modified Apps (AUR)
     spotify visual-studio-code-bin
