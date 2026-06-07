@@ -17,7 +17,7 @@ echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 # Daftar paket utama
 PACKAGES=(
     # Core Desktop & Window Manager
-    niri noctalia-shell xwayland-satellite-git
+    niri noctalia-shell matugen
     kitty bluez bluez-utils blueman networkmanager qt6ct xsettingsd 
     playerctl grim slurp wl-clipboard swaybg jq
     # File Manager, Browser & Core Apps
@@ -44,15 +44,8 @@ else
     sudo pacman -S --needed --noconfirm "${PACKAGES[@]}" || echo "⚠️ Beberapa paket mungkin butuh AUR (yay/paru)."
 fi
 
-# 2.1 Instal Matugen (Warna Dinamis)
-if ! command -v matugen &> /dev/null; then
-    echo "🎨 Menginstal Matugen..."
-    mkdir -p ~/.local/bin
-    curl -L https://github.com/InSyncWithYouself/matugen/releases/latest/download/matugen-linux-x86_64 -o ~/.local/bin/matugen
-    chmod +x ~/.local/bin/matugen
-fi
-
 # 2.2 Instal Oh My Posh (Prompt)
+
 if ! command -v oh-my-posh &> /dev/null; then
     echo "✨ Menginstal Oh My Posh..."
     mkdir -p ~/.local/bin

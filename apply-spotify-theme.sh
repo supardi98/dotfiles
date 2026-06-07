@@ -27,6 +27,13 @@ link_spotify_config() {
 # Symlink konfigurasi
 link_spotify_config "$DOTFILES_DIR/dotconfig/spicetify" "$CONFIG_DIR/spicetify"
 
+# Pastikan file prefs Spotify ada agar Spicetify tidak error
+if [ ! -f "$CONFIG_DIR/spotify/prefs" ]; then
+    echo "Mendeteksi instalasi baru, membuat file prefs dummy..."
+    mkdir -p "$CONFIG_DIR/spotify"
+    touch "$CONFIG_DIR/spotify/prefs"
+fi
+
 # Periksa apakah spicetify terpasang
 if command -v spicetify &> /dev/null; then
     echo "Memberikan izin tulis ke /opt/spotify..."

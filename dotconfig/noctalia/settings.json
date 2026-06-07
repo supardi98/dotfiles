@@ -54,7 +54,7 @@
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": true,
-        "marginHorizontal": 500,
+        "marginHorizontal": 200,
         "marginVertical": 14,
         "middleClickAction": "none",
         "middleClickCommand": "",
@@ -747,7 +747,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/supardi/Projects/ricing/dotconfig/wallpapers",
+        "directory": "/home/supardi/Projects/dotfiles/dotconfig/wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
