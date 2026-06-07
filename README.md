@@ -20,6 +20,7 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
   - **Smart Navigation**: `zoxide` (Smart CD) dan `fzf` (Fuzzy Search).
 - **System & Automation**:
   - **SilentSDDM**: Tema layar login yang elegan dengan **Sinkronisasi Wallpaper Otomatis** (SDDM akan selalu mengikuti wallpaper desktop).
+  - **Emoji IOS**: Tampilan emoji bergaya IOS yang konsisten di seluruh sistem (terintegrasi dengan **Fast Insert** via `wtype`).
   - **Clipboard History**: Manajemen riwayat clipboard via `cliphist` (Shortcut `SUPER+V`).
   - **NVM Ready**: Pengelola versi Node.js sudah terkonfigurasi otomatis di shell.
 
