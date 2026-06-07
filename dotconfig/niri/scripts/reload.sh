@@ -17,14 +17,13 @@ if command -v jq >/dev/null 2>&1; then
     fi
 fi
 
-# 🌙 Force GTK Dark Mode & Clean UI (No Minimize/Maximize to prevent hangs)
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:close'
+# 🔄 Restart xsettingsd to apply theme to XWayland/older apps
+# xsettingsd.conf sudah kita update untuk menggunakan adw-gtk3-dark
+pkill xsettingsd
+xsettingsd &
 
 # Fix File Picker to use GNOME Portal
+
 systemctl --user stop xdg-desktop-portal-gnome xdg-desktop-portal-gtk xdg-desktop-portal 2>/dev/null || true
 systemctl --user start xdg-desktop-portal-gnome xdg-desktop-portal
 
