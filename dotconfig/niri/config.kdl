@@ -45,7 +45,7 @@ layout {
 
     border {
         width 2
-        active-color "#c4c0ff" // Updated via reload.sh
+        active-color "#9ecaff" // Updated via reload.sh
         inactive-color "#1e1e2e"
     }
 

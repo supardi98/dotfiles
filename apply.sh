@@ -74,14 +74,6 @@ link_config "$DOTFILES_DIR/dotconfig/qt6ct" "$CONFIG_DIR/qt6ct"
 link_config "$DOTFILES_DIR/dotconfig/xsettingsd" "$CONFIG_DIR/xsettingsd"
 link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
 
-# 5. Clean up Tray (Disable unwanted autostarts)
-echo "🧹 Membersihkan Tray (Menonaktifkan blueman-applet)..."
-mkdir -p ~/.config/autostart
-if [ -f /etc/xdg/autostart/blueman.desktop ]; then
-    cp /etc/xdg/autostart/blueman.desktop ~/.config/autostart/
-    echo "Hidden=true" >> ~/.config/autostart/blueman.desktop
-fi
-
 echo "=== SELESAI ==="
 echo "Konfigurasi sekarang sepenuhnya diambil dari $DOTFILES_DIR"
 echo "Silakan gunakan SUPER+SHIFT+R untuk mereload sesi Niri Anda."

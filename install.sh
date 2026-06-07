@@ -18,7 +18,7 @@ echo "📦 Mengupdate sistem dan menginstal paket yang dibutuhkan..."
 PACKAGES=(
     # Core Desktop & Window Manager
     niri noctalia-shell matugen
-    kitty bluez bluez-utils blueman networkmanager qt6ct xsettingsd 
+    kitty bluez bluez-utils blueman networkmanager network-manager-applet qt6ct xsettingsd 
     playerctl grim slurp wl-clipboard swaybg jq cliphist
     # File Manager, Browser & Core Apps
     nautilus brave gnome-calculator loupe gnome-text-editor

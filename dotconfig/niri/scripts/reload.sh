@@ -2,7 +2,7 @@
 # 🚀 Niri + Noctalia Shell Reload Script
 
 # Kirim notifikasi awal
-notify-send -u low -t 2000 "System" "Reloading Niri & Noctalia..."
+notify-send -u low -t 2000 "System" "Reloading Niri & Noctalia..." || true
 
 # 🎨 Update Niri colors from Noctalia
 if command -v jq >/dev/null 2>&1; then
@@ -12,7 +12,8 @@ if command -v jq >/dev/null 2>&1; then
         SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
         DOT_CONFIG_FILE="$(dirname "$SCRIPT_DIR")/config.kdl"
         if [ ! -z "$PRIMARY_COLOR" ] && [[ "$PRIMARY_COLOR" =~ ^# ]] && [ -f "$DOT_CONFIG_FILE" ]; then
-            sed -i "s/active-color \".*\" \/\/ Updated via reload.sh/active-color \"$PRIMARY_COLOR\" \/\/ Updated via reload.sh/" "$DOT_CONFIG_FILE"
+            # Gunakan --follow-symlinks agar tidak merusak link dotfiles
+            sed -i --follow-symlinks "s/active-color \".*\" \/\/ Updated via reload.sh/active-color \"$PRIMARY_COLOR\" \/\/ Updated via reload.sh/" "$DOT_CONFIG_FILE"
         fi
     fi
 fi

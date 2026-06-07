@@ -177,6 +177,9 @@
             "right": [
                 {
                     "blacklist": [
+                        "blueman-applet",
+                        "blueman",
+                        "nm-applet"
                     ],
                     "chevronColor": "none",
                     "colorizeIcons": false,
@@ -193,6 +196,13 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "primary"
+                },
+                {
+                    "applyToAllMonitors": false,
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Brightness",
+                    "textColor": "none"
                 },
                 {
                     "deviceNativePath": "__default__",
@@ -518,7 +528,7 @@
         "screenUnlock": "",
         "session": "",
         "startup": "",
-        "wallpaperChange": ""
+        "wallpaperChange": "/home/supardi/.config/niri/scripts/sync-sddm-wall.sh"
     },
     "idle": {
         "customCommands": "[]",
