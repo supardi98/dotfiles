@@ -1,35 +1,29 @@
-# 🚀 My Ultimate Dotfiles (Hyprland + Zsh Pro)
+# 🚀 My Ultimate Dotfiles (Niri + Noctalia Shell Pro)
 
-Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desktop **Hyprland** yang estetik, modern, dan sangat fungsional, dipadukan dengan alur kerja terminal **Zsh** tingkat lanjut.
+Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desktop **Niri** yang estetik, modern, dan sangat fungsional, dipadukan dengan **Noctalia Shell** (Qt6/QML) dan alur kerja terminal **Zsh Pro**.
 
 ## ✨ Fitur Utama
-- **Niri + Noctalia Shell (NEW)**:
+- **Niri WM**:
   - **Scrollable Tiling**: Pengalaman tiling yang unik secara horizontal.
-  - **Noctalia UI**: Shell berbasis Qt6/QML yang modern dan sangat responsif.
+  - **Glassy Look**: Efek blur transparan dan animasi halus.
   - **Xwayland Satellite**: Dukungan aplikasi X11 yang terisolasi dan stabil.
-- **Hyprland Experience**:
-  - **Glassy UI**: Efek blur transparan pada jendela, bar, dan launcher.
-  - **Dynamic Animations**: Berbagai preset animasi (Classic, Smooth, Fast, dsb).
-  - **Smart Layouts**: Manajemen jendela tiling yang cerdas.
-  - **Ricing Pro Settings**: Kontrol penuh pengaturan Hyprland melalui GUI.
+- **Noctalia Shell**:
+  - **Modern UI**: Panel, launcher, dan widget berbasis Qt6/QML yang sangat responsif.
+  - **Integrated Selector**: Pemilih wallpaper dan skema warna langsung dari panel.
+  - **Dynamic Theming**: Warna sistem otomatis menyesuaikan dengan wallpaper (via Matugen).
 - **Zsh Pro Experience**: 
+  - **Oh My Zsh**: Framework Zsh dengan plugin produktivitas.
+  - **Zsh Plugins**: `autosuggestions`, `syntax-highlighting`, dan `fast-syntax-highlighting`.
   - **Oh My Posh**: Prompt terminal informatif dengan Tema Zen.
-  - **Fuzzy Search (fzf)**: Cari riwayat perintah (`Ctrl+R`) secara visual.
-  - **Smart Navigation**: `zoxide` (Smart CD) dan `Auto-CD`.
-  - **Auto-pairing**: Otomatis menutup tanda kurung dan kutip.
-  - **Programming Ready**: Integrasi `direnv`, `LSP support` via NeoVim.
-- **UI & Modules**:
-  - **Waybar**: Bar status kustom dengan banyak modul fungsional.
-  - **SwayNC**: Pusat notifikasi yang modern.
-  - **Rofi**: Launcher aplikasi, pemilih emoji, dan clipboard manager.
-  - **Wlogout**: Menu logout berbasis ikon yang elegan.
-  - **SDDM**: Tema Astronaut untuk layar login yang futuristik.
-  - **Spicetify**: Tema Ricing Pro untuk Spotify Anda.
-  - **Awww**: Pengelola wallpaper Wayland yang cepat dan andal (sebelumnya swww).
+  - **Smart Navigation**: `zoxide` (Smart CD) dan `fzf` (Fuzzy Search).
+- **System & Automation**:
+  - **SilentSDDM**: Tema layar login yang elegan dengan **Sinkronisasi Wallpaper Otomatis** (SDDM akan selalu mengikuti wallpaper desktop).
+  - **Clipboard History**: Manajemen riwayat clipboard via `cliphist` (Shortcut `SUPER+V`).
+  - **NVM Ready**: Pengelola versi Node.js sudah terkonfigurasi otomatis di shell.
 
 ## 🛠️ Cara Instalasi (Otomatis) - REKOMENDASI
 
-Skrip ini akan menginstal paket yang hilang (Pacman & Flatpak), memberikan izin eksekusi pada skrip pendukung, dan melakukan symlink konfigurasi secara otomatis.
+Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigurasi Oh My Zsh, memasang tema SilentSDDM, dan melakukan symlink konfigurasi secara otomatis.
 
 1. **Clone Repositori:**
    ```bash
@@ -43,104 +37,37 @@ Skrip ini akan menginstal paket yang hilang (Pacman & Flatpak), memberikan izin 
    ./install.sh
    ```
 
-## 📦 Cara Instalasi (Manual)
-
-Jika Anda ingin menginstal satu per satu, silakan ikuti langkah-langkah berikut:
-
-### 1. Paket dari Repositori Resmi (Pacman)
-```bash
-sudo pacman -S hyprland hyprlock hypridle kitty waybar rofi-wayland swaync \
-eza bat zoxide fzf lazygit yazi btop trash-cli tealdeer jq direnv nvim \
-ttf-jetbrains-mono-nerd swayosd-client playerctl wl-clipboard cliphist \
-hyprpicker hyprshade rofimoji wtype flatpak rofi-calc
-```
-
-### 2. Paket dari AUR (Yay/Paru)
-```bash
-yay -S awww-bin
-```
-
-### 3. Paket dari Flatpak (Ricing Pro Apps)
-```bash
-# Tambahkan repositori Ricing Pro
-flatpak remote-add --if-not-exists ml4w-repo https://ml4w.github.io/flatpak/repo/ml4w-repo.flatpakrepo
-
-# Instal aplikasi Ricing Pro
-flatpak install ml4w-repo 
-```
-
-### 4. Terapkan Konfigurasi (Symlink)
-```bash
-chmod +x apply.sh
-./apply.sh
-```
-
 ## ⌨️ Pintasan Penting (Keybindings)
 
 ### Dasar & Aplikasi
 - `SUPER + RETURN` : Buka **Kitty** Terminal
-- `SUPER + SPACE`  : Buka **Launcher** (Rofi)
-- `SUPER + E`      : Buka File Manager
-- `SUPER + B`      : Buka Browser
-- `SUPER + V`      : Riwayat **Clipboard** (Cliphist)
-- `SUPER + .`      : **Pemilih Emoji** (Rofimoji)
-- `SUPER + W`      : **Pilih Wallpaper** (Rofi Selector)
+- `SUPER + SPACE`  : Buka **Launcher** / App Search
+- `SUPER + E`      : Buka File Manager (Nautilus)
+- `SUPER + B`      : Buka Browser (Brave)
+- `SUPER + V`      : Riwayat **Clipboard**
+- `SUPER + .`      : **Pemilih Emoji**
 
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
-- `SUPER + F`      : Fullscreen
-- `SUPER + T`      : Toggle Floating
-- `SUPER + L`      : **Kunci Layar** (Hyprlock)
-- `SUPER + CTRL + Q` : Menu Logout (Wlogout)
-- `SUPER + SHIFT + R`: Reload Hyprland Config
-
-### Screenshot & Media
-- `PRINT`          : Screenshot (Layar penuh) -> Copy
-- `SHIFT + PRINT`  : Screenshot (Area) -> Copy
-- `SUPER + SHIFT + H`: Toggle **Hyprshade** (Blue Light Filter)
-- `SUPER + ALT + G` : Toggle **Gamemode** (Matikan animasi untuk performa)
+- `SUPER + Shift + R`: **Reload** Niri & Noctalia Shell (Sinkronisasi Tema)
+- `SUPER + Shift + L`: **Kunci Layar**
+- `SUPER + F`      : Maximize Kolom
+- `SUPER + Shift + F`: Fullscreen Jendela
+- `SUPER + C`      : Posisikan Jendela di Tengah
+- `SUPER + Tab`    : Tampilan Overview (Workspaces)
+- `SUPER + Wheel Mouse`: Scroll antar kolom jendela
 
 ### Navigasi Terminal (Zsh)
-**Pintasan Keyboard:**
-- `Ctrl + R` : **Fuzzy Search** riwayat perintah (menggunakan FZF).
-- `Tab` : Memilih pelengkap perintah (**Menu Selection** menggunakan panah).
-- `Panah Atas/Bawah` : Mencari riwayat berdasarkan kata yang sudah diketik (**Substring Search**).
-- `Ketik ( atau " ` : Otomatis menutup tanda kurung atau kutip (**Auto-pairing**).
-- `Backspace` : Menghapus kedua tanda kurung/kutip sekaligus jika masih kosong.
-
-**Alias & Perintah Singkat:**
-- `c` : Clear terminal.
-- `q` : Exit terminal.
-- `v` / `vi` : Membuka **NeoVim** / Vim.
-- `lg` : Membuka **Lazygit** (Git UI).
-- `y` : Membuka **Yazi** (File Manager Terminal).
-- `btop` : Monitoring Sistem futuristik.
-- `h` : Mencari riwayat via FZF secara visual.
-- `ff <nama>` : Mencari file di direktori saat ini secara rekursif.
-- `p` : Pindah ke direktori `~/Projects`.
-- `..` / `...` : Naik satu/dua tingkat folder.
-- `ls` / `ll` / `la` : Menampilkan file dengan ikon dan format modern (**eza**).
-- `cat` : Membaca file dengan nomor baris dan highlighting (**bat**).
-- `update` : Update sistem (Pacman).
-
-**Fungsi Pintar:**
-- `extract <file>` : Mengekstrak file terkompresi apapun (`.zip`, `.rar`, `.tar.gz`, dll).
-- `del <file>` : Menghapus file ke **Trash** (aman).
-- `google <query>` : Mencari di Google langsung dari terminal.
-- `github <query>` : Mencari di Github langsung dari terminal.
-- `Auto-CD` : Masuk ke folder cukup dengan mengetik namanya saja (misal: `Downloads`).
-
----
-Dibuat dengan ❤️ oleh Supardi. Gunakan dengan bijak dan selamat mengoprek!
+- `Ctrl + R` : Cari riwayat perintah secara visual (FZF).
+- `Tab` : Menu pelengkap perintah yang bisa dipilih dengan panah.
+- `Auto-suggestions` : Saran perintah berwarna abu-abu (Tekan Panah Kanan untuk ambil).
 
 ## 🎵 Spotify Setup
-Untuk instalasi Spotify lengkap dengan Ikon Tray (Wayland) dan tema:
+Untuk instalasi Spotify lengkap dengan Ikon Tray (Wayland) dan tema Spicetify:
 ```bash
 chmod +x install-spotify.sh
 ./install-spotify.sh
 ```
 
-Untuk menerapkan ulang tema Spotify (Spicetify):
-```bash
-./apply-spotify-theme.sh
-```
+---
+Dibuat dengan ❤️ oleh **Supardi**. Gunakan dengan bijak dan selamat menikmati pengalaman Niri Pro! 🚀
