@@ -139,6 +139,16 @@ binds {
     Shift+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     
+    // Mouse Interaction
+    Mod+LeftClick { move-window-with-mouse; }
+    Mod+RightClick { resize-window-with-mouse; }
+
+    // Resize Actions
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+    
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }

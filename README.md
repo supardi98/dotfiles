@@ -1,5 +1,7 @@
 # 🚀 My Ultimate Dotfiles (Niri + Noctalia Shell Pro)
 
+![Preview](screenshot/image-1.png)
+
 Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desktop **Niri** yang estetik, modern, dan sangat fungsional, dipadukan dengan **Noctalia Shell** (Qt6/QML) dan alur kerja terminal **Zsh Pro**.
 
 ## ✨ Fitur Utama
@@ -50,6 +52,10 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
 - `SUPER + R`      : **Resize** (Ganti lebar kolom sesuai preset)
+- `SUPER + -` / `+`: **Resize Lebar** Jendela (Horizontal)
+- `SUPER + Shift + -` / `+`: **Resize Tinggi** Jendela (Vertical)
+- `SUPER + Click Kiri`: Pindah posisi jendela floating
+- `SUPER + Click Kanan`: Ubah ukuran jendela floating
 - `SUPER + Shift + R`: **Reload** Niri & Noctalia Shell (Sinkronisasi Tema)
 - `SUPER + Shift + L`: **Kunci Layar**
 - `SUPER + F`      : Maximize Kolom
@@ -57,6 +63,12 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 - `SUPER + C`      : Posisikan Jendela di Tengah
 - `SUPER + Tab`    : Tampilan Overview (Workspaces)
 - `SUPER + Wheel Mouse`: Scroll antar kolom jendela
+
+### Screenshot
+- `Print`          : Screenshot Interaktif
+- `Shift + Print`  : Screenshot Seluruh Layar
+- `Alt + Print`    : Screenshot Jendela Aktif
+- *Hasil tersimpan di: `~/Pictures/Screenshots/`*
 
 ### Navigasi Terminal (Zsh)
 - `Ctrl + R` : Cari riwayat perintah secara visual (FZF).
@@ -72,3 +84,12 @@ chmod +x install-spotify.sh
 
 ---
 Dibuat dengan ❤️ oleh **Supardi**. Gunakan dengan bijak dan selamat menikmati pengalaman Niri Pro! 🚀
+
+## 📸 Screenshots
+<p align="center">
+  <img src="screenshot/image-1.png" width="45%" />
+  <img src="screenshot/image-2.png" width="45%" />
+  <br />
+  <img src="screenshot/image-3.png" width="45%" />
+  <img src="screenshot/image-4.png" width="45%" />
+</p>
