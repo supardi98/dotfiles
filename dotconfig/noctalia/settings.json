@@ -156,7 +156,9 @@
                     "showText": true,
                     "textColor": "none",
                     "useFixedWidth": true
-                },
+                }
+            ],
+            "right": [
                 {
                     "compactMode": false,
                     "hideMode": "hidden",
@@ -172,9 +174,7 @@
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "mirrored"
-                }
-            ],
-            "right": [
+                },
                 {
                     "blacklist": [
                         "blueman-applet",
@@ -204,12 +204,6 @@
                     "displayMode": "alwaysShow",
                     "iconColor": "none",
                     "id": "Network",
-                    "textColor": "none"
-                },
-                {
-                    "displayMode": "onhover",
-                    "iconColor": "none",
-                    "id": "Bluetooth",
                     "textColor": "none"
                 },
                 {
@@ -639,7 +633,7 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": false,
+        "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
