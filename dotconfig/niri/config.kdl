@@ -79,7 +79,9 @@ binds {
     Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+Q { close-window; }
     Mod+Shift+E { quit; }
-    Mod+Tab { toggle-overview; }
+    Mod+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "next"; }
+    Mod+Shift+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "prev"; }
+    Mod+O { toggle-overview; }
     Mod+Shift+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
     
     Mod+E { spawn "nautilus"; }

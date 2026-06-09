@@ -7,26 +7,24 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
 ## ✨ Fitur Utama
 - **Niri WM**:
   - **Scrollable Tiling**: Pengalaman tiling yang unik secara horizontal.
-  - **Glassy Look**: Efek blur transparan dan animasi halus.
-  - **Xwayland Satellite**: Dukungan aplikasi X11 yang terisolasi dan stabil.
+  - **Glassy Look**: Efek blur transparan dan animasi halus di seluruh jendela (Kitty, Nautilus, Brave, dll).
+  - **Dynamic Borders**: Warna border jendela otomatis mengikuti tema Noctalia (via custom sync script).
+  - **Native Screenshot**: UI interaktif bawaan Niri untuk pengambilan gambar layar yang mulus.
 - **Noctalia Shell**:
   - **Modern UI**: Panel, launcher, dan widget berbasis Qt6/QML yang sangat responsif.
   - **Integrated Selector**: Pemilih wallpaper dan skema warna langsung dari panel.
-  - **Dynamic Theming**: Warna sistem otomatis menyesuaikan dengan wallpaper (via Matugen).
+  - **Smart Desktop**: Notifikasi glassy, clipboard history terintegrasi, dan emoji picker.
 - **Zsh Pro Experience**: 
   - **Oh My Zsh**: Framework Zsh dengan plugin produktivitas.
-  - **Zsh Plugins**: `autosuggestions`, `syntax-highlighting`, dan `fast-syntax-highlighting`.
   - **Oh My Posh**: Prompt terminal informatif dengan Tema Zen.
   - **Smart Navigation**: `zoxide` (Smart CD) dan `fzf` (Fuzzy Search).
 - **System & Automation**:
-  - **SilentSDDM**: Tema layar login yang elegan dengan **Sinkronisasi Wallpaper Otomatis** (SDDM akan selalu mengikuti wallpaper desktop).
-  - **Emoji IOS**: Tampilan emoji bergaya IOS yang konsisten di seluruh sistem (terintegrasi dengan **Fast Insert** via `wtype`).
-  - **Clipboard History**: Manajemen riwayat clipboard via `cliphist` (Shortcut `SUPER+V`).
-  - **NVM Ready**: Pengelola versi Node.js sudah terkonfigurasi otomatis di shell.
+  - **Emoji IOS**: Tampilan emoji bergaya IOS yang konsisten di seluruh sistem (terintegrasi dengan **Auto Insert** via `wtype`).
+  - **One-Click Sync**: Shortcut reload tunggal untuk sinkronisasi warna, refresh Niri, dan restart shell.
 
 ## 🛠️ Cara Instalasi (Otomatis) - REKOMENDASI
 
-Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigurasi Oh My Zsh, memasang tema SilentSDDM, dan melakukan symlink konfigurasi secara otomatis.
+Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigurasi Zsh, dan melakukan symlink konfigurasi secara otomatis.
 
 1. **Clone Repositori:**
    ```bash
@@ -44,40 +42,36 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 
 ### Dasar & Aplikasi
 - `SUPER + RETURN` : Buka **Kitty** Terminal
-- `SUPER + SPACE`  : Buka **Launcher** / App Search
+- `SUPER + SPACE`  : Buka **Launcher** Noctalia
 - `SUPER + E`      : Buka File Manager (Nautilus)
-- `SUPER + B`      : Buka Browser (Brave)
-- `SUPER + V`      : Riwayat **Clipboard**
-- `SUPER + .`      : **Pemilih Emoji**
+- `SUPER + B`      : Buka Browser (**Brave**)
+- `SUPER + V`      : Riwayat **Clipboard** (Auto-Paste)
+- `SUPER + .`      : **Emoji Picker** (Auto-Insert)
 
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
-- `SUPER + R`      : **Resize** (Ganti lebar kolom sesuai preset)
-- `SUPER + -` / `+`: **Resize Lebar** Jendela (Horizontal)
-- `SUPER + Shift + -` / `+`: **Resize Tinggi** Jendela (Vertical)
-- `SUPER + Click Kiri`: Pindah posisi jendela floating
-- `SUPER + Click Kanan`: Ubah ukuran jendela floating
-- `SUPER + Shift + R`: **Reload** Niri & Noctalia Shell (Sinkronisasi Tema)
-- `SUPER + Shift + L`: **Kunci Layar**
-- `SUPER + F`      : Maximize Kolom
-- `SUPER + Shift + F`: Fullscreen Jendela
-- `SUPER + C`      : Posisikan Jendela di Tengah
-- `SUPER + Tab`    : Tampilan Overview (Workspaces)
-- `SUPER + Wheel Mouse`: Scroll antar kolom jendela
+- `SUPER + T`      : **Toggle Floating** (Ubah jendela melayang/tiling)
+- `SUPER + R`      : **Switch Width** (Ganti lebar kolom: 1/3, 1/2, 2/3, Full)
+- `SUPER + TAB`    : **Next Workspace** (Cycling/Berulang)
+- `SUPER + SHIFT + TAB`: **Prev Workspace** (Cycling/Berulang)
+- `SUPER + O`      : Tampilan **Overview** Jendela
+- `SUPER + SHIFT + R`: **Reload Total** (Niri + Noctalia + Sinkronisasi Warna)
+- `SUPER + SHIFT + L`: **Kunci Layar** (Noctalia Native)
+- `SUPER + Wheel Mouse`: Navigasi cepat antar kolom jendela
+- `SUPER + 1-9`    : Pindah ke Workspace 1-9
+
+### Navigasi (VIM Style)
+- `SUPER + H / J / K / L` : Pindah Fokus (Kiri, Bawah, Atas, Kanan)
+- `SUPER + SHIFT + H / J / K / L` : Pindahkan Jendela
 
 ### Screenshot
-- `Print`          : Screenshot Interaktif
+- `Print`          : Screenshot Interaktif (Pilih area/jendela)
 - `Shift + Print`  : Screenshot Seluruh Layar
 - `Alt + Print`    : Screenshot Jendela Aktif
 - *Hasil tersimpan di: `~/Pictures/Screenshots/`*
 
-### Navigasi Terminal (Zsh)
-- `Ctrl + R` : Cari riwayat perintah secara visual (FZF).
-- `Tab` : Menu pelengkap perintah yang bisa dipilih dengan panah.
-- `Auto-suggestions` : Saran perintah berwarna abu-abu (Tekan Panah Kanan untuk ambil).
-
 ## 🎵 Spotify Setup
-Untuk instalasi Spotify lengkap dengan Ikon Tray (Wayland) dan tema Spicetify:
+Instalasi Spotify dengan tema transparan dan integrasi Niri:
 ```bash
 chmod +x install-spotify.sh
 ./install-spotify.sh
