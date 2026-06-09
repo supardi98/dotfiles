@@ -50,13 +50,19 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 
 ### Jendela & Sistem
 - `SUPER + Q`      : Tutup jendela aktif
+- `SUPER + SHIFT + Q`: **Force Kill** Jendela (xkill)
 - `SUPER + T`      : **Toggle Floating** (Ubah jendela melayang/tiling)
 - `SUPER + R`      : **Switch Width** (Ganti lebar kolom: 1/3, 1/2, 2/3, Full)
+- `SUPER + S`      : **Consume Window** (Menumpuk jendela ke dalam kolom)
+- `SUPER + SHIFT + S`: **Expel Window** (Mengeluarkan jendela dari tumpukan)
 - `SUPER + TAB`    : **Next Workspace** (Cycling/Berulang)
 - `SUPER + SHIFT + TAB`: **Prev Workspace** (Cycling/Berulang)
 - `SUPER + O`      : Tampilan **Overview** Jendela
+- `SUPER + \``      : **Scratchpad Terminal** (Gaya Quake)
 - `SUPER + SHIFT + R`: **Reload Total** (Niri + Noctalia + Sinkronisasi Warna)
 - `SUPER + SHIFT + L`: **Kunci Layar** (Noctalia Native)
+- `SUPER + SHIFT + M`: **Pindah Monitor** (Pindahkan jendela ke monitor sebelah)
+- `SUPER + M`      : **Toggle Mute Mic**
 - `SUPER + Wheel Mouse`: Navigasi cepat antar kolom jendela
 - `SUPER + 1-9`    : Pindah ke Workspace 1-9
 

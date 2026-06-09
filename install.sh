@@ -19,7 +19,7 @@ PACKAGES=(
     # Core Desktop & Window Manager
     niri noctalia-shell matugen
     kitty bluez bluez-utils blueman networkmanager network-manager-applet qt6ct xsettingsd 
-    playerctl grim slurp wl-clipboard swaybg jq cliphist wtype
+    playerctl grim slurp wl-clipboard swaybg jq cliphist wtype xorg-xkill
     # File Manager, Browser & Core Apps
     nautilus brave gnome-calculator loupe gnome-text-editor vlc
     evince gnome-system-monitor baobab

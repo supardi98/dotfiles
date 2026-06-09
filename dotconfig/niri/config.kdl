@@ -27,7 +27,6 @@ output "HDMI-A-1" {
 layout {
     gaps 8
     center-focused-column "never"
-    
     default-column-width { proportion 0.5; }
     
     preset-column-widths {
@@ -45,14 +44,14 @@ layout {
 
     border {
         width 2
-        active-color "#a3c9ff" // Updated via reload.sh
+        active-color "#c2c1ff" // Updated via reload.sh
         inactive-color "#1e1e2e"
     }
 
     struts {
         left 0
         right 0
-        top 4
+        top 18
         bottom 0
     }
 }
@@ -77,12 +76,18 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 binds {
     Mod+Return { spawn "kitty"; }
     Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Grave { spawn "~/.config/niri/scripts/scratchpad.sh"; }
     Mod+Q { close-window; }
+    Mod+Shift+Q { spawn "xkill"; }
     Mod+Shift+E { quit; }
     Mod+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "next"; }
     Mod+Shift+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "prev"; }
     Mod+O { toggle-overview; }
     Mod+Shift+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+Shift+M { move-column-to-monitor-next; }
+    Mod+M { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    Mod+S { consume-window-into-column; }
+    Mod+Shift+S { expel-window-from-column; }
     
     Mod+E { spawn "nautilus"; }
     Mod+B { spawn "brave"; }
@@ -112,7 +117,6 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { spawn "~/.config/niri/scripts/reload.sh"; }
-    Mod+T { toggle-window-floating; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
@@ -153,11 +157,6 @@ binds {
     
     XF86MonBrightnessUp   { spawn "brightnessctl" "set" "10%+"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "10%-"; }
-}
-
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
 }
 
 window-rule {
@@ -217,3 +216,14 @@ window-rule {
     open-floating true
     default-floating-position x=32 y=32 relative-to="bottom-right"
 }
+
+// Scratchpad (Quake Terminal)
+window-rule {
+    match app-id="quake"
+    open-floating true
+    default-floating-position x=128 y=32 relative-to="top-left"
+    default-column-width { proportion 0.8; }
+    default-window-height { proportion 0.4; }
+}
+
+include "./noctalia.kdl"
