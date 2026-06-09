@@ -51,7 +51,7 @@ layout {
     struts {
         left 0
         right 0
-        top 18
+        top 4
         bottom 0
     }
 }
@@ -117,6 +117,7 @@ binds {
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { spawn "~/.config/niri/scripts/reload.sh"; }
+    Mod+T { toggle-window-floating; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
@@ -162,6 +163,11 @@ binds {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
 }
 
 // Glassy Effect for Kitty

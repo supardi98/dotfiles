@@ -64,6 +64,7 @@ Skrip ini akan menginstal semua paket yang dibutuhkan (Pacman & AUR), mengonfigu
 - `SUPER + SHIFT + M`: **Pindah Monitor** (Pindahkan jendela ke monitor sebelah)
 - `SUPER + M`      : **Toggle Mute Mic**
 - `SUPER + Wheel Mouse`: Navigasi cepat antar kolom jendela
+- `SUPER + SHIFT + Wheel Mouse`: Geser posisi jendela antar kolom
 - `SUPER + 1-9`    : Pindah ke Workspace 1-9
 
 ### Navigasi (VIM Style)
