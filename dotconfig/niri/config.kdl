@@ -232,4 +232,4 @@ window-rule {
     default-window-height { proportion 0.4; }
 }
 
-include "./noctalia.kdl"
+//include "./noctalia.kdl"
