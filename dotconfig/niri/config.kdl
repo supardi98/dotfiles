@@ -19,6 +19,11 @@ input {
     }
 }
 
+cursor {
+    xcursor-theme "ArcStarry-cursors"
+    xcursor-size 24
+}
+
 output "HDMI-A-1" {
     mode "2560x1440@59.951"
     scale 1.0
@@ -44,7 +49,7 @@ layout {
 
     border {
         width 2
-        active-color "#c2c1ff" // Updated via reload.sh
+        active-color "#9ecaff" // Updated via reload.sh
         inactive-color "#1e1e2e"
     }
 
@@ -72,6 +77,7 @@ spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "spotify-tray-launcher"
 
 binds {
     Mod+Return { spawn "kitty"; }
@@ -230,6 +236,15 @@ window-rule {
     default-floating-position x=128 y=32 relative-to="top-left"
     default-column-width { proportion 0.8; }
     default-window-height { proportion 0.4; }
+}
+
+
+// environment
+environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "0"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 //include "./noctalia.kdl"

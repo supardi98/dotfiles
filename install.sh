@@ -87,6 +87,9 @@ echo "🍎 Mengaktifkan konfigurasi Emoji Apple..."
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-apple-color-emoji.conf /etc/fonts/conf.d/ || true
 fc-cache -f > /dev/null 2>&1 || true
 
+# 5.2 ArcStarry-Cursors (Sudah ada di dalam repo)
+echo "🖱️ Konfigurasi ArcStarry-Cursors akan ditangani oleh apply.sh..."
+
 # 6. Berikan izin eksekusi pada skrip pendukung
 echo "🔑 Memberikan izin eksekusi pada skrip..."
 chmod +x apply.sh

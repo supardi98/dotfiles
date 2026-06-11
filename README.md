@@ -19,6 +19,8 @@ Repositori ini adalah koleksi konfigurasi pribadi (ricing) untuk lingkungan desk
   - **Oh My Posh**: Prompt terminal informatif dengan Tema Zen.
   - **Smart Navigation**: `zoxide` (Smart CD) dan `fzf` (Fuzzy Search).
 - **System & Automation**:
+  - **ArcStarry Cursors**: Tema cursor modern dan estetik yang diinstal otomatis.
+  - **WPS Office Scale Fix**: Perbaikan skala UI (High DPI) otomatis untuk WPS Office (`QT_SCALE_FACTOR=2`).
   - **Emoji IOS**: Tampilan emoji bergaya IOS yang konsisten di seluruh sistem (terintegrasi dengan **Auto Insert** via `wtype`).
   - **One-Click Sync**: Shortcut reload tunggal untuk sinkronisasi warna, refresh Niri, dan restart shell.
 

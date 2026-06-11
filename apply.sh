@@ -74,8 +74,19 @@ link_config "$DOTFILES_DIR/dotconfig/qt6ct" "$CONFIG_DIR/qt6ct"
 link_config "$DOTFILES_DIR/dotconfig/xsettingsd" "$CONFIG_DIR/xsettingsd"
 link_config "$DOTFILES_DIR/dotconfig/wallpapers" "$CONFIG_DIR/wallpapers"
 
+# 4.1 Icons
+echo "🖱️ Mengonfigurasi cursor icons..."
+mkdir -p "$HOME/.local/share/icons"
+link_config "$DOTFILES_DIR/dotconfig/icons/ArcStarry-cursors" "$HOME/.local/share/icons/ArcStarry-cursors"
+
 # 5. Default Applications
 echo "📂 Mengatur aplikasi default..."
+# Custom desktop entries (e.g., WPS scale fix)
+mkdir -p "$HOME/.local/share/applications"
+for file in "$DOTFILES_DIR/dotconfig/applications/"*.desktop; do
+    [ -f "$file" ] && ln -sf "$file" "$HOME/.local/share/applications/$(basename "$file")"
+done
+
 IMAGE_MIMES=("image/png" "image/jpeg" "image/jpg" "image/gif" "image/webp" "image/bmp" "image/tiff")
 for mime in "${IMAGE_MIMES[@]}"; do
     xdg-mime default org.gnome.Loupe.desktop "$mime"

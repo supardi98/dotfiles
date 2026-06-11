@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=Use WPS PDF to read and edit PDF files.
+Exec=env QT_SCALE_FACTOR=2 /usr/bin/wpspdf %U
+GenericName=WPS PDF
+MimeType=application/pdf;
+Name=WPS PDF
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Office;Viewer;Qt;
+Icon=wps-office2019-pdfmain
+StartupWMClass=wpspdf

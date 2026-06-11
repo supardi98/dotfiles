@@ -1,0 +1,11 @@
+[Desktop Entry]
+Comment=Use WPS Writer to office work.
+Exec=env QT_SCALE_FACTOR=2 /usr/bin/wps %F
+GenericName=WPS 2019
+Name=WPS 2019
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Office;WordProcessor;Qt;
+Icon=wps-office2019-kprometheus
+StartupWMClass=wpsoffice

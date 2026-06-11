@@ -177,10 +177,6 @@
                 },
                 {
                     "blacklist": [
-                        "blueman-applet",
-                        "blueman",
-                        "nm-applet",
-                        "Bluetooth*"
                     ],
                     "chevronColor": "none",
                     "colorizeIcons": false,

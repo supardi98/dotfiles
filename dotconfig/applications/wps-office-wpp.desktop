@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=Use WPS Presentation to create and edit presentations.
+Exec=env QT_SCALE_FACTOR=2 /usr/bin/wpp %U
+GenericName=WPS Presentation
+MimeType=application/wps-office.wpp;application/wps-office.wpt;application/wps-office.wppso;application/wps-office.wppss;application/vnd.ms-powerpoint;application/mspowerpoint;application/x-mspowerpoint;application/vnd.openxmlformats-officedocument.presentationml.presentation;application/vnd.ms-powerpoint.presentation.macroEnabled.12;application/vnd.openxmlformats-officedocument.presentationml.template;application/vnd.ms-powerpoint.template.macroEnabled.12;application/vnd.openxmlformats-officedocument.presentationml.slideshow;application/vnd.ms-powerpoint.slideshow.macroEnabled.12;application/wps-office.pptx;application/wps-office.potx;application/wps-office.uop;
+Name=WPS Presentation
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Office;Presentation;Qt;
+Icon=wps-office2019-wppmain
+StartupWMClass=wpp
