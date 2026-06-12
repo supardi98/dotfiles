@@ -110,10 +110,10 @@
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
-                    "icon": "rocket",
+                    "icon": "pacman",
                     "iconColor": "none",
                     "id": "Launcher",
-                    "useDistroLogo": true
+                    "useDistroLogo": false
                 },
                 {
                     "clockColor": "none",
@@ -177,6 +177,8 @@
                 },
                 {
                     "blacklist": [
+                        "nm-applet",
+                        "Bluetooth*"
                     ],
                     "chevronColor": "none",
                     "colorizeIcons": false,

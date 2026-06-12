@@ -18,10 +18,22 @@ sudo mkdir -p "$THEME_DEST"
 sudo cp -r "$THEME_SRC"/* "$THEME_DEST"/
 
 # 3. Konfigurasi SDDM
-echo "🔧 Mengatur tema di /etc/sddm.conf..."
+echo "🔧 Mengatur tema dan kursor di /etc/sddm.conf..."
 sudo mkdir -p /etc/sddm.conf.d
 echo "[Theme]
-Current=$THEME_NAME" | sudo tee /etc/sddm.conf > /dev/null
+Current=$THEME_NAME
+CursorTheme=ArcStarry-cursors" | sudo tee /etc/sddm.conf > /dev/null
+
+# 3.1 Pastikan Kursor ada di folder sistem agar terbaca oleh SDDM
+if [ -d "$DOTFILES_DIR/dotconfig/icons/ArcStarry-cursors" ]; then
+    echo "🖱️ Menyalin kursor ke /usr/share/icons..."
+    sudo cp -r "$DOTFILES_DIR/dotconfig/icons/ArcStarry-cursors" /usr/share/icons/ 2>/dev/null || true
+    
+    # Force system-wide fallback (paling ampuh untuk SDDM)
+    sudo mkdir -p /usr/share/icons/default
+    echo "[Icon Theme]
+Inherits=ArcStarry-cursors" | sudo tee /usr/share/icons/default/index.theme > /dev/null
+fi
 
 # 4. Tambahkan aturan Sudoers untuk sinkronisasi wallpaper
 echo "🔑 Menambahkan aturan sudoers untuk sinkronisasi wallpaper..."
