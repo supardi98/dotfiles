@@ -74,9 +74,9 @@ radius = 12
 capsule = false
 widget_spacing = 8
 
-start = [ "launcher", "date", "active_window" ]
+start = [ "launcher", "date", "active_window", "media" ]
 center = [ "workspaces" ]
-end = [ "media", "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
 
 [widget.date]
 format = "{:%H:%M  %a, %b %d}"
