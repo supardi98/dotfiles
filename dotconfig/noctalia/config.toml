@@ -76,7 +76,7 @@ widget_spacing = 8
 
 start = [ "launcher", "date", "active_window" ]
 center = [ "workspaces" ]
-end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+end = [ "media", "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
 
 [widget.date]
 format = "{:%H:%M  %a, %b %d}"
@@ -88,3 +88,10 @@ max_length = 240.0
 min_length = 0.0
 title_scroll = "none"
 type = "active_window"
+
+[widget.media]
+type = "media"
+hide_when_no_media = true
+show_progress = true
+max_length = 200.0
+artist_first = true
