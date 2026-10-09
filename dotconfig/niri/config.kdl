@@ -99,6 +99,7 @@ binds {
     Mod+B { spawn "brave"; }
     Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
     Mod+Period { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
+    Mod+P { spawn "kitty" "--class" "project-switcher" "--title" "Project Switcher" "-e" "/home/supardi/.config/niri/scripts/project-switcher.sh"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -245,6 +246,14 @@ window-rule {
     default-floating-position x=128 y=32 relative-to="top-left"
     default-column-width { proportion 0.8; }
     default-window-height { proportion 0.4; }
+}
+
+// Global Project Switcher
+window-rule {
+    match app-id="project-switcher"
+    open-floating true
+    default-column-width { proportion 0.65; }
+    default-window-height { proportion 0.60; }
 }
 
 
