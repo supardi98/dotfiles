@@ -1,0 +1,90 @@
+[shell]
+avatar_path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+font_family = "JetBrainsMono Nerd Font"
+card_borders = true
+input_borders = true
+popup_borders = true
+popup_shadows = true
+settings_window_translucent = true
+
+[shell.animation]
+enabled = true
+speed = 1.0
+
+[shell.launcher]
+categories = true
+show_icons = true
+sort_by_usage = true
+auto_paste = "auto"
+
+[shell.panel]
+transparency_mode = "glass"
+list_item_background = false
+borders = true
+shadow = true
+
+[shell.window_switcher]
+style = "carousel"
+show_all_outputs = true
+show_app_icon = true
+show_caption = true
+
+[dock]
+launcher_icon = "pacman"
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+pure_black_dark = false
+
+[theme.templates]
+enable_builtin_templates = true
+enable_community_templates = true
+builtin_ids = [ "niri", "kitty", "gtk3", "gtk4", "qt", "btop" ]
+community_ids = [ "spicetify" ]
+
+[wallpaper]
+enabled = true
+directory = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers"
+directory_dark = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers"
+fill_mode = "crop"
+transition = [ "fade", "wipe", "disc" ]
+transition_duration = 1000.0
+
+[wallpaper.default]
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+
+[wallpaper.last]
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+
+[bar]
+order = [ "default" ]
+
+[bar.default]
+position = "top"
+thickness = 32.0
+auto_hide = false
+background_opacity = 0.55
+compositor_blur = true
+concave_edge_corners = false
+margin_edge = 8
+margin_ends = 150
+radius = 12
+capsule = false
+widget_spacing = 8
+
+start = [ "launcher", "date", "active_window" ]
+center = [ "workspaces" ]
+end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+
+[widget.date]
+format = "{:%H:%M  %a, %b %d}"
+type = "clock"
+
+[widget.active_window]
+icon_size = 14.0
+max_length = 240.0
+min_length = 0.0
+title_scroll = "none"
+type = "active_window"

@@ -11,32 +11,20 @@ export VISUAL="nvim"
 export ZSH="$HOME/.oh-my-zsh"
 
 # -----------------------------------------------------
-# NVM (Node Version Manager) - Lazy Load for Speed
+# NVM (Node Version Manager) - Fast Load
 # -----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 
-# Lazy load function
+# Directly add default node version to PATH to avoid slow NVM initialization
+# but still make 'node' and 'npm' available globally for tools like Antigravity
+if [ -d "$NVM_DIR/versions/node" ]; then
+    export PATH="$(ls -d $NVM_DIR/versions/node/v* 2>/dev/null | tail -n 1)/bin:$PATH"
+fi
+
+# Lazy load full NVM only when the user types 'nvm'
 function nvm() {
-    unset -f nvm node npm npx
+    unset -f nvm
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     nvm "$@"
-}
-
-function node() {
-    unset -f nvm node npm npx
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    node "$@"
-}
-
-function npm() {
-    unset -f nvm node npm npx
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    npm "$@"
-}
-
-function npx() {
-    unset -f nvm node npm npx
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    npx "$@"
 }
 

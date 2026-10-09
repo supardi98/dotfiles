@@ -32,6 +32,7 @@ systemctl --user start xdg-desktop-portal-gnome xdg-desktop-portal
 niri msg action load-config-file
 
 # 🐚 Restart Noctalia Shell
+pkill -x noctalia
 pkill -f "quickshell"
 pkill -f "noctalia-shell"
 pkill -f "qs -c noctalia-shell"
@@ -43,7 +44,7 @@ pkill mako
 sleep 0.5
 
 # Jalankan kembali di background
-qs -c noctalia-shell > /dev/null 2>&1 &
+noctalia -d
 
 # Tunggu sampai notification daemon aktif
 for i in {1..50}; do
@@ -52,6 +53,9 @@ for i in {1..50}; do
     fi
     sleep 0.1
 done
+
+# Apply theme templates across apps (Kitty, GTK, QT, btop, Spicetify)
+noctalia msg templates-apply >/dev/null 2>&1 || true
 
 # Kirim notifikasi selesai
 notify-send -u normal -t 3000 "System" "Reload complete! ✨"

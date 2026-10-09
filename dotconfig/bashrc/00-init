@@ -14,8 +14,18 @@ export XCURSOR_THEME="ArcStarry-cursors"
 export XCURSOR_SIZE="24"
 
 # -----------------------------------------------------
-# NVM (Node Version Manager)
+# NVM (Node Version Manager) - Fast Load
 # -----------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Directly add default node version to PATH to avoid slow NVM initialization
+if [ -d "$NVM_DIR/versions/node" ]; then
+    export PATH="$(ls -d $NVM_DIR/versions/node/v* 2>/dev/null | tail -n 1)/bin:$PATH"
+fi
+
+# Lazy load full NVM only when the user types 'nvm'
+function nvm() {
+    unset -f nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm "$@"
+}

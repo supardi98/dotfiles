@@ -73,7 +73,7 @@ animations {
 }
 
 // Autostart applications
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
@@ -81,7 +81,7 @@ spawn-at-startup "spotify-tray-launcher"
 
 binds {
     Mod+Return { spawn "kitty"; }
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
     Mod+Grave { spawn "~/.config/niri/scripts/scratchpad.sh"; }
     Mod+Q { close-window; }
     Mod+Shift+Q { spawn "xkill"; }
@@ -89,7 +89,7 @@ binds {
     Mod+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "next"; }
     Mod+Shift+Tab { spawn "~/.config/niri/scripts/workspace-cycle.sh" "prev"; }
     Mod+O { toggle-overview; }
-    Mod+Shift+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Mod+Shift+L { spawn "noctalia" "msg" "session" "lock"; }
     Mod+Shift+M { move-column-to-monitor-next; }
     Mod+M { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     Mod+S { consume-window-into-column; }
@@ -97,8 +97,8 @@ binds {
     
     Mod+E { spawn "nautilus"; }
     Mod+B { spawn "brave"; }
-    Mod+V { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+Period { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
+    Mod+V { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+Period { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -172,8 +172,17 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^noctalia-overview*"
+    match namespace="^noctalia-wallpaper$"
     place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^noctalia-attached-panel$"
+    match namespace="^noctalia-floating-panel$"
+    match namespace="^noctalia-bar-.*$"
+    background-effect {
+        blur true
+    }
 }
 
 // Glassy Effect for Kitty
