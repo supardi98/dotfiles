@@ -44,6 +44,7 @@ SELECTED=$(get_projects | fzf \
     --prompt="🚀 Jump to Project > " \
     --header="[ENTER] Code  |  [Ctrl+T] Terminal  |  [Ctrl+G] Lazygit  |  [Ctrl+O] Files" \
     --header-first \
+    --color="bg:-1,bg+:-1,preview-bg:-1" \
     --border=rounded \
     --margin=1 \
     --padding=1 \
