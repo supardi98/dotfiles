@@ -134,6 +134,7 @@ binds {
     Mod+Period { spawn "noctalia" "msg" "panel-toggle" "launcher" "/emo"; }
     Mod+P { spawn "kitty" "--class" "project-switcher" "--title" "Project Switcher" "-e" "/home/supardi/.config/niri/scripts/project-switcher.sh"; }
     Mod+Shift+A { spawn "~/.config/niri/scripts/toggle-routing.sh"; }
+    Mod+Shift+P { spawn "~/.config/niri/scripts/performance-mode.sh"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
