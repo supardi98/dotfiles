@@ -1,7 +1,8 @@
 [shell]
 avatar_path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
 font_family = "JetBrainsMono Nerd Font"
-card_borders = true
+card_borders = false
+button_borders = false
 input_borders = true
 popup_borders = true
 popup_shadows = true
@@ -46,8 +47,9 @@ background_opacity = 0.75
 [theme]
 mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-tonal-spot"
-pure_black_dark = false
+wallpaper_scheme = "m3-content"
+community_palette = "Oxocarbon"
+pure_black_dark = true
 
 [theme.templates]
 enable_builtin_templates = true
@@ -64,10 +66,10 @@ transition = [ "fade", "wipe", "disc" ]
 transition_duration = 1000.0
 
 [wallpaper.default]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/9197242.jpg"
 
 [wallpaper.last]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/9197242.jpg"
 
 [bar]
 order = [ "default" ]
