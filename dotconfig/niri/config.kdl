@@ -390,3 +390,4 @@ environment {
 include "auto-routing.kdl"
 
 include "noctalia.kdl"
+// include "extreme-perf.kdl"

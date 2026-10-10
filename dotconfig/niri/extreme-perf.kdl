@@ -1,0 +1,11 @@
+// 🚀 Extreme Performance Window Overrides: Solid 100% Opacity (No Alpha Blending)
+window-rule {
+    opacity 1.0
+    draw-border-with-background true
+}
+
+window-rule {
+    match is-focused=false
+    opacity 1.0
+    draw-border-with-background true
+}
