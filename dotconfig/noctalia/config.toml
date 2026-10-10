@@ -19,7 +19,7 @@ sort_by_usage = true
 auto_paste = "auto"
 
 [shell.panel]
-transparency_mode = "glass"
+transparency_mode = "soft"
 list_item_background = false
 borders = true
 shadow = true
@@ -39,10 +39,10 @@ show_caption = true
 launcher_icon = "pacman"
 
 [notification]
-background_opacity = 0.75
+background_opacity = 0.55
 
 [osd]
-background_opacity = 0.75
+background_opacity = 0.55
 
 [theme]
 mode = "dark"
@@ -134,4 +134,4 @@ max_length = 200.0
 artist_first = true
 
 [accessibility]
-high_contrast = true
+high_contrast = false
