@@ -81,10 +81,17 @@ Saat menu proyek muncul, Anda dapat memilih aksi langsung menggunakan shortcut:
 
 ---
 
-## 🌐 5. Manajemen Workspace
+## 🌐 5. Manajemen Workspace & Smart Auto-Routing
 
-* **`Super + 1` s/d `9`**: Pindah langsung ke Workspace 1 s/d 9.
-* **`Super + Shift + 1` s/d `9`**: Pindahkan kolom aktif ke Workspace 1 s/d 9.
+* **`Super + 1`**: Fokus ke Workspace **`󰅩`** (Code & Dev: VS Code, Antigravity, Terminal).
+* **`Super + 2`**: Fokus ke Workspace **`󰖟`** (Web: Brave Browser, Chrome, Firefox).
+* **`Super + 3`**: Fokus ke Workspace **`󰓇`** (Media & Chat: Spotify, Discord, Telegram, Slack).
+* **`Super + 4`**: Fokus ke Workspace **`󰉋`** (Files & Dokumen: Nautilus, LibreOffice/WPS).
+* **`Super + 5` s/d `9`**: Fokus ke Workspace numerik tambahan.
+* **`Super + Shift + 1` s/d `4`**: Pindahkan kolom aktif langsung ke Workspace icon target.
+* **`Super + Shift + A`**: **Toggle Auto-Routing (ON / OFF)**.
+  - **ON**: Setiap aplikasi baru otomatis dibuka di workspace yang telah ditentukan.
+  - **OFF**: Aplikasi dibuka bebas di workspace yang sedang aktif saat ini.
 * **`Super + Tab`**: Siklus workspace berikutnya (mengabaikan workspace scratchpad tersembunyi).
 * **`Super + Shift + Tab`**: Siklus workspace sebelumnya.
 
