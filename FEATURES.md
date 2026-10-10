@@ -97,30 +97,39 @@ Saat menu proyek muncul, Anda dapat memilih aksi langsung menggunakan shortcut:
 
 ---
 
-## 📸 6. Tangkapan Layar (Screenshot)
+## 📸 6. Tangkapan Layar & Ekstraksi Teks (Screenshot & OCR)
 
 * **`Print`**: Screenshot area / region interaktif.
 * **`Shift + Print`**: Screenshot seluruh layar penuh (*fullscreen*).
 * **`Alt + Print`**: Screenshot jendela yang sedang aktif.
+* **`Super + Shift + O`**: **Instant OCR Extractor (Salin Teks dari Layar)**.
+  - Memilih area di layar (gambar, video, error dialog), mengekstrak teksnya dengan Tesseract OCR, dan otomatis menyalin ke clipboard.
 
 ---
 
-## 🔊 7. Audio, Kecerahan & Media
+## 🔊 7. Audio, Kecerahan, Media & Daya
 
+* **`Super + Backslash (\)`** / **`XF86AudioPlay`**: Play / Pause musik global (Spotify, Browser) + OSD toast.
+* **`Super + BracketRight (])`** / **`XF86AudioNext`**: Lagu berikutnya (*Next track*).
+* **`Super + BracketLeft ([)`** / **`XF86AudioPrev`**: Lagu sebelumnya (*Previous track*).
 * **`XF86AudioRaiseVolume` / `LowerVolume`**: Naikkan / turunkan volume 10%.
 * **`XF86AudioMute`**: Mute / unmute speaker.
 * **`Super + M`**: Mute / unmute mikrofon default.
 * **`XF86MonBrightnessUp` / `Down`**: Naikkan / turunkan kecerahan layar 10%.
+* **`Super + Shift + I`**: **Caffeine / Presentation Mode (Toggle)**.
+  - Menjaga layar tetap menyala (*anti-sleep / anti-idle*) saat presentasi atau membaca artikel panjang.
 
 ---
 
-## 🎨 8. Fitur UI/UX & Desain Grafis
+## 🎨 8. Fitur UI/UX & Animasi GPU
 
-1. **Frosted Glass Blur**:
+1. **GPU Spring Physics & Custom Shaders**:
+   - Transisi *Overview* (`Super + O`), pergantian workspace, serta buka/tutup jendela menggunakan fisika pegas elastis (*spring dampening*) yang responsif dan sangat mulus (*butter-smooth*).
+2. **Frosted Glass Blur**:
    - Aktif pada panel Noctalia, Notification Toasts, OSD Volume/Brightness, Kitty Terminal, Quake Terminal, dan seluruh Scratchpad.
-2. **Indikator Sysmon Bar**:
+3. **Indikator Sysmon Bar**:
    - **CPU**: Speedometer gauge (`brand-speedtest`).
    - **RAM**: Microchip icon (`cpu`).
    - **Disk**: Database cylinder icon (`database`).
-3. **Pipelining Warna Otomatis**:
-   - Ganti wallpaper lewat Noctalia akan meng-update palet warna Material You (Matugen), tema GTK, Kitty, Niri border, dan btop secara sinkron.
+4. **Pipelining Warna Otomatis**:
+   - Ganti wallpaper lewat Noctalia akan meng-update palet warna Material You (Matugen), tema GTK, Kitty, Niri dynamic border, dan btop secara sinkron.
