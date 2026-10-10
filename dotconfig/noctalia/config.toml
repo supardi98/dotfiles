@@ -94,7 +94,8 @@ widget_spacing = 8
 
 start = [ "launcher", "date", "cpu", "active_window" ]
 center = [ "workspaces" ]
-end = [ "media", "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+end = [ "media", "tray", "brightness", "volume", "battery", "network", "notifications", "control-center" ]
+
 
 
 [widget.date]
@@ -117,3 +118,6 @@ title_scroll = "always"
 
 
 
+
+[widget.control-center]
+glyph = "adjustments-horizontal"
