@@ -137,3 +137,5 @@ Saat menu proyek muncul, Anda dapat memilih aksi langsung menggunakan shortcut:
    - **Disk**: Database cylinder icon (`database`).
 4. **Pipelining Warna Otomatis**:
    - Ganti wallpaper lewat Noctalia akan meng-update palet warna Material You (Matugen), tema GTK, Kitty, Niri dynamic border, dan btop secara sinkron.
+5. **Smart Terminal Paste Sanitizer (Zsh Hook)**:
+   - Otomatis membuang kutip penutup liar (`"`), kurung tutup liar (`)`), atau tanda titik artikel yang tidak sengaja ter-copy saat mem-paste command dari website/Google ke terminal.

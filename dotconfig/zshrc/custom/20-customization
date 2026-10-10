@@ -132,3 +132,43 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
+
+# -----------------------------------------------------
+# 🧹 Smart Paste Sanitizer (Strip trailing quotes, parens, and periods)
+# -----------------------------------------------------
+function _smart_bracketed_paste() {
+    # Ambil teks yang sedang di-paste
+    local content="$PASTED"
+    
+    # 1. Normalkan smart quotes (kutip miring dari web seperti “” dan ‘’)
+    content="${content//[“”]/\"}"
+    content="${content//[‘’]/\x27}"
+    
+    # 2. Hapus whitespace berlebih di ujung baris jika single-line command
+    if [[ "$content" != *$'\n'* ]]; then
+        content="$(echo -n "$content" | sed -e 's/[[:space:]]*$//')"
+
+        # 3. Hapus tanda kutip ganda liar di akhir baris jika tidak ada pasangan pembukanya
+        local dquotes="${content//[^\"]}"
+        if [ $((${#dquotes} % 2)) -ne 0 ] && [[ "$content" == *\" ]]; then
+            content="${content%\"}"
+        fi
+
+        # 4. Hapus tanda kurung tutup liar di akhir baris jika tidak ada pasangan kurung bukanya
+        local opens="${content//[^(]}"
+        local closes="${content//[^)]}"
+        if [ ${#closes} -gt ${#opens} ] && [[ "$content" == *\) ]]; then
+            content="${content%\)}"
+        fi
+
+        # 5. Hapus titik liar kalimat web di ujung perintah (kecuali ../ atau ./)
+        if [[ "$content" =~ [^.][.]$ ]]; then
+            content="${content%.}"
+        fi
+    fi
+
+    # Masukkan teks yang sudah bersih ke buffer terminal
+    LBUFFER+="$content"
+}
+
+zle -N bracketed-paste _smart_bracketed_paste
