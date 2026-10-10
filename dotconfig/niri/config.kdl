@@ -85,6 +85,7 @@ binds {
     Mod+Grave { spawn "~/.config/niri/scripts/scratchpad.sh" "quake"; }
     Mod+G { spawn "~/.config/niri/scripts/scratchpad.sh" "lazygit"; }
     Mod+N { spawn "~/.config/niri/scripts/scratchpad.sh" "notes"; }
+    Mod+Shift+N { spawn "~/.config/niri/scripts/scratchpad.sh" "nvim"; }
     Mod+Shift+C { spawn "~/.config/niri/scripts/scratchpad.sh" "calc"; }
     Mod+Q { close-window; }
     Mod+Shift+Q { spawn "xkill"; }
@@ -303,6 +304,19 @@ window-rule {
     open-floating true
     default-column-width { proportion 0.35; }
     default-window-height { proportion 0.45; }
+    opacity 0.90
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Scratchpad Study Notes (Neovim)
+window-rule {
+    match app-id="scratch-nvim"
+    open-floating true
+    default-column-width { proportion 0.65; }
+    default-window-height { proportion 0.75; }
     opacity 0.90
     draw-border-with-background false
     background-effect {
