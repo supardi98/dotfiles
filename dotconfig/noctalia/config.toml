@@ -100,7 +100,8 @@ end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "
 format = "{:%H:%M  %a, %b %d}"
 
 [widget.active_window]
-display_mode = "icon_only"
+display = "icon_only"
 
 [widget.media]
 hide_when_no_media = false
+
