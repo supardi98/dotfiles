@@ -19,6 +19,9 @@ fi
 # -----------------------------------------------------
 # oh-my-zsh configuration
 # -----------------------------------------------------
+# Disable buggy url-quote-magic / bracketed-paste-magic yang merusak paste URL & tanda kutip
+DISABLE_MAGIC_FUNCTIONS=true
+
 plugins=(
     git
     sudo
@@ -137,8 +140,9 @@ setopt SHARE_HISTORY
 # 🧹 Smart Paste Sanitizer (Strip trailing quotes, parens, and periods)
 # -----------------------------------------------------
 function _smart_bracketed_paste() {
-    # Ambil teks yang sedang di-paste
-    local content="$PASTED"
+    # Ambil teks yang sedang di-paste langsung dari ZLE bracketed paste
+    local content
+    zle .bracketed-paste content
     
     # 1. Normalkan smart quotes (kutip miring dari web seperti “” dan ‘’)
     content="${content//[“”]/\"}"

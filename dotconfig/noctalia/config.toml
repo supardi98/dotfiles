@@ -6,7 +6,7 @@ button_borders = false
 input_borders = true
 popup_borders = true
 popup_shadows = true
-settings_window_translucent = true
+settings_window_translucent = false
 
 [shell.animation]
 enabled = true

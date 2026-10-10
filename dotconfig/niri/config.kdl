@@ -61,13 +61,13 @@ layout {
 
 // Global blur settings
 blur {
-    passes 3
+    passes 0
     offset 5
 }
 
 // Animations with GPU Spring Physics & Shader Transitions
 animations {
-    slowdown 0.9
+    slowdown 0.01
 
     overview-open-close {
         spring damping-ratio=0.85 stiffness=850 epsilon=0.0001
@@ -390,4 +390,4 @@ environment {
 include "auto-routing.kdl"
 
 include "noctalia.kdl"
-// include "extreme-perf.kdl"
+include "extreme-perf.kdl"

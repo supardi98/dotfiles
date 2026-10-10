@@ -1,11 +1,44 @@
-// 🚀 Extreme Performance Window Overrides: Solid 100% Opacity (No Alpha Blending)
+// 🚀 Extreme Performance Window Overrides: Solid 100% Opacity (No Alpha Blending & No Blur)
 window-rule {
     opacity 1.0
     draw-border-with-background true
+    background-effect {
+        blur false
+    }
+}
+
+window-rule {
+    match is-focused=true
+    opacity 1.0
+    draw-border-with-background true
+    background-effect {
+        blur false
+    }
 }
 
 window-rule {
     match is-focused=false
     opacity 1.0
     draw-border-with-background true
+    background-effect {
+        blur false
+    }
+}
+
+window-rule {
+    match app-id=r#"^(kitty|quake|scratch-.*|project-switcher)$"#
+    opacity 1.0
+    draw-border-with-background true
+    background-effect {
+        blur false
+    }
+}
+
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    opacity 1.0
+    draw-border-with-background true
+    background-effect {
+        blur false
+    }
 }
