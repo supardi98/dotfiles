@@ -82,7 +82,10 @@ spawn-at-startup "spotify-tray-launcher"
 binds {
     Mod+Return { spawn "kitty"; }
     Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-    Mod+Grave { spawn "~/.config/niri/scripts/scratchpad.sh"; }
+    Mod+Grave { spawn "~/.config/niri/scripts/scratchpad.sh" "quake"; }
+    Mod+G { spawn "~/.config/niri/scripts/scratchpad.sh" "lazygit"; }
+    Mod+N { spawn "~/.config/niri/scripts/scratchpad.sh" "notes"; }
+    Mod+Shift+C { spawn "~/.config/niri/scripts/scratchpad.sh" "calc"; }
     Mod+Q { close-window; }
     Mod+Shift+Q { spawn "xkill"; }
     Mod+Shift+E { quit; }
@@ -257,6 +260,45 @@ window-rule {
     default-column-width { proportion 0.65; }
     default-window-height { proportion 0.60; }
     opacity 0.85
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Scratchpad Lazygit
+window-rule {
+    match app-id="scratch-lazygit"
+    open-floating true
+    default-column-width { proportion 0.85; }
+    default-window-height { proportion 0.85; }
+    opacity 0.90
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Scratchpad Quick Notes
+window-rule {
+    match app-id="scratch-notes"
+    open-floating true
+    default-column-width { proportion 0.65; }
+    default-window-height { proportion 0.75; }
+    opacity 0.90
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Scratchpad Calculator
+window-rule {
+    match app-id="scratch-calc"
+    open-floating true
+    default-column-width { proportion 0.35; }
+    default-window-height { proportion 0.45; }
+    opacity 0.90
     draw-border-with-background false
     background-effect {
         blur true
