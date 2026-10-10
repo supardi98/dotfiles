@@ -6,7 +6,7 @@ ACTION=$1 # "next" atau "prev"
 # Ambil daftar workspace dan cari yang sedang fokus
 WS_DATA=$(niri msg -j workspaces)
 CURRENT_IDX=$(echo "$WS_DATA" | jq -r '.[] | select(.is_focused) | .idx')
-ALL_IDXS=($(echo "$WS_DATA" | jq -r '.[] | .idx' | sort -n))
+ALL_IDXS=($(echo "$WS_DATA" | jq -r '.[] | select(.name != "scratchpad") | .idx' | sort -n))
 COUNT=${#ALL_IDXS[@]}
 
 # Cari posisi index saat ini di dalam array
