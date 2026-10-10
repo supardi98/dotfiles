@@ -100,8 +100,16 @@ end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "
 format = "{:%H:%M  %a, %b %d}"
 
 [widget.active_window]
-display = "icon_only"
+display = "icon_and_text"
+max_length = 130.0
+min_length = 60.0
+title_scroll = "on_hover"
+
+[widget.active_window.actions]
+scroll_up = "niri msg action focus-column-left"
+scroll_down = "niri msg action focus-column-right"
 
 [widget.media]
 hide_when_no_media = false
+
 
