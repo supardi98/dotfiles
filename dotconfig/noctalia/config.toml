@@ -22,7 +22,7 @@ transparency_mode = "glass"
 list_item_background = false
 borders = true
 shadow = true
-control_center_placement = "floating"
+control_center_placement = "attached"
 control_center_position = "auto"
 open_near_click_control_center = "near_trigger"
 open_near_click_clipboard = "near_trigger"
@@ -130,3 +130,6 @@ hide_when_no_media = true
 show_progress = true
 max_length = 200.0
 artist_first = true
+
+[accessibility]
+high_contrast = true

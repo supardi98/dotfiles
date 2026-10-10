@@ -223,7 +223,17 @@ window-rule {
     match app-id="Spotify"
     match app-id="code"
     match app-id="xdg-desktop-portal-gnome"
-    match app-id="xdg-desktop-portal-gtk"
+    match app-id="dev.noctalia.Noctalia"
+    opacity 0.85
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+// Glassy Effect for Noctalia Settings (Focused)
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
     opacity 0.85
     draw-border-with-background false
     background-effect {
