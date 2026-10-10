@@ -1,10 +1,10 @@
 # 🖲️ Waycorner Hot Corners Configuration for Niri
 
-# [Kanan Atas / Top-Right] -> Noctalia Control Center
+# [Kanan Atas / Top-Right] -> Noctalia Notification Center
 [top_right]
 locations = ["top_right"]
 size = 12
-command = ["noctalia", "msg", "panel-toggle", "control-center"]
+command = ["noctalia", "msg", "panel-toggle", "control-center", "notifications"]
 timeout_ms = 150
 
 # [Kiri Bawah / Bottom-Left] -> Show Desktop Toggle
