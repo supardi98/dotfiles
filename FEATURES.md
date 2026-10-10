@@ -118,8 +118,10 @@ Saat menu proyek muncul, Anda dapat memilih aksi langsung menggunakan shortcut:
 * **`XF86MonBrightnessUp` / `Down`**: Naikkan / turunkan kecerahan layar 10%.
 * **`Super + Shift + I`**: **Caffeine / Presentation Mode (Toggle)**.
   - Menjaga layar tetap menyala (*anti-sleep / anti-idle*) saat presentasi atau membaca artikel panjang.
-* **`Super + Shift + P`**: **Performance Mode (Gaming / Battery Saver Toggle)**.
-  - Mematikan efek *frosted glass blur* dan efek rendering berat secara instan untuk efisiensi GPU, render performa tinggi, atau hemat baterai laptop.
+* **`Super + Shift + P`**: **Standard Performance Mode (Toggle)**.
+  - Mematikan efek GPU *frosted glass blur* untuk menghemat daya & GPU, namun **wallpaper dan opasitas tetap aman** terlihat.
+* **`Super + Ctrl + P`**: **Extreme Performance Mode (Pure Speed / Battery Saver Toggle)**.
+  - Mematikan blur total, membuat animasi instan (tanpa fisika pegas), dan meminimalisir seluruh beban kompositor untuk gaming kompetitif atau baterai kritis (<10%).
 
 ---
 
