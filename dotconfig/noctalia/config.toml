@@ -102,9 +102,10 @@ format = "{:%H:%M  %a, %b %d}"
 
 [widget.active_window]
 display = "icon_and_text"
-max_length = 130.0
-min_length = 60.0
+max_length = 260.0
+min_length = 80.0
 title_scroll = "on_hover"
+
 
 [widget.active_window.actions]
 scroll_up = "niri msg action focus-column-left"
