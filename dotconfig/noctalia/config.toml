@@ -1,6 +1,6 @@
 [shell]
 avatar_path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
-font_family = "JetBrainsMono Nerd Font"
+font_family = "GeistMono Nerd Font"
 card_borders = false
 button_borders = false
 input_borders = true
