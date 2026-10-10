@@ -7,9 +7,3 @@ size = 12
 command = ["noctalia", "msg", "panel-toggle", "control-center", "notifications"]
 timeout_ms = 150
 
-# [Kiri Bawah / Bottom-Left] -> Show Desktop Toggle
-[bottom_left]
-locations = ["bottom_left"]
-size = 12
-command = ["/home/supardi/Projects/dotfiles/dotconfig/niri/scripts/show-desktop.sh"]
-timeout_ms = 150
