@@ -92,9 +92,10 @@ radius = 12
 capsule = false
 widget_spacing = 8
 
-start = [ "launcher", "date", "cpu", "memory", "disk", "active_window", "media" ]
+start = [ "launcher", "date", "cpu", "active_window" ]
 center = [ "workspaces" ]
-end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+end = [ "media", "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
+
 
 [widget.date]
 format = "{:%H:%M  %a, %b %d}"
@@ -111,5 +112,7 @@ scroll_down = "niri msg action focus-column-right"
 
 [widget.media]
 hide_when_no_media = false
+title_scroll = "always"
+
 
 
