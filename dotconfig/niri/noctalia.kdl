@@ -1,1 +1,32 @@
-/home/supardi/Projects/ricing/dotconfig/niri/noctalia.kdl.bak
+layout {
+
+    focus-ring {
+        active-color   "#accae4"
+        inactive-color "#000000"
+        urgent-color   "#ffb4ab"
+    }
+
+    border {
+        active-color   "#accae4"
+        inactive-color "#000000"
+        urgent-color   "#ffb4ab"
+    }
+
+
+    tab-indicator {
+        active-color   "#accae4"
+        inactive-color "#7694ac"
+        urgent-color   "#ffb4ab"
+    }
+
+    insert-hint {
+        color "#accae480"
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color "#accae4"
+        urgent-color "#ffb4ab"
+    }
+}

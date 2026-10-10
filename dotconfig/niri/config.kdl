@@ -49,8 +49,6 @@ layout {
 
     border {
         width 2
-        active-color "#9ecaff" // Updated via reload.sh
-        inactive-color "#1e1e2e"
     }
 
     struts {
@@ -352,4 +350,6 @@ environment {
 
 //include "./noctalia.kdl"
 
-// include "auto-routing.kdl"
+include "auto-routing.kdl"
+
+include "noctalia.kdl"

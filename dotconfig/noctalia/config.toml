@@ -17,6 +17,7 @@ categories = true
 show_icons = true
 sort_by_usage = true
 auto_paste = "auto"
+compact = true
 
 [shell.panel]
 transparency_mode = "soft"
@@ -25,8 +26,11 @@ borders = true
 shadow = true
 control_center_placement = "attached"
 control_center_position = "auto"
+launcher_position = "bottom_center"
+session_position = "top_right"
 open_near_click_control_center = "near_trigger"
 open_near_click_clipboard = "near_trigger"
+open_near_click_session = true
 floating_offset = 12
 
 [shell.window_switcher]
@@ -40,6 +44,7 @@ launcher_icon = "pacman"
 
 [notification]
 background_opacity = 0.55
+border_color = "secondary"
 
 [osd]
 background_opacity = 0.55
@@ -66,10 +71,10 @@ transition = [ "fade", "wipe", "disc" ]
 transition_duration = 1000.0
 
 [wallpaper.default]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/9197242.jpg"
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/1363137.png"
 
 [wallpaper.last]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/9197242.jpg"
+path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/1363137.png"
 
 [bar]
 order = [ "default" ]
