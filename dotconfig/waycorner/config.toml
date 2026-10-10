@@ -7,3 +7,10 @@ size = 12
 command = ["noctalia", "msg", "panel-toggle", "control-center", "notifications"]
 timeout_ms = 150
 
+# [Tengah Atas / Top-Edge Center] -> Noctalia Media Control / Now Playing
+[top_center]
+locations = ["top"]
+size = 8
+margin = 40
+command = ["noctalia", "msg", "panel-toggle", "control-center", "media"]
+timeout_ms = 200

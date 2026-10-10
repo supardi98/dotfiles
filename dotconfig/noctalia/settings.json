@@ -150,14 +150,14 @@
                     "maxWidth": 145,
                     "scrollingMode": "always",
                     "showIcon": true,
-                    "showText": true,
+                    "showText": false,
                     "textColor": "none",
                     "useFixedWidth": true
                 }
             ],
             "right": [
                 {
-                    "compactMode": false,
+                    "compactMode": true,
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
