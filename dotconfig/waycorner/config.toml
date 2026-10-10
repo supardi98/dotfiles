@@ -2,16 +2,14 @@
 
 # [Kanan Atas / Top-Right] -> Noctalia Control Center
 [top_right]
-corner = "top_right"
-size = 8
-locations = ["eDP-1", "HDMI-A-1"]
+locations = ["top_right"]
+size = 12
 command = ["noctalia", "msg", "panel-toggle", "control-center"]
 timeout_ms = 150
 
 # [Kiri Bawah / Bottom-Left] -> Show Desktop Toggle
 [bottom_left]
-corner = "bottom_left"
-size = 8
-locations = ["eDP-1", "HDMI-A-1"]
+locations = ["bottom_left"]
+size = 12
 command = ["/home/supardi/Projects/dotfiles/dotconfig/niri/scripts/show-desktop.sh"]
 timeout_ms = 150
