@@ -116,6 +116,7 @@ scroll_down = "exec niri msg action focus-column-right"
 [widget.media]
 hide_when_no_media = false
 title_scroll = "always"
+min_length = 0.0
 
 
 
