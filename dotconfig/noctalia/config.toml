@@ -22,6 +22,11 @@ transparency_mode = "glass"
 list_item_background = false
 borders = true
 shadow = true
+control_center_placement = "floating"
+control_center_position = "auto"
+open_near_click_control_center = "near_trigger"
+open_near_click_clipboard = "near_trigger"
+floating_offset = 12
 
 [shell.window_switcher]
 style = "carousel"
@@ -31,6 +36,12 @@ show_caption = true
 
 [dock]
 launcher_icon = "pacman"
+
+[notification]
+background_opacity = 0.75
+
+[osd]
+background_opacity = 0.75
 
 [theme]
 mode = "dark"
@@ -74,13 +85,37 @@ radius = 12
 capsule = false
 widget_spacing = 8
 
-start = [ "launcher", "date", "active_window", "media" ]
+start = [ "launcher", "date", "cpu", "memory", "disk", "active_window", "media" ]
 center = [ "workspaces" ]
 end = [ "tray", "notifications", "brightness", "volume", "battery", "network", "control-center" ]
 
 [widget.date]
 format = "{:%H:%M  %a, %b %d}"
 type = "clock"
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+show_value = false
+show_glyph = true
+glyph = "brand-speedtest"
+visualization = "gauge"
+
+[widget.memory]
+type = "sysmon"
+stat = "ram_pct"
+show_value = false
+show_glyph = true
+glyph = "cpu"
+visualization = "gauge"
+
+[widget.disk]
+type = "sysmon"
+stat = "disk_used_pct"
+show_value = false
+show_glyph = true
+glyph = "database"
+visualization = "gauge"
 
 [widget.active_window]
 icon_size = 14.0

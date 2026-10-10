@@ -181,6 +181,8 @@ layer-rule {
     match namespace="^noctalia-attached-panel$"
     match namespace="^noctalia-floating-panel$"
     match namespace="^noctalia-bar-.*$"
+    match namespace="^noctalia-notification$"
+    match namespace="^noctalia-osd$"
     background-effect {
         blur true
     }
