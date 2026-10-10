@@ -191,9 +191,9 @@ layer-rule {
     }
 }
 
-// Glassy Effect for Kitty
+// Glassy Effect for Kitty & Scratchpads
 window-rule {
-    match app-id="kitty"
+    match app-id=r#"^(kitty|quake|scratch-.*|project-switcher)$"#
     opacity 0.8
     draw-border-with-background false
     background-effect {
@@ -251,6 +251,11 @@ window-rule {
     default-floating-position x=128 y=32 relative-to="top-left"
     default-column-width { proportion 0.8; }
     default-window-height { proportion 0.4; }
+    opacity 0.8
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
 }
 
 // Global Project Switcher
