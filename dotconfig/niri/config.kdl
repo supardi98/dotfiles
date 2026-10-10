@@ -107,7 +107,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "spotify-tray-launcher"
-spawn-at-startup "libinput-gestures-setup" "start"
+spawn-at-startup "libinput-gestures"
 
 binds {
     Mod+Return { spawn "kitty"; }
