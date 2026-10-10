@@ -109,8 +109,9 @@ title_scroll = "on_hover"
 
 
 [widget.active_window.actions]
-scroll_up = "niri msg action focus-column-left"
-scroll_down = "niri msg action focus-column-right"
+scroll_up = "exec niri msg action focus-column-left"
+scroll_down = "exec niri msg action focus-column-right"
+
 
 [widget.media]
 hide_when_no_media = false
