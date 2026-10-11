@@ -69,6 +69,10 @@ link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
 link_config "$DOTFILES_DIR/dotconfig/waycorner" "$CONFIG_DIR/waycorner"
 link_config "$DOTFILES_DIR/dotconfig/libinput-gestures" "$CONFIG_DIR/libinput-gestures"
 link_config "$DOTFILES_DIR/dotconfig/qalculate" "$CONFIG_DIR/qalculate"
+mkdir -p "$CONFIG_DIR/systemd/user"
+link_config "$DOTFILES_DIR/dotconfig/systemd/user/libinput-gestures.service" "$CONFIG_DIR/systemd/user/libinput-gestures.service"
+systemctl --user daemon-reload 2>/dev/null || true
+systemctl --user enable --now libinput-gestures.service 2>/dev/null || true
 
 
 

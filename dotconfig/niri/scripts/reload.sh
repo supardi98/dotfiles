@@ -50,6 +50,9 @@ noctalia -d
 pkill -x waycorner
 nohup waycorner >/dev/null 2>&1 &
 
+# 🖐️ Restart libinput-gestures
+systemctl --user restart libinput-gestures.service 2>/dev/null || true
+
 
 # Tunggu sampai notification daemon aktif
 for i in {1..50}; do

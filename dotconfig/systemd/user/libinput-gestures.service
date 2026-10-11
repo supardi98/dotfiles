@@ -1,0 +1,14 @@
+[Unit]
+Description=Actions gestures on your touchpad using libinput
+Documentation=https://github.com/bulletmark/libinput-gestures
+BindsTo=niri.service
+After=niri.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/libinput-gestures
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=niri.service
