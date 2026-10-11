@@ -1,5 +1,5 @@
 [shell]
-avatar_path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/44753.jpg"
+avatar_path = "/home/supardi/.config/wallpapers/44753.jpg"
 font_family = "GeistMono Nerd Font"
 card_borders = false
 button_borders = false
@@ -64,17 +64,17 @@ community_ids = [ "spicetify" ]
 
 [wallpaper]
 enabled = true
-directory = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers"
-directory_dark = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers"
+directory = "/home/supardi/.config/wallpapers"
+directory_dark = "/home/supardi/.config/wallpapers"
 fill_mode = "crop"
 transition = [ "fade", "wipe", "disc" ]
 transition_duration = 1000.0
 
 [wallpaper.default]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/1363137.png"
+path = "/home/supardi/.config/wallpapers/1363137.png"
 
 [wallpaper.last]
-path = "/home/supardi/Projects/dotfiles/dotconfig/wallpapers/1363137.png"
+path = "/home/supardi/.config/wallpapers/1363137.png"
 
 [bar]
 order = [ "default" ]

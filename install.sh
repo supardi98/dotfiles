@@ -24,7 +24,7 @@ PACKAGES=(
     nautilus brave gnome-calculator loupe gnome-text-editor vlc
     evince gnome-system-monitor baobab
     # Modified Apps (AUR)
-    spotify visual-studio-code-bin
+    spotify visual-studio-code-bin waycorner libinput-gestures
     # Theme & Portal
     xdg-desktop-portal-gnome xdg-desktop-portal-gtk papirus-icon-theme
     qt6-svg qt6-declarative qt6-multimedia-ffmpeg
@@ -38,12 +38,17 @@ PACKAGES=(
     gnome-keyring libsecret
 )
 
-# Gunakan yay jika tersedia, jika tidak pakai pacman
-if command -v yay &> /dev/null; then
+# Gunakan paru atau yay jika tersedia, jika tidak pakai pacman
+if command -v paru &> /dev/null; then
+    paru -S --needed --noconfirm "${PACKAGES[@]}"
+elif command -v yay &> /dev/null; then
     yay -S --needed --noconfirm "${PACKAGES[@]}"
 else
     sudo pacman -S --needed --noconfirm "${PACKAGES[@]}" || echo "⚠️ Beberapa paket mungkin butuh AUR (yay/paru)."
 fi
+
+# Tambahkan user ke grup input untuk libinput-gestures
+sudo gpasswd -a "$USER" input || true
 
 # 2.2 Instal Oh My Posh (Prompt)
 if ! command -v oh-my-posh &> /dev/null; then

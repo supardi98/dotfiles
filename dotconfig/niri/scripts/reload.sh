@@ -46,6 +46,11 @@ sleep 0.5
 # Jalankan kembali di background
 noctalia -d
 
+# 🖲️ Restart Waycorner (Hot Corners)
+pkill -x waycorner
+nohup waycorner >/dev/null 2>&1 &
+
+
 # Tunggu sampai notification daemon aktif
 for i in {1..50}; do
     if busctl --user status org.freedesktop.Notifications >/dev/null 2>&1; then

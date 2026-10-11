@@ -68,7 +68,7 @@
         "rightClickFollowMouse": false,
         "screenOverrides": [
             {
-                "enabled": false,
+                "enabled": true,
                 "name": "HDMI-A-1"
             }
         ],
