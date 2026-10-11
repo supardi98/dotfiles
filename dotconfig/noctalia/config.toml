@@ -1,46 +1,64 @@
-[shell]
-avatar_path = "/home/supardi/.config/wallpapers/44753.jpg"
-font_family = "GeistMono Nerd Font"
-card_borders = false
-button_borders = false
-input_borders = true
-popup_borders = true
-popup_shadows = true
-settings_window_translucent = true
+[bar]
+order = [ "default" ]
 
-[shell.animation]
-enabled = true
-speed = 1.0
+    [bar.default]
+    auto_hide = false
+    background_opacity = 0.55
+    capsule = false
+    center = [ "workspaces" ]
+    compositor_blur = true
+    concave_edge_corners = false
+    end = [ "media", "tray", "brightness", "volume", "battery", "network", "notifications", "control-center" ]
+    margin_edge = 8
+    margin_ends = 150
+    position = "top"
+    radius = 12
+    start = [ "launcher", "date", "cpu", "memory", "disk", "active_window" ]
+    thickness = 32.0
+    widget_spacing = 8
 
-[shell.launcher]
-categories = true
-show_icons = true
-sort_by_usage = true
-auto_paste = "auto"
-compact = true
-
-[shell.panel]
-transparency_mode = "soft"
-list_item_background = false
-borders = true
-shadow = true
-control_center_placement = "floating"
-control_center_position = "top_right"
-launcher_position = "bottom_center"
-session_position = "top_right"
-open_near_click_control_center = false
-open_near_click_clipboard = false
-open_near_click_session = true
-floating_offset = 12
-
-[shell.window_switcher]
-style = "carousel"
-show_all_outputs = true
-show_app_icon = true
-show_caption = true
+[control_center]
+sidebar = "full"
 
 [dock]
 launcher_icon = "pacman"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "HDMI-A-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
 [notification]
 background_opacity = 0.55
@@ -49,82 +67,82 @@ border_color = "secondary"
 [osd]
 background_opacity = 0.55
 
+[shell]
+avatar_path = "/home/supardi/.config/wallpapers/44753.jpg"
+button_borders = false
+card_borders = false
+font_family = "GeistMono Nerd Font"
+input_borders = true
+panel_anchor_bar = "default"
+popup_borders = true
+popup_shadows = true
+settings_window_translucent = true
+
+    [shell.animation]
+    enabled = true
+    speed = 1.0
+
+    [shell.launcher]
+    auto_paste = "auto"
+    categories = true
+    compact = true
+    show_icons = true
+    sort_by_usage = true
+
+    [shell.panel]
+    borders = true
+    clipboard_position = "bottom_center"
+    control_center_placement = "attached"
+    control_center_position = "top_right"
+    floating_offset = 12
+    launcher_position = "bottom_center"
+    list_item_background = false
+    open_near_click_clipboard = false
+    open_near_click_control_center = true
+    open_near_click_session = true
+    session_position = "top_right"
+    shadow = true
+    transparency_mode = "glass"
+    floating_layer = "overlay"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.window_switcher]
+    show_all_outputs = true
+    show_app_icon = true
+    show_caption = true
+    style = "carousel"
+
 [theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
 mode = "dark"
+pure_black_dark = true
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
-community_palette = "Oxocarbon"
-pure_black_dark = true
 
-[theme.templates]
-enable_builtin_templates = true
-enable_community_templates = true
-builtin_ids = [ "niri", "kitty", "gtk3", "gtk4", "qt", "btop" ]
-community_ids = [ "spicetify" ]
+    [theme.templates]
+    builtin_ids = [ "niri", "kitty", "gtk3", "gtk4", "qt", "btop" ]
+    community_ids = [ "spicetify" ]
+    enable_builtin_templates = true
+    enable_community_templates = true
 
 [wallpaper]
-enabled = true
 directory = "/home/supardi/.config/wallpapers"
 directory_dark = "/home/supardi/.config/wallpapers"
+enabled = true
 fill_mode = "crop"
 transition = [ "fade", "wipe", "disc" ]
 transition_duration = 1000.0
 
-[wallpaper.default]
-path = "/home/supardi/.config/wallpapers/1363137.png"
+    [wallpaper.default]
+    path = "/home/supardi/.config/wallpapers/Nocturne-of-Steel-and-Glass.jpg"
 
-[wallpaper.last]
-path = "/home/supardi/.config/wallpapers/1363137.png"
+    [wallpaper.last]
+    path = "/home/supardi/.config/wallpapers/9197242.jpg"
 
-[bar]
-order = [ "default" ]
-
-[bar.default]
-position = "top"
-thickness = 32.0
-auto_hide = false
-background_opacity = 0.55
-compositor_blur = true
-concave_edge_corners = false
-margin_edge = 8
-margin_ends = 150
-radius = 12
-capsule = false
-widget_spacing = 8
-
-start = [ "launcher", "date", "cpu", "memory", "disk", "active_window" ]
-center = [ "workspaces" ]
-end = [ "media", "tray", "brightness", "volume", "battery", "network", "notifications", "control-center" ]
-
-
-
-[widget.date]
-format = "{:%H:%M  %a, %b %d}"
-
-[widget.cpu]
-type = "sysmon"
-stat = "cpu_usage"
-show_value = false
-show_glyph = true
-glyph = "brand-speedtest"
-visualization = "gauge"
-
-[widget.memory]
-type = "sysmon"
-stat = "ram_pct"
-show_value = false
-show_glyph = true
-glyph = "cpu"
-visualization = "gauge"
-
-[widget.disk]
-type = "sysmon"
-stat = "disk_used_pct"
-show_value = false
-show_glyph = true
-glyph = "database"
-visualization = "gauge"
-
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/supardi/.config/wallpapers/9197242.jpg"
 
 [widget.active_window]
 display = "icon_and_text"
@@ -132,20 +150,42 @@ max_length = 260.0
 min_length = 80.0
 title_scroll = "on_hover"
 
-
-[widget.active_window.actions]
-scroll_up = "exec niri msg action focus-column-left"
-scroll_down = "exec niri msg action focus-column-right"
-
-
-[widget.media]
-hide_when_no_media = false
-album_art_only = true
-title_scroll = "always"
-min_length = 0.0
-
-
-
+    [widget.active_window.actions]
+    scroll_down = "exec niri msg action focus-column-right"
+    scroll_up = "exec niri msg action focus-column-left"
 
 [widget.control-center]
 glyph = "adjustments-horizontal"
+
+[widget.cpu]
+glyph = "brand-speedtest"
+show_glyph = true
+show_value = false
+stat = "cpu_usage"
+type = "sysmon"
+visualization = "gauge"
+
+[widget.date]
+format = "{:%H:%M  %a, %b %d}"
+
+[widget.disk]
+glyph = "database"
+show_glyph = true
+show_value = false
+stat = "disk_used_pct"
+type = "sysmon"
+visualization = "gauge"
+
+[widget.media]
+album_art_only = true
+hide_when_no_media = false
+min_length = 0.0
+title_scroll = "always"
+
+[widget.memory]
+glyph = "cpu"
+show_glyph = true
+show_value = false
+stat = "ram_pct"
+type = "sysmon"
+visualization = "gauge"

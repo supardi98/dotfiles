@@ -6,10 +6,11 @@ EXTREME_FLAG="/tmp/niri_extreme_perf.flag"
 PERF_FLAG="/tmp/niri_perf_mode.flag"
 NIRI_CONFIG="$HOME/.config/niri/config.kdl"
 ORIGINAL_WP_FILE="/tmp/niri_saved_wallpaper.txt"
-DARK_GRAY_WP="$HOME/Projects/dotfiles/dotconfig/wallpapers/dark-gray.png"
+DARK_GRAY_WP="$HOME/.config/wallpapers/dark-gray.png"
 
-# Deteksi nama monitor yang aktif (eDP-1)
-CONNECTOR=$(niri msg -j outputs | jq -r 'keys[0] // "eDP-1"')
+# Deteksi nama monitor yang aktif (misal HDMI-A-1 atau eDP-1)
+CONNECTOR=$(niri msg -j outputs | jq -r 'keys[0] // empty')
+[ -z "$CONNECTOR" ] && CONNECTOR="HDMI-A-1"
 
 clean_state() {
     rm -f "$EXTREME_FLAG"
@@ -57,7 +58,7 @@ else
         if [ -n "$CURRENT_WP" ] && [ -f "$CURRENT_WP" ] && [[ "$CURRENT_WP" != *"dark-gray"* ]] && [[ "$CURRENT_WP" != *"solid-black"* ]]; then
             echo "$CURRENT_WP" > "$ORIGINAL_WP_FILE"
         else
-            echo "$HOME/Projects/dotfiles/dotconfig/wallpapers/1363137.png" > "$ORIGINAL_WP_FILE"
+            echo "$HOME/.config/wallpapers/1363137.png" > "$ORIGINAL_WP_FILE"
         fi
     fi
 
