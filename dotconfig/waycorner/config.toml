@@ -8,12 +8,12 @@ command = ["noctalia", "msg", "panel-toggle", "control-center", "notifications"]
 timeout_ms = 150
 
 # [Tengah Atas / Top-Edge Center] -> Noctalia Media Control / Now Playing
-# margin: lebar area pas di tengah (120px)
-# size: tinggi area deteksi dari bibir atas (8px)
+# margin: margin dari tepi layar (120px)
+# size: tinggi area deteksi dari bibir atas (6px)
 [top_center]
 locations = ["top"]
-size = 8
+size = 6
 margin = 120
 command = ["noctalia", "msg", "panel-toggle", "control-center", "media"]
-timeout_ms = 200
+timeout_ms = 250
 
