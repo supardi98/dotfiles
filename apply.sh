@@ -68,6 +68,8 @@ link_config "$DOTFILES_DIR/dotconfig/matugen" "$CONFIG_DIR/matugen"
 link_config "$DOTFILES_DIR/dotconfig/ohmyposh" "$CONFIG_DIR/ohmyposh"
 link_config "$DOTFILES_DIR/dotconfig/waycorner" "$CONFIG_DIR/waycorner"
 link_config "$DOTFILES_DIR/dotconfig/libinput-gestures" "$CONFIG_DIR/libinput-gestures"
+link_config "$DOTFILES_DIR/dotconfig/qalculate" "$CONFIG_DIR/qalculate"
+
 
 
 # 4. Appearance
